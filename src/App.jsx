@@ -12,6 +12,9 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="signin">
+            
+          </Route>
           <Route exact path="/profile">
             <Profile />
           </Route>
