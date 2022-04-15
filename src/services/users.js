@@ -7,6 +7,7 @@ export const signIn = async ({ email, username }) => {
       mode: 'cors',
       body: JSON.stringify({ username, password }),
     });
+    return res.json();
   } catch (error) {
     return null;
   }
@@ -21,6 +22,7 @@ export const signUp = async () => {
       mode: 'cors',
       body: JSON.stringify({ username, password }),
     });
+    return res.json();
   } catch (error) {
     return null;
   }
