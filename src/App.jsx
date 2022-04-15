@@ -15,6 +15,9 @@ export default function App() {
           <Route exact path="/pets/:id">
             <Pet />
           </Route>
+          <Route>
+            <ChoosePet exact path="/choosepet" />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
