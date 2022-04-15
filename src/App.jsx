@@ -12,14 +12,7 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="signin"></Route>
-          <Route exact path="/profile">
-            <Profile />
-          </Route>
-          <Route exact path="/choosepet">
-            <ChoosePet />
-          </Route>
-          <Route exact path="/pet">
+          <Route exact path="/pets/:id">
             <Pet />
           </Route>
         </Switch>

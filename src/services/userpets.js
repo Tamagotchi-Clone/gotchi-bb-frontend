@@ -1,9 +1,22 @@
 export const getUserPets = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/v1/userpets`);
-  return res.json();
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/userpets`);
+    return res.json();
+  } catch (error) {
+    return null;
+  }
 };
 
-export const postUserPets = async ({ pet_id, user_id, name }) => {
+export const getUserPetById = async (id) => {
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`);
+    return res.json();
+  } catch (error) {
+    return null;
+  }
+};
+
+export const postUserPet = async ({ pet_id, user_id, name }) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'POST',
@@ -27,6 +40,24 @@ export const updateUserPet = async ({ pet_id, user_id, name }) => {
       mode: 'cors',
       body: JSON.stringify({ pet_id, user_id, name }),
     });
+    return res.json();
+  } catch (error) {
+    return null;
+  }
+};
+
+export const feedUserPet = async (id) => {
+  try {
+    const res = await fetch(
+      `${process.env.API_URL}/api/v1/userpets/${id}/hunger`,
+      {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        mode: 'no-cors',
+        body: JSON.stringify(id),
+      }
+    );
     return res.json();
   } catch (error) {
     return null;
