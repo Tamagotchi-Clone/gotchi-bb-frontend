@@ -1,3 +1,7 @@
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './views/Home/Home';
+import Pet from './views/Pet/Pet';
+
 export default function App() {
   return (
     <div>
@@ -6,14 +10,7 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="signin"></Route>
-          <Route exact path="/profile">
-            <Profile />
-          </Route>
-          <Route exact path="/choosepet">
-            <ChoosePet />
-          </Route>
-          <Route exact path="/pet">
+          <Route exact path="/pets/:id">
             <Pet />
           </Route>
         </Switch>

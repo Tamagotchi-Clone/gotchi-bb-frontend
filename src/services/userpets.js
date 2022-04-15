@@ -1,9 +1,22 @@
 export const getUserPets = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/v1/userpets`);
-  return res.json();
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/userpets`);
+    return res.json();
+  } catch (error) {
+    return null;
+  }
 };
 
-export const postUserPets = async ({ pet_id, user_id, name }) => {
+export const getUserPetById = async (id) => {
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`);
+    return res.json();
+  } catch (error) {
+    return null;
+  }
+};
+
+export const postUserPet = async ({ pet_id, user_id, name }) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'POST',
