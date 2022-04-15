@@ -1,4 +1,5 @@
 import React from 'react';
+import './PetList.css';
 
 export default function PetList({ pets }) {
   console.log('pets', pets);
@@ -7,7 +8,10 @@ export default function PetList({ pets }) {
       {pets.map((pet) => (
         <div key={pet.id}>
           <p>Name:{pet.species}</p>
-          <img src={pet.image} alt={pet.species}></img>
+          <label>
+            <input type="radio" name="pet" />
+            <img src={pet.image} alt={pet.species}></img>
+          </label>
         </div>
       ))}
     </div>
