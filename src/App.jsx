@@ -1,6 +1,8 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './views/Home/Home';
 import Pet from './views/Pet/Pet';
+import Profile from './views/Profile/Profile';
+import ChoosePet from './views/ChoosePet/ChoosePet';
 
 export default function App() {
   return (
