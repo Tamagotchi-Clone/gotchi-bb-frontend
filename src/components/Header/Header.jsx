@@ -4,20 +4,22 @@ import { useUser } from '../../context/userContext';
 import { signOut } from '../../services/users';
 
 export default function Header() {
-  const { user, setUser } = useUser();
+  const { user, setUser, loading } = useUser();
   const history = useHistory();
   console.log('USER', user);
-  console.log('USER.USER', user.user);
+  //   console.log('USER.USER', user.user);
   const handleLogout = async () => {
     await signOut();
-    setUser({});
+    setUser(null);
     console.log('logout', user);
     history.push('/login');
   };
+
+  if (loading) return <h1>loading..</h1>;
   return (
     <div>
       Header
-      {user.username || user.user ? (
+      {loading === false && user?.username ? (
         <button onClick={handleLogout}>logout</button>
       ) : (
         <>
