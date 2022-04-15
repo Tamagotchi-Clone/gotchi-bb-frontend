@@ -14,7 +14,7 @@ export default function Pets() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPets();
-      console.log(data);
+      console.log('data', data);
       setPets(data);
       setLoading(false);
     };
