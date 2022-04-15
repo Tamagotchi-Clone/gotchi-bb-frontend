@@ -1,8 +1,13 @@
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { UserProvider, useUser } from './context/userContext';
 import Auth from './views/Auth/Auth';
+import Home from './views/Home/Home';
+import Pet from './views/Pet/Pet';
+import Profile from './views/Profile/Profile';
+import ChoosePet from './views/ChoosePet/ChoosePet';
 
 export default function App() {
   return (
@@ -22,8 +27,15 @@ export default function App() {
           <PrivateRoute exact path="/pets">
             <h1>pets</h1>
           </PrivateRoute>
-          <Route exact path="/choosepet"></Route>
           <Route exact path="/pet"></Route>
+
+          <Route exact path="/pets/:id">
+            <Pet />
+          </Route>
+          <Route>
+            <ChoosePet exact path="/choosepet" />
+          </Route>
+
         </Switch>
       </BrowserRouter>
     </div>
