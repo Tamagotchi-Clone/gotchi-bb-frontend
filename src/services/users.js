@@ -1,11 +1,25 @@
 export const signIn = async ({ email, username }) => {
   try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/users/sessions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      mode: 'cors',
+      body: JSON.stringify({ username, password }),
+    });
+  } catch (error) {
+    return null;
+  }
+};
+
+export const signUp = async () => {
+  try {
     const res = await fetch(`${process.env.API_URL}/api/v1/users`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ email, username }),
+      body: JSON.stringify({ username, password }),
     });
   } catch (error) {
     return null;

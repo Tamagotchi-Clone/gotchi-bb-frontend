@@ -27,8 +27,4 @@ export const useUser = () => {
     throw new Error('error, needs user provider');
   }
   return context;
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> e86d8bbe9ced6b11604f30bf2891726412c68722
