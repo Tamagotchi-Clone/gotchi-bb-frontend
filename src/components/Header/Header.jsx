@@ -6,8 +6,6 @@ import { signOut } from '../../services/users';
 export default function Header() {
   const { user, setUser } = useUser();
   const history = useHistory();
-  console.log('USER', user);
-  console.log('USER.USER', user.user);
   const handleLogout = async () => {
     await signOut();
     setUser({});
