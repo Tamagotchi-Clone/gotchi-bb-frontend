@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import { UserProvider, useUser } from './context/userContext';
+import { UserProvider, useUser } from './context/UserContext';
 import Auth from './views/Auth/Auth';
 import Home from './views/Home/Home';
 import Pet from './views/Pet/Pet';
