@@ -1,5 +1,4 @@
 export async function signIn({ username, password }) {
-  console.log('signing in');
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/sessions`, {
       method: 'POST',
@@ -11,7 +10,7 @@ export async function signIn({ username, password }) {
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    return null;
+    console.log('error sign in', error);
   }
 }
 
