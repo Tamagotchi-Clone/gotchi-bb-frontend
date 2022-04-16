@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -8,11 +7,13 @@ import Home from './views/Home/Home';
 import Pet from './views/Pet/Pet';
 import Profile from './views/Profile/Profile';
 import ChoosePet from './views/ChoosePet/ChoosePet';
+import Bot from './components/Bot/Bot';
 
 export default function App() {
   return (
     <div>
       <BrowserRouter>
+        <Bot />
         <Header />
         <Switch>
           <Route exact path="/">
@@ -35,7 +36,6 @@ export default function App() {
           <Route>
             <ChoosePet exact path="/choosepet" />
           </Route>
-
         </Switch>
       </BrowserRouter>
     </div>
