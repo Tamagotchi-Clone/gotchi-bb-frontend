@@ -1,23 +1,12 @@
-import React, { useState } from 'react';
-import { signIn } from '../../services/users';
+import React from 'react';
+import AuthForm from '../../components/Auth/AuthForm';
 
-export default function Auth({ setCurrentUser }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export default function Auth({ isRegistering = false }) {
+  return (
+    <div>
+      <h1>{isRegistering ? 'Create An Account' : 'Login'}</h1>
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const resp =
-        type === 'signin'
-          ? await signIn(username, password)
-          : await signUp(username, password);
-      setCurrentUser(resp);
-      history.push('/pets');
-    } catch (e) {
-      setErrorMessage('Something went wrong. Please try again.');
-    }
-  };
-
-  return <div>Auth</div>;
+      <AuthForm isRegistering={isRegistering} />
+    </div>
+  );
 }
