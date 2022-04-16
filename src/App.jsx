@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -32,10 +31,12 @@ export default function App() {
           <Route exact path="/pets/:id">
             <Pet />
           </Route>
-          <Route>
-            <ChoosePet exact path="/choosepet" />
+          <Route exact path="/choosepet">
+            <ChoosePet />
           </Route>
-
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
