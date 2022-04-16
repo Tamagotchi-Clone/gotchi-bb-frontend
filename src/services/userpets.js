@@ -69,15 +69,19 @@ export const feedUserPet = async (id) => {
       `${process.env.API_URL}/api/v1/userpets/${id}/hunger`,
       {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         credentials: 'include',
-        mode: 'no-cors',
-        body: JSON.stringify(id),
+        mode: 'cors',
+        body: id,
       }
     );
-    return res.json();
+    const resJson = await res.json();
+    return resJson;
   } catch (error) {
-    return null;
+    console.log('ERROR:', error);
   }
 };
 

@@ -31,8 +31,11 @@ export default function App() {
           <Route exact path="/pets/:id">
             <Pet />
           </Route>
-          <Route>
-            <ChoosePet exact path="/choosepet" />
+          <Route exact path="/choosepet">
+            <ChoosePet />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
           </Route>
         </Switch>
       </BrowserRouter>
