@@ -8,12 +8,10 @@ export default function usePet() {
   const { user } = useUser();
 
   useEffect(() => {
-    console.log('usepet', user);
     if (user?.username) {
       getUserPetByUser(user.id).then((data) => setPet(data));
     }
   }, [user]);
 
-  console.log('pet', pet);
   return { pet, setPet };
 }
