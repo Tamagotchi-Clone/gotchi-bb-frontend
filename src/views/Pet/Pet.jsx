@@ -21,7 +21,8 @@ export default function Pet() {
   const handleFeed = async (e) => {
     e.preventDefault();
     try {
-      await feedUserPet(params.id, pet.hunger);
+      await feedUserPet(params.id);
+      console.log('pet.hunger', pet.hunger);
     } catch (error) {
       console.log('error', error);
     }
