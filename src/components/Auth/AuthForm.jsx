@@ -20,7 +20,7 @@ export default function AuthForm({ isRegistering }) {
           username: formState.username,
           password: formState.password,
         });
-        history.push('/login');
+        window.location.replace('/login');
       } else {
         let resp = await signIn({
           username: formState.username,
@@ -30,7 +30,11 @@ export default function AuthForm({ isRegistering }) {
         window.location.replace('/pets');
       }
     } catch (error) {
-      setErrorMsg('Invalid username or password, please try again!');
+      if (isRegistering) {
+        setErrorMsg('This username is already taken.');
+      } else {
+        setErrorMsg('Invalid username and/or password, please try again!');
+      }
     }
   };
 

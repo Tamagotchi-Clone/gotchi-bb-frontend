@@ -24,10 +24,11 @@ export async function signUp({ username, password }) {
       mode: 'cors',
       body: JSON.stringify({ username, password }),
     });
+    if (!res.ok) throw new Error();
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    return null;
+    throw new Error();
   }
 }
 
