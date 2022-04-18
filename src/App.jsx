@@ -7,6 +7,7 @@ import Home from './views/Home/Home';
 import Pet from './views/Pet/Pet';
 import Profile from './views/Profile/Profile';
 import ChoosePet from './views/ChoosePet/ChoosePet';
+import Bot from './components/Bot/Bot';
 
 export default function App() {
   return (
