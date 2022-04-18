@@ -1,7 +1,4 @@
-import { useParams } from 'react-router-dom';
-import { getUserPetById } from '../../services/userpets';
-
-export async function hungerScore(date) {
+export async function happinessScore(date) {
   try {
     const res = await fetch(
       `${process.env.API_URL}/api/v1/userpets/difference`,
@@ -17,8 +14,4 @@ export async function hungerScore(date) {
   } catch (error) {
     console.log(error);
   }
-  // pass in last timestamp
-  //return difference
-  //if difference > 12 hours, hungry
-  //else  not hungry
 }

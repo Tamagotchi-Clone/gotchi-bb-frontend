@@ -1,7 +1,3 @@
-// displays username
-//displays pet you have selected using your user id
-//ability to delete your pet and be rerouted to the choose a pet page
-//ability to edit pets name
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
@@ -13,9 +9,7 @@ import {
 } from '../../services/userpets';
 
 export default function Settings() {
-  const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
   const { user, loading, setLoading } = useUser();
   const [pet, setPet] = useState({});
   const params = useParams();
@@ -40,22 +34,14 @@ export default function Settings() {
     history.push(`/pets`);
   };
 
-  const handleEdit = async () => {
-    try {
-      await updateUserPet(name, params.id);
-      setIsEditing(false);
-    } catch (error) {
-      alert(error);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await updateUserPet(name);
-      history.push(`/pets/${params.id}`);
-    } catch {
-      setMessage('Error');
+      console.log(pet);
+      // history.push(`/pets/${params.id}`);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -63,7 +49,6 @@ export default function Settings() {
     <>
       <EditPet
         handleSubmit={handleSubmit}
-        handleEdit={handleEdit}
         handleDelete={handleDelete}
         pet={pet}
         setPet={setPet}

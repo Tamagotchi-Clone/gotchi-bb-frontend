@@ -8,7 +8,7 @@ import {
   playUserPet,
   getUserPetById,
 } from '../../services/userpets';
-import { hungerScore } from '../utils/scores';
+import { happinessScore } from '../utils/scores';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
@@ -52,8 +52,18 @@ export default function Pet() {
     }
   };
 
-  const checkScore = async () => {
-    const score = await hungerScore(pet.hunger, params.id);
+  const checkHunger = async () => {
+    const score = await happinessScore(pet.hunger, params.id);
+    console.log('score', score);
+  };
+
+  const checkClean = async () => {
+    const score = await happinessScore(pet.cleanliness, params.id);
+    console.log('score', score);
+  };
+
+  const checkPlay = async () => {
+    const score = await happinessScore(pet.play, params.id);
     console.log('score', score);
   };
 
@@ -67,7 +77,9 @@ export default function Pet() {
         handlePlay={handlePlay}
         setHunger={setHunger}
         hunger={hunger}
-        checkScore={checkScore}
+        checkScore={checkHunger}
+        checkClean={checkClean}
+        checkPlay={checkPlay}
       />
       <Bot />
     </>
