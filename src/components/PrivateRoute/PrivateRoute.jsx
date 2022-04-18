@@ -1,12 +1,19 @@
-import { useUser } from '../../context/userContext';
+import { useUser } from '../../context/UserContext';
 import { Redirect, Route } from 'react-router-dom';
 
 export default function PrivateRoute({ children, ...props }) {
-  const user = useUser();
-
+  const { user, loading } = useUser();
+  if (loading) return <h1>loading..</h1>;
   return (
-    <Route {...props}>
-      {user?.username ? children : <Redirect to="/signin" />}
-    </Route>
+    <Route
+      {...props}
+      render={({ location }) =>
+        loading === false && user ? (
+          children
+        ) : (
+          <Redirect to={{ pathname: '/login', state: { from: location } }} />
+        )
+      }
+    ></Route>
   );
 }

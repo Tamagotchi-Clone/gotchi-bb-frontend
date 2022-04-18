@@ -1,20 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { useEffect } from 'react';
 import { createContext } from 'react';
+import { getCurrentUser } from '../services/users';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const currentUser = currentUser();
-  const [user, setUser] = useState(
-    currentUser
-      ? {
-          id: currentUser.id,
-          email: currentUser.email,
-        }
-      : {}
-  );
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    getCurrentUser()
+      .then((user) => setUser(user))
+      .finally(() => setLoading(false));
+  }, []);
 
-  const contextValue = { user, setUser };
+  const contextValue = { user, setUser, loading };
 
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>

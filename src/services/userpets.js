@@ -1,7 +1,8 @@
 export const getUserPets = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets`);
-    return res.json();
+    const resJson = await res.json();
+    return resJson;
   } catch (error) {
     return null;
   }
@@ -10,9 +11,25 @@ export const getUserPets = async () => {
 export const getUserPetById = async (id) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`);
-    return res.json();
+    const resJson = await res.json();
+    return resJson;
   } catch (error) {
     return null;
+  }
+};
+
+export const getUserPetByUser = async (user_id) => {
+  try {
+    const res = await fetch(
+      `${process.env.API_URL}/api/v1/userpets/${user_id}`,
+      {
+        credentials: 'include',
+      }
+    );
+    const resJson = await res.json();
+    return resJson;
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -52,15 +69,19 @@ export const feedUserPet = async (id) => {
       `${process.env.API_URL}/api/v1/userpets/${id}/hunger`,
       {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         credentials: 'include',
-        mode: 'no-cors',
-        body: JSON.stringify(id),
+        mode: 'cors',
+        body: id,
       }
     );
-    return res.json();
+    const resJson = await res.json();
+    return resJson;
   } catch (error) {
-    return null;
+    console.log('ERROR:', error);
   }
 };
 
