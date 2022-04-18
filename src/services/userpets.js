@@ -47,14 +47,16 @@ export const postUserPet = async ({ petId, userId, name }) => {
   }
 };
 
-export const updateUserPet = async ({ petId, userId, name }) => {
+export const updateUserPet = async (id) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ petId, userId, name }),
     });
     return await res.json();
   } catch (error) {
