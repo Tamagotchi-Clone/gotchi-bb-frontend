@@ -3,14 +3,14 @@ import { postUserPet } from '../../services/userpets';
 import './PetList.css';
 //import { useUser } from '../../context/userContext';
 
-export default function PetList({ pets, setChosenPet }) {
+export default function PetList({ pets, setChosenPet, chosenPet }) {
   // const { setUser } = useUser();
   const [name, setName] = useState('');
 
   async function handleChoosePet() {
     try {
-      await postUserPet(chosenPet, user_id);
-    } catch {
+      await postUserPet(chosenPet.id, user_id);
+    } catch (error) {
       console.log(error);
     }
   }

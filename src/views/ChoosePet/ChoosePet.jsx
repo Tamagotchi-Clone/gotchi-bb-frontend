@@ -30,6 +30,7 @@ export default function ChoosePet() {
     <div>
       <h1>Choose Your Pet!</h1>
       <PetList
+        chosenPet={chosenPet}
         setChosenPet={setChosenPet}
         pets={pets}
         loading={loading}
