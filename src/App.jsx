@@ -27,7 +27,7 @@ export default function App() {
           </PrivateRoute>
           <Route exact path="/pet"></Route>
 
-          <PrivateRoute exact path="/pets/:id">
+          <PrivateRoute exact path="/pet/:id">
             <Pet />
           </PrivateRoute>
           <PrivateRoute exact path="/choosepet">

@@ -28,7 +28,7 @@ export default function AuthForm({ isRegistering }) {
           password: formState.password,
         });
         setUser(resp);
-        window.location.replace('/pets');
+        window.location.replace('/');
       }
     } catch (error) {
       if (isRegistering) {

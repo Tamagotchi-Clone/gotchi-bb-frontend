@@ -19,12 +19,12 @@ export default function Header() {
   return (
     <div>
       Header
-      {loading === false && user?.username ? (
+      {loading == false && user && pet ? (
         <div>
           <Link to="/">Home</Link>
           <Link to="/profile">Your Profile</Link>
           <Link to="/choosepet">Choose Your Pet</Link>
-          <Link to="/pets/:id">Hang Out With Your Pet</Link>
+          <Link to={`/pet/${pet.id}`}>Hang Out With Your Pet</Link>
           <button onClick={handleLogout}>logout</button>
         </div>
       ) : (
