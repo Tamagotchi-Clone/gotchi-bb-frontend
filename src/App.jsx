@@ -15,7 +15,7 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <h1>home</h1>
-            <Bot />
+            {/* <Bot /> */}
           </Route>
           <Route exact path="/login">
             <Auth />

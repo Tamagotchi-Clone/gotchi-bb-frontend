@@ -7,10 +7,11 @@ export async function signIn({ username, password }) {
       mode: 'cors',
       body: JSON.stringify({ username, password }),
     });
+    if (!res.ok) throw new Error();
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    console.log('error sign in', error);
+    throw new Error();
   }
 }
 

@@ -8,14 +8,15 @@ export default function AuthForm({ isRegistering }) {
     username: '',
     password: '',
   });
-  const { user, setUser } = useUser();
+  const [errorMsg, setErrorMsg] = useState('');
+  const { user, setUser, loading } = useUser();
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isRegistering) {
-        let resp = await signUp({
+        await signUp({
           username: formState.username,
           password: formState.password,
         });
@@ -27,17 +28,18 @@ export default function AuthForm({ isRegistering }) {
           password: formState.password,
         });
         setUser(resp);
-        console.log(user);
-        history.push('/pets');
+        window.location.replace('/pets');
       }
     } catch (error) {
-      alert('There was an error logging in');
+      setErrorMsg('Invalid username or password, please try again!');
     }
   };
 
   return (
     <form className="auth" onSubmit={handleSubmit}>
+      {errorMsg ? <p>{errorMsg}</p> : ''}
       {isRegistering && <h1>Sign Up</h1>}
+
       <input
         type="text"
         placeholder="Username"
