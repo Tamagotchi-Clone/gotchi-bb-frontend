@@ -1,48 +1,64 @@
 export const getUserPets = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets`);
-    return res.json();
+    const resJson = await res.json();
+    return await resJson;
   } catch (error) {
-    return null;
+    throw error;
   }
 };
 
 export const getUserPetById = async (id) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`);
-    return res.json();
+    const resJson = await res.json();
+    return await resJson;
   } catch (error) {
-    return null;
+    throw error;
   }
 };
 
-export const postUserPet = async ({ pet_id, user_id, name }) => {
+export const getUserPetByUser = async (userId) => {
   try {
-    const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
+    const res = await fetch(
+      `${process.env.API_URL}/api/v1/userpets/${userId}`,
+      {
+        credentials: 'include',
+      }
+    );
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const postUserPet = async ({ petId, userId, name }) => {
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/userpets/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ pet_id, user_id, name }),
+      body: JSON.stringify({ petId, userId, name }),
     });
-    return res.json();
+    return await res.json();
   } catch (error) {
-    return null;
+    throw error;
   }
 };
 
-export const updateUserPet = async ({ pet_id, user_id, name }) => {
+export const updateUserPet = async ({ petId, userId, name }) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ pet_id, user_id, name }),
+      body: JSON.stringify({ petId, userId, name }),
     });
-    return res.json();
+    return await res.json();
   } catch (error) {
-    return null;
+    throw error;
   }
 };
 
@@ -107,17 +123,17 @@ export const playUserPet = async (id) => {
   }
 };
 
-export const deleteUserPet = async ({ pet_id, user_id, name }) => {
+export const deleteUserPet = async ({ petId, userId, name }) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ pet_id, user_id, name }),
+      body: JSON.stringify({ petId, userId, name }),
     });
-    return res.json();
+    return await res.json();
   } catch (error) {
-    return null;
+    throw error;
   }
 };

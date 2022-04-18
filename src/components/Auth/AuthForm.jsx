@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useUser } from '../../context/userContext';
+import { useUser } from '../../context/UserContext';
 import { signIn, signUp } from '../../services/users';
 
 export default function AuthForm({ isRegistering }) {

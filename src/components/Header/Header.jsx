@@ -1,21 +1,25 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useUser } from '../../context/userContext';
+import { useUser } from '../../context/UserContext';
+import usePet from '../../hooks/usePet';
 import { signOut } from '../../services/users';
 
 export default function Header() {
-  const { user, setUser } = useUser();
+  const { user, setUser, loading } = useUser();
+  const { pet } = usePet();
   const history = useHistory();
+
   const handleLogout = async () => {
     await signOut();
-    setUser({});
+    setUser(null);
     console.log('logout', user);
     history.push('/login');
   };
+  if (loading) return <h1>loading..</h1>;
   return (
     <div>
       Header
-      {user.username || user.user ? (
+      {loading === false && user?.username ? (
         <button onClick={handleLogout}>logout</button>
       ) : (
         <>
