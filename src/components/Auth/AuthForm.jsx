@@ -43,8 +43,7 @@ export default function AuthForm({ isRegistering }) {
 
   return (
     <form className={authForm} onSubmit={handleSubmit}>
-      {errorMsg ? <p>{errorMsg}</p> : ''}
-      {isRegistering && <h1>Sign Up</h1>}
+      {isRegistering ? <h1>Sign Up</h1> : <h1>Login</h1>}
 
       <input
         type="text"
@@ -63,8 +62,8 @@ export default function AuthForm({ isRegistering }) {
           setFormState({ ...formState, password: e.target.value })
         }
       />
-
       <button type="submit">{isRegistering ? 'Sign Up' : 'Login'}</button>
+      <p>{errorMsg}</p>
     </form>
   );
 }
