@@ -13,7 +13,6 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
-        <Bot />
         <Header />
         <Switch>
           <Route exact path="/">
