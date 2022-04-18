@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PetPage from '../../components/Pet/PetPage';
-import { feedUserPet, getUserPetById } from '../../services/userpets';
+import {
+  feedUserPet,
+  cleanUserPet,
+  playUserPet,
+  getUserPetById,
+} from '../../services/userpets';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
@@ -22,7 +27,22 @@ export default function Pet() {
     e.preventDefault();
     try {
       await feedUserPet(params.id);
-      console.log('pet.hunger', pet.hunger);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+  const handleClean = async (e) => {
+    e.preventDefault();
+    try {
+      await cleanUserPet(params.id);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+  const handlePlay = async (e) => {
+    e.preventDefault();
+    try {
+      await playUserPet(params.id);
     } catch (error) {
       console.log('error', error);
     }
@@ -31,8 +51,12 @@ export default function Pet() {
   if (loading) return <h2>loading...</h2>;
   return (
     <>
-      <h1>pet page</h1>
-      <PetPage pet={pet} handleFeed={handleFeed} />
+      <PetPage
+        pet={pet}
+        handleFeed={handleFeed}
+        handleClean={handleClean}
+        handlePlay={handlePlay}
+      />
     </>
   );
 }

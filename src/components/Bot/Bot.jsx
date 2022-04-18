@@ -2,7 +2,7 @@ import React from 'react';
 import { Launcher } from 'react-chat-window';
 import io from 'socket.io-client';
 
-class ChatBotRobot extends React.Component {
+class ChatBot extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,4 +62,4 @@ class ChatBotRobot extends React.Component {
     );
   }
 }
-export default ChatBotRobot;
+export default ChatBot;
