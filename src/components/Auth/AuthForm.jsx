@@ -20,7 +20,6 @@ export default function AuthForm({ isRegistering }) {
           username: formState.username,
           password: formState.password,
         });
-        alert('Signed up, please login');
         history.push('/login');
       } else {
         let resp = await signIn({

@@ -28,15 +28,15 @@ export default function App() {
           </PrivateRoute>
           <Route exact path="/pet"></Route>
 
-          <Route exact path="/pets/:id">
+          <PrivateRoute exact path="/pets/:id">
             <Pet />
-          </Route>
-          <Route exact path="/choosepet">
+          </PrivateRoute>
+          <PrivateRoute exact path="/choosepet">
             <ChoosePet />
-          </Route>
-          <Route exact path="/profile">
+          </PrivateRoute>
+          <PrivateRoute exact path="/profile">
             <Profile />
-          </Route>
+          </PrivateRoute>
         </Switch>
       </BrowserRouter>
     </div>

@@ -8,7 +8,7 @@ export default function Header() {
   const { user, setUser, loading } = useUser();
   const { pet } = usePet();
   const history = useHistory();
-
+  console.log(user);
   const handleLogout = async () => {
     await signOut();
     setUser(null);
@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <div>
       Header
-      {loading === false && user?.username ? (
+      {loading === false && user ? (
         <button onClick={handleLogout}>logout</button>
       ) : (
         <>

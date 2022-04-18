@@ -8,7 +8,7 @@ export default function PrivateRoute({ children, ...props }) {
     <Route
       {...props}
       render={({ location }) =>
-        user?.username ? (
+        user ? (
           children
         ) : (
           <Redirect to={{ pathname: '/login', state: { from: location } }} />
