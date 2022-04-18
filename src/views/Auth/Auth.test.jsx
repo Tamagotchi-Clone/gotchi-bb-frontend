@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import App from './App';
-import { UserProvider } from './context/UserContext';
+import App from '../../App';
+import { UserProvider } from '../../context/UserContext';
 
 test('testing sign up error', async () => {
   render(
