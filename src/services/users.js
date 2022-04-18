@@ -37,7 +37,7 @@ export async function getCurrentUser() {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/me`, {
       credentials: 'include',
     });
-    if (!res.ok) throw new Error('error no user');
+    if (!res.ok) throw new Error();
     const resJson = await res.json();
     return resJson;
   } catch (error) {
