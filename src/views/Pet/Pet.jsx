@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PetPage from '../../components/Pet/PetPage';
+import Bot from '../../components/Bot/Bot';
 import {
   feedUserPet,
   cleanUserPet,
@@ -57,6 +58,7 @@ export default function Pet() {
         handleClean={handleClean}
         handlePlay={handlePlay}
       />
+      <Bot />
     </>
   );
 }

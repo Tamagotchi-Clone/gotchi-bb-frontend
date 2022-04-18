@@ -5,7 +5,7 @@ import Auth from './views/Auth/Auth';
 import Pet from './views/Pet/Pet';
 import Profile from './views/Profile/Profile';
 import ChoosePet from './views/ChoosePet/ChoosePet';
-import Bot from './components/Bot/Bot';
+import './App.css';
 
 export default function App() {
   return (
@@ -15,7 +15,6 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <h1>home</h1>
-            <Bot />
           </Route>
           <Route exact path="/login">
             <Auth />
