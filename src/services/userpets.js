@@ -68,13 +68,52 @@ export const feedUserPet = async (id) => {
       `${process.env.API_URL}/api/v1/userpets/${id}/hunger`,
       {
         method: 'PATCH',
+        credentials: 'include',
         headers: {
           accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         mode: 'cors',
-        body: id,
+      }
+    );
+    const resJson = await res.json();
+    return resJson;
+  } catch (error) {
+    console.log('ERROR:', error);
+  }
+};
+export const cleanUserPet = async (id) => {
+  try {
+    const res = await fetch(
+      `${process.env.API_URL}/api/v1/userpets/${id}/clean`,
+      {
+        method: 'PATCH',
+        credentials: 'include',
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+      }
+    );
+    const resJson = await res.json();
+    return resJson;
+  } catch (error) {
+    console.log('ERROR:', error);
+  }
+};
+export const playUserPet = async (id) => {
+  try {
+    const res = await fetch(
+      `${process.env.API_URL}/api/v1/userpets/${id}/play`,
+      {
+        method: 'PATCH',
+        credentials: 'include',
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
       }
     );
     const resJson = await res.json();
