@@ -27,15 +27,22 @@ export default function App() {
           </PrivateRoute>
           <Route exact path="/pet"></Route>
 
-          <Route exact path="/pets/:id">
+          <PrivateRoute exact path="/pets/:id">
             <Pet />
-          </Route>
-          <Route exact path="/choosepet">
+          </PrivateRoute>
+          <PrivateRoute exact path="/choosepet">
             <ChoosePet />
+
+          </PrivateRoute>
+          <PrivateRoute exact path="/profile">
+            <Profile />
+          </PrivateRoute>
+
           </Route>
-          <Route exact path="/pets/:id/edit">
+          <PrivateRoute exact path="/pets/:id/edit">
             <Settings />
-          </Route>
+          </PrivateRoute>
+
         </Switch>
       </BrowserRouter>
     </div>

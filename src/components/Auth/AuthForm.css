@@ -1,0 +1,24 @@
+.authForm {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}
+
+.authForm input {
+  padding: 9px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.authForm button {
+  padding: 9px;
+  width: 223px;
+}
+.authBox {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+}

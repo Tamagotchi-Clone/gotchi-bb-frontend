@@ -7,10 +7,11 @@ export async function signIn({ username, password }) {
       mode: 'cors',
       body: JSON.stringify({ username, password }),
     });
+    if (!res.ok) throw new Error();
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    console.log('error sign in', error);
+    throw new Error();
   }
 }
 
@@ -23,10 +24,11 @@ export async function signUp({ username, password }) {
       mode: 'cors',
       body: JSON.stringify({ username, password }),
     });
+    if (!res.ok) throw new Error();
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    return null;
+    throw new Error();
   }
 }
 
@@ -35,7 +37,7 @@ export async function getCurrentUser() {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/me`, {
       credentials: 'include',
     });
-    if (!res.ok) throw new Error('error no user');
+    if (!res.ok) throw new Error();
     const resJson = await res.json();
     return resJson;
   } catch (error) {

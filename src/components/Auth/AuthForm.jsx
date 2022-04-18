@@ -2,42 +2,50 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import { signIn, signUp } from '../../services/users';
+import styles from './AuthForm.css';
+
+const { authForm } = styles;
 
 export default function AuthForm({ isRegistering }) {
   const [formState, setFormState] = useState({
     username: '',
     password: '',
   });
-  const { user, setUser } = useUser();
+  const [errorMsg, setErrorMsg] = useState('');
+  const { user, setUser, loading } = useUser();
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isRegistering) {
-        let resp = await signUp({
+        await signUp({
           username: formState.username,
           password: formState.password,
         });
-        alert('Signed up, please login');
-        history.push('/login');
+        window.location.replace('/login');
       } else {
         let resp = await signIn({
           username: formState.username,
           password: formState.password,
         });
         setUser(resp);
-        console.log(user);
-        history.push('/pets');
+        window.location.replace('/pets');
       }
     } catch (error) {
-      alert('There was an error logging in');
+      if (isRegistering) {
+        setErrorMsg('This username is already taken.');
+      } else {
+        setErrorMsg('Invalid username and/or password, please try again!');
+      }
     }
   };
 
   return (
-    <form className="auth" onSubmit={handleSubmit}>
+    <form className={authForm} onSubmit={handleSubmit}>
+      {errorMsg ? <p>{errorMsg}</p> : ''}
       {isRegistering && <h1>Sign Up</h1>}
+
       <input
         type="text"
         placeholder="Username"

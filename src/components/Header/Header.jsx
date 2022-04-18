@@ -8,7 +8,7 @@ export default function Header() {
   const { user, setUser, loading } = useUser();
   const { pet } = usePet();
   const history = useHistory();
-
+  console.log(user);
   const handleLogout = async () => {
     await signOut();
     setUser(null);
@@ -19,6 +19,10 @@ export default function Header() {
   return (
     <div>
       Header
+
+      {loading === false && user ? (
+        <button onClick={handleLogout}>logout</button>
+
       {loading === false && user?.username ? (
         <div>
           <Link to="/">Home</Link>
@@ -26,7 +30,7 @@ export default function Header() {
           <Link to="/choosepet">Choose Your Pet</Link>
           <Link to="/pets/:id">Hang Out With Your Pet</Link>
           <button onClick={handleLogout}>logout</button>
-        </div>
+
       ) : (
         <>
           <Link to="/login">Login</Link>
