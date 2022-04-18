@@ -23,3 +23,7 @@
   margin: auto;
   margin-top: 10%;
 }
+
+.authForm p {
+  color: red;
+}
