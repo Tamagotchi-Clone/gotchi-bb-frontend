@@ -25,6 +25,6 @@ test('testing sign up', async () => {
   const button = await screen.findByRole('button', { name: /sign up/i });
   userEvent.click(button);
 
-  const header = await screen.findByRole('heading', { name: /login/i });
-  expect(header).toBeInTheDocument();
+  const errorMsg = await screen.findByText(/this username is already taken\./i);
+  expect(errorMsg).toBeInTheDocument();
 });
