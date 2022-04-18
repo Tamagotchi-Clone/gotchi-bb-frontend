@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import { signIn, signUp } from '../../services/users';
-import styles from './AuthForm.css';
-
-const { authForm } = styles;
+import './AuthForm.css';
 
 export default function AuthForm({ isRegistering }) {
   const [formState, setFormState] = useState({
@@ -42,7 +40,7 @@ export default function AuthForm({ isRegistering }) {
   };
 
   return (
-    <form className={authForm} onSubmit={handleSubmit}>
+    <form className="authForm" onSubmit={handleSubmit}>
       {isRegistering ? <h1>Sign Up</h1> : <h1>Login</h1>}
 
       <input
