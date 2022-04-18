@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Auth from './views/Auth/Auth';
 import Pet from './views/Pet/Pet';
-import Profile from './views/Profile/Profile';
+import Settings from './views/Settings/Settings';
 import ChoosePet from './views/ChoosePet/ChoosePet';
 import Bot from './components/Bot/Bot';
 
@@ -34,8 +34,8 @@ export default function App() {
           <Route exact path="/choosepet">
             <ChoosePet />
           </Route>
-          <Route exact path="/profile">
-            <Profile />
+          <Route exact path="/pets/:id/edit">
+            <Settings />
           </Route>
         </Switch>
       </BrowserRouter>
