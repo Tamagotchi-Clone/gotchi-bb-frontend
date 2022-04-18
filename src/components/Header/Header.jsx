@@ -24,7 +24,7 @@ export default function Header() {
           <Link to="/">Home</Link>
           <Link to="/profile">Your Profile</Link>
           <Link to="/choosepet">Choose Your Pet</Link>
-          <Link to="/pet/:id">Hang Out With Your Pet</Link>
+          <Link to="/pets/:id">Hang Out With Your Pet</Link>
           <button onClick={handleLogout}>logout</button>
         </div>
       ) : (
