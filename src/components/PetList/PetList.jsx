@@ -38,7 +38,7 @@ export default function PetList({
         onChange={(e) => setName(e.target.value)}
         value={name}
       ></input>
-      <button onClick={handleChoosePet}>Submit</button>
+      <button onClick={handleChoosePet}></button>
     </div>
   );
 }
