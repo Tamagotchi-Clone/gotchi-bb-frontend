@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { postUserPet } from '../../services/userpets';
 import './PetList.css';
-//import { useUser } from '../../context/userContext';
+import { useUser } from '../../context/UserContext';
 
-export default function PetList({ pets, setChosenPet }) {
-  // const { setUser } = useUser();
-  const [name, setName] = useState('');
+export default function PetList({
+  pets,
+  setChosenPet,
+  chosenPet,
+  name,
+  setName,
+}) {
+  const { user } = useUser();
 
   async function handleChoosePet() {
+    console.log('click');
     try {
-      await postUserPet(chosenPet, user_id);
-    } catch {
+      await postUserPet({ userId: user.id, petId: chosenPet.id, name });
+    } catch (error) {
       console.log(error);
     }
   }
@@ -26,6 +32,12 @@ export default function PetList({ pets, setChosenPet }) {
           </label>
         </div>
       ))}
+      <input
+        type="text"
+        placeholder="name your pet"
+        onChange={(e) => setName(e.target.value)}
+        value={name}
+      ></input>
       <button onClick={handleChoosePet}>Submit</button>
     </div>
   );

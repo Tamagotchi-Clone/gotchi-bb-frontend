@@ -11,6 +11,7 @@ export default function ChoosePet() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [chosenPet, setChosenPet] = useState({});
+  const [name, setName] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,10 +31,13 @@ export default function ChoosePet() {
     <div>
       <h1>Choose Your Pet!</h1>
       <PetList
+        chosenPet={chosenPet}
         setChosenPet={setChosenPet}
         pets={pets}
         loading={loading}
         setLoading={setLoading}
+        name={name}
+        setName={setName}
       />
     </div>
   );

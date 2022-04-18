@@ -3,7 +3,7 @@
 //ability to delete your pet and be rerouted to the choose a pet page
 //ability to edit pets name
 import React, { useState, useEffect } from 'react';
-import { useUser } from '../../context/userContext';
+import { useUser } from '../../context/UserContext';
 import {
   deleteUserPet,
   getUserPetById,
