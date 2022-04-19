@@ -43,15 +43,15 @@ export default function Pet() {
       }
 
       if (cleanScore === true) {
-        setClean('clean');
-      } else {
         setClean('dirty');
+      } else {
+        setClean('clean');
       }
 
       if (playScore === true) {
-        setPlay('happy');
-      } else {
         setPlay('bored');
+      } else {
+        setPlay('happy');
       }
 
       setLoading(false);
