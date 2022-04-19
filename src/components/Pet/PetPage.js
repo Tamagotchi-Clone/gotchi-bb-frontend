@@ -5,19 +5,22 @@ export default function Petpage({
   handleFeed,
   handlePlay,
   handleClean,
-  isHungry,
-  checkScore,
+  hunger,
+  clean,
+  play,
 }) {
   return (
     <>
       <div>
         <h1>{pet.name}</h1>
-        <h2>{isHungry}</h2>
+        <p>{hunger}</p>
+        <p>{clean}</p>
+        <p>{play}</p>
+        <img src={pet.image} />
       </div>
       <button onClick={handleFeed}>feed</button>
       <button onClick={handlePlay}>play</button>
       <button onClick={handleClean}>clean</button>
-      <button onClick={checkScore}>score</button>
     </>
   );
 }

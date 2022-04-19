@@ -8,6 +8,7 @@ import './Header.css';
 export default function Header() {
   const { user, setUser, loading } = useUser();
   const { pet } = usePet();
+  console.log('pet', pet);
   const history = useHistory();
 
   const handleLogout = async () => {
@@ -19,18 +20,23 @@ export default function Header() {
   if (loading) return <h1>loading..</h1>;
   return (
     <header>
-      {loading == false && user && pet?.id ? (
+      {loading == false && user ? (
         <>
           <Link to="/">Home</Link>
-          <Link to="/choosepet">Choose A Pet</Link>
-          <Link to={`/pet/${pet.id}`}>Your Pet</Link>
-          <Link to={`/pet/${pet.id}/edit`}>Settings</Link>
+          {pet?.id ? (
+            <Link to={`/pet/${pet.id}`}>Your pet</Link>
+          ) : (
+            <Link to="/choosepet">Choose a pet</Link>
+          )}
+          <Link to="/leaderboard">Leaderboard</Link>
+          <Link to="/profile">Settings</Link>
           <button onClick={handleLogout}>logout</button>
         </>
       ) : (
         <>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/leaderboard">Leaderboard</Link>
         </>
       )}
     </header>

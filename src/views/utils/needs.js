@@ -15,3 +15,11 @@ export async function happinessScore(date) {
     console.log(error);
   }
 }
+
+export async function calculateHappiness(need) {
+  if (need.difference <= 0.33) {
+    return true;
+  } else {
+    return false;
+  }
+}
