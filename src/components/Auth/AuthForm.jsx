@@ -4,7 +4,7 @@ import { useUser } from '../../context/UserContext';
 import { signIn, signUp } from '../../services/users';
 import styles from './AuthForm.css';
 
-const { authForm } = styles;
+const { AuthForm } = styles;
 
 export default function AuthForm({ isRegistering }) {
   const [formState, setFormState] = useState({
