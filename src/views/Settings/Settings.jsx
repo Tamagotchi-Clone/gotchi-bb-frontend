@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
@@ -13,6 +14,7 @@ export default function Settings() {
   const { user, loading, setLoading } = useUser();
   const [pet, setPet] = useState({});
   const params = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -29,7 +31,7 @@ export default function Settings() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await deleteUserPet(params.id);
+    await deleteUserPet(pet.id);
     history.push(`/pets`);
   };
 
