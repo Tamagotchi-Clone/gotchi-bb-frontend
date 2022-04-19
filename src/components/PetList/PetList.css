@@ -1,0 +1,40 @@
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio']:checked + img {
+  border: 7px solid pink;
+  border-radius: 30%;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+}
+
+.choosepet-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+.name-input {
+  padding: 9px;
+  width: 200px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.choosepet-button,
+.name-input {
+  padding: 9px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
