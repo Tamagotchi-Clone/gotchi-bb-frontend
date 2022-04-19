@@ -126,14 +126,13 @@ export const playUserPet = async (id) => {
   }
 };
 
-export const deleteUserPet = async ({ petId, userId, name }) => {
+export const deleteUserPet = async (id) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ petId, userId, name }),
     });
     return await res.json();
   } catch (error) {
