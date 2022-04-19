@@ -18,14 +18,13 @@ export default function Loading() {
     }
   }, [loading, user]);
 
-
   if (loading) return <h1>loading..</h1>;
   return (
     <div>
       {pets?.id ? (
         <>
           <h1>YOU HAVE A PET</h1>
-          <Redirect to={`/pets/${pets.id}`} />
+          <Redirect to={`/pet/${pets.id}`} />
         </>
       ) : (
         <>
