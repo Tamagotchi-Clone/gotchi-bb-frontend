@@ -19,11 +19,11 @@ export default function Header() {
   if (loading) return <h1>loading..</h1>;
   return (
     <header>
-      {loading == false && user && pet?.id ? (
+      {loading == false && user ? (
         <>
           <Link to="/">Home</Link>
           <Link to="/choosepet">Choose A Pet</Link>
-          <Link to={`/pet/${pet.id}`}>Your Pet</Link>
+          {/* <Link to={`/pet/${pet.id}`}>Your Pet</Link> */}
           <Link to="/profile">Settings</Link>
           <button onClick={handleLogout}>logout</button>
         </>
