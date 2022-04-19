@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import App from '../../App';
-import { UserProvider } from '../../context/UserContext';
+import { UserProvider } from '../../context/UserrContext';
 
 test.skip('testing sign up error', async () => {
   render(
