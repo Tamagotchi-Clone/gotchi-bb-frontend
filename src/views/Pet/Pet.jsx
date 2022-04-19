@@ -8,7 +8,7 @@ import {
   playUserPet,
   getUserPetByUser,
 } from '../../services/userpets';
-import { calculateNeeds, happinessScore } from '../utils/needs';
+import { calculateHappiness, happinessScore } from '../utils/needs';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
@@ -23,21 +23,38 @@ export default function Pet() {
       const data = await getUserPetByUser(params.id);
 
       const hunger = await happinessScore(pet.hunger, params.id);
-      const hungerScore = calculateNeeds(hunger);
+      const hungerScore = calculateHappiness(hunger);
       console.log('hungerScore', hungerScore);
 
       const clean = await happinessScore(pet.cleanliness, params.id);
-      const cleanScore = calculateNeeds(clean);
+      const cleanScore = calculateHappiness(clean);
       console.log('cleanScore', cleanScore);
 
       const play = await happinessScore(pet.play, params.id);
-      const playScore = calculateNeeds(play);
+      const playScore = calculateHappiness(play);
       console.log('playScore', playScore);
 
       setPet(data);
-      setHunger(hungerScore);
-      setClean(cleanScore);
-      setPlay(playScore);
+
+      if (hungerScore === true) {
+        setHunger('hungry');
+      } else {
+        setHunger('not hungry');
+      }
+
+      if (cleanScore === true) {
+        setClean('clean');
+      } else {
+        setClean('dirty');
+      }
+
+      if (playScore === true) {
+        setPlay('happy');
+      } else {
+        setPlay('bored');
+      }
+      // setClean(cleanScore);
+      // setPlay(playScore);
       setLoading(false);
     };
     fetchPet();

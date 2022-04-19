@@ -16,10 +16,10 @@ export async function happinessScore(date) {
   }
 }
 
-export async function calculateNeeds(need) {
+export async function calculateHappiness(need) {
   if (need.difference <= 0.33) {
-    return 'happy';
+    return true;
   } else {
-    return 'unhappy';
+    return false;
   }
 }
