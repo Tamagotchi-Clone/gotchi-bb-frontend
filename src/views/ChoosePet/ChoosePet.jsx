@@ -1,11 +1,7 @@
-//maps through all hard coded pets and displays them on page
-//pet images are radio buttons and when you click on one it selects
-//input for their name
-//when you press submit button it updates table so you have a new pet id, a new pet name, and it is attached to your user id
-
 import React, { useEffect, useState } from 'react';
 import { getPets } from '../../services/pets';
 import PetList from '../../components/PetList/PetList';
+import './ChoosePet.css';
 
 export default function ChoosePet() {
   const [pets, setPets] = useState([]);
