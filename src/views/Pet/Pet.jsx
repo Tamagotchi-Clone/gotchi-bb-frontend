@@ -53,8 +53,7 @@ export default function Pet() {
       } else {
         setPlay('bored');
       }
-      // setClean(cleanScore);
-      // setPlay(playScore);
+
       setLoading(false);
     };
     fetchPet();
