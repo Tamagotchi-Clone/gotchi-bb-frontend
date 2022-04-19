@@ -25,6 +25,11 @@ export default function Header() {
           <Link to="/choosepet">Choose A Pet</Link>
           {/* <Link to={`/pet/${pet.id}`}>Your Pet</Link> */}
           <Link to="/profile">Settings</Link>
+          {pet?.id ? (
+            <Link to={`/pet/${pet.id}`}>Your pet</Link>
+          ) : (
+            <Link to="/choosepet">Choose a pet</Link>
+          )}
           <button onClick={handleLogout}>logout</button>
         </>
       ) : (
