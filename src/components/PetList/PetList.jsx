@@ -22,10 +22,10 @@ export default function PetList({
   }
 
   return (
-    <div>
+    <div className="pet-images">
       {pets.map((pet) => (
         <div key={pet.id}>
-          <p>Name:{pet.species}</p>
+          <p>Species: {pet.species}</p>
           <label>
             <input type="radio" name="pet" onClick={() => setChosenPet(pet)} />
             <img src={pet.image} alt={pet.species}></img>
@@ -33,12 +33,15 @@ export default function PetList({
         </div>
       ))}
       <input
+        className="name-input"
         type="text"
         placeholder="name your pet"
         onChange={(e) => setName(e.target.value)}
         value={name}
       ></input>
-      <button onClick={handleChoosePet}></button>
+      <button className="choosepet-button" onClick={handleChoosePet}>
+        Submit
+      </button>
     </div>
   );
 }

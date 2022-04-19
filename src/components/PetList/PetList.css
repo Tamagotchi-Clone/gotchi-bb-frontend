@@ -3,10 +3,31 @@ input[type='radio'] {
 }
 
 input[type='radio']:checked + img {
-  border: 2px solid yellow;
+  border: 7px solid pink;
+  border-radius: 30%;
 }
 
 img {
   height: 200px;
   width: 200px;
+}
+
+.pet-images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.name-input {
+  padding: 9px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.choosepet-button {
+  padding: 9px;
+  width: 100px;
 }
