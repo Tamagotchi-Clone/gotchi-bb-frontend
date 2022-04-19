@@ -18,11 +18,7 @@ export default function Loading() {
       fetchData();
     }
   }, [loading, user]);
-  if (pets?.id) {
-    console.log('pet exists');
-  } else {
-    console.log('no exists');
-  }
+
   if (loading) return <h1>loading..</h1>;
   return <div>hi</div>;
 }
