@@ -22,26 +22,34 @@ export default function PetList({
   }
 
   return (
-    <div className="pet-images">
-      {pets.map((pet) => (
-        <div key={pet.id}>
-          <p>Species: {pet.species}</p>
-          <label>
-            <input type="radio" name="pet" onClick={() => setChosenPet(pet)} />
-            <img src={pet.image} alt={pet.species}></img>
-          </label>
-        </div>
-      ))}
-      <input
-        className="name-input"
-        type="text"
-        placeholder="name your pet"
-        onChange={(e) => setName(e.target.value)}
-        value={name}
-      ></input>
-      <button className="choosepet-button" onClick={handleChoosePet}>
-        Submit
-      </button>
-    </div>
+    <>
+      <div className="choosepet-div">
+        {pets.map((pet) => (
+          <div className="pets" key={pet.id}>
+            <p>Species: {pet.species}</p>
+            <label>
+              <input
+                type="radio"
+                name="pet"
+                onClick={() => setChosenPet(pet)}
+              />
+              <img className="pet-img" src={pet.image} alt={pet.species}></img>
+            </label>
+          </div>
+        ))}
+      </div>
+      <div className="buttondiv">
+        <input
+          className="name-input"
+          type="text"
+          placeholder="name your pet"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+        ></input>
+        <button className="choosepet-button" onClick={handleChoosePet}>
+          Submit
+        </button>
+      </div>
+    </>
   );
 }
