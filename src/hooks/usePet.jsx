@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { useUser } from '../context/UserrContext';
+import { useUser } from '../context/UserContext';
 import { getUserPetByUser } from '../services/userpets';
 
 export default function usePet() {
