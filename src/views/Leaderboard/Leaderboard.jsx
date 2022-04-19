@@ -14,7 +14,7 @@ export default function Leaderboard() {
     };
     fetchData();
   }, []);
-  console.log('scores', scores);
+
   return (
     <div className="board">
       <h1>Users Leaderboard</h1>
