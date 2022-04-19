@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
-import { useUser } from '../../context/UserContext';
+import { useUser } from '../../context/UserrContext';
 import {
   deleteUserPet,
   getUserPetById,
