@@ -6,6 +6,8 @@ import Pet from './views/Pet/Pet';
 import Settings from './views/Settings/Settings';
 import ChoosePet from './views/ChoosePet/ChoosePet';
 import './App.css';
+import Home from './views/Home/Home';
+import Loading from './views/Loading/Loading';
 
 export default function App() {
   return (
@@ -14,7 +16,7 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <h1>home</h1>
+            <Home />
           </Route>
           <Route exact path="/login">
             <Auth />
@@ -25,7 +27,9 @@ export default function App() {
           <PrivateRoute exact path="/pets">
             <h1>pets</h1>
           </PrivateRoute>
-          <Route exact path="/pet"></Route>
+          <Route exact path="/pet">
+            <Loading />
+          </Route>
 
           <PrivateRoute exact path="/pet/:id">
             <Pet />
