@@ -23,13 +23,15 @@ export default function Header() {
       {loading == false && user ? (
         <>
           <Link to="/">Home</Link>
+          <Link to="/leaderboard">Leaderboard</Link>
           {pet?.id ? (
-            <Link to={`/pet/${pet.id}`}>Your pet</Link>
+            <>
+              <Link to={`/pet/${pet.id}`}>Your pet</Link>
+              <Link to={`/pet/${pet.id}/edit`}>Settings</Link>
+            </>
           ) : (
             <Link to="/choosepet">Choose a pet</Link>
           )}
-          <Link to="/leaderboard">Leaderboard</Link>
-          <Link to="/profile">Settings</Link>
           <button onClick={handleLogout}>logout</button>
         </>
       ) : (
