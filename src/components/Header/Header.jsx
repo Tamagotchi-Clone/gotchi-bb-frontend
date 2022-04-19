@@ -31,12 +31,14 @@ export default function Header() {
           ) : (
             <Link to="/choosepet">Choose a pet</Link>
           )}
+          <Link to="/leaderboard">Leaderboard</Link>
           <button onClick={handleLogout}>logout</button>
         </>
       ) : (
         <>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/leaderboard">Leaderboard</Link>
         </>
       )}
     </header>
