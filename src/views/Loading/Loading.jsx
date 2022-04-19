@@ -17,7 +17,7 @@ export default function Loading() {
         .finally(() => setLoading(false));
     }
   }, [loading, user]);
-  console.log('pets', pets);
+
 
   if (loading) return <h1>loading..</h1>;
   return (

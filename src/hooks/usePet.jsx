@@ -15,7 +15,6 @@ export default function usePet() {
       }
     };
     fetchData();
-    console.log(pet);
   }, [loading, user]);
 
   return { pet, loading, setPet };

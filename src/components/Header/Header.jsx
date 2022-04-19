@@ -9,7 +9,7 @@ export default function Header() {
   const { user, setUser, loading } = useUser();
   const { pet } = usePet();
   const history = useHistory();
-  console.log(user);
+
   const handleLogout = async () => {
     await signOut();
     setUser(null);
