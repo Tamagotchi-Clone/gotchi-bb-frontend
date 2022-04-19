@@ -13,7 +13,6 @@ export default function Settings() {
   const { user, loading, setLoading } = useUser();
   const [pet, setPet] = useState({});
   const params = useParams();
-  console.log(user);
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -37,7 +36,7 @@ export default function Settings() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateUserPet(name);
+      await updateUserPet(pet.id, name);
       console.log(pet);
     } catch (error) {
       console.log(error);
@@ -51,6 +50,8 @@ export default function Settings() {
         handleDelete={handleDelete}
         pet={pet}
         setPet={setPet}
+        name={name}
+        setName={setName}
       />
     </>
   );

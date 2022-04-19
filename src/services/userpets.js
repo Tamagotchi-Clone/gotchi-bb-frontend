@@ -47,7 +47,7 @@ export const postUserPet = async ({ petId, userId, name }) => {
   }
 };
 
-export const updateUserPet = async (id) => {
+export const updateUserPet = async (id, name) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'PATCH',
@@ -55,6 +55,7 @@ export const updateUserPet = async (id) => {
         accept: 'application/json',
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ id, name }),
       credentials: 'include',
       mode: 'cors',
     });
