@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useUser } from '../../context/UserrContext';
+import { useUser } from '../../context/UserContext';
 import usePet from '../../hooks/usePet';
 import { getUserPetByUser } from '../../services/userpets';
 import ChoosePet from '../ChoosePet/ChoosePet';

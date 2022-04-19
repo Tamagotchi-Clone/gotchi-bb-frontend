@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useUser } from '../../context/UserrContext';
+import { useUser } from '../../context/UserContext';
 import usePet from '../../hooks/usePet';
 import { signOut } from '../../services/users';
 import './Header.css';
