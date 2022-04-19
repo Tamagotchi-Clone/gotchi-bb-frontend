@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
+import usePet from '../../hooks/usePet';
 import { signIn, signUp } from '../../services/users';
-import styles from './AuthForm.css';
-
-const { AuthForm } = styles;
+import './AuthForm.css';
 
 export default function AuthForm({ isRegistering }) {
   const [formState, setFormState] = useState({
@@ -14,6 +13,7 @@ export default function AuthForm({ isRegistering }) {
   const [errorMsg, setErrorMsg] = useState('');
   const { user, setUser, loading } = useUser();
   const history = useHistory();
+  const { pet } = usePet();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ export default function AuthForm({ isRegistering }) {
           password: formState.password,
         });
         setUser(resp);
-        window.location.replace('/pets');
+        window.location.replace(`/pet`);
       }
     } catch (error) {
       if (isRegistering) {
@@ -42,7 +42,7 @@ export default function AuthForm({ isRegistering }) {
   };
 
   return (
-    <form className={authForm} onSubmit={handleSubmit}>
+    <form className="authForm" onSubmit={handleSubmit}>
       {isRegistering ? <h1>Sign Up</h1> : <h1>Login</h1>}
 
       <input
