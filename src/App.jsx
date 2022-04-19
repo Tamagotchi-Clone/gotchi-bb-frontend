@@ -34,11 +34,7 @@ export default function App() {
           <PrivateRoute exact path="/choosepet">
             <ChoosePet />
           </PrivateRoute>
-<<<<<<< HEAD
-          <PrivateRoute exact path="/pet/:id/edit">
-=======
           <PrivateRoute exact path="/pets/:id/edit">
->>>>>>> 44515040d72bb2710e2d3078b1244b6e636513d6
             <Settings />
           </PrivateRoute>
           <Route exact path="/leaderboard">
