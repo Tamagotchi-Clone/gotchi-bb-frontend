@@ -12,9 +12,7 @@ export default function Loading() {
   const { user, loading, setLoading } = useUser();
   useEffect(() => {
     if (loading && user) {
-      getUserPetByUser(user.id)
-        .then((data) => setPets(data))
-        .finally(() => setLoading(false));
+      getUserPetByUser(user.id).then((data) => setPets(data));
     }
   }, [loading, user]);
 
