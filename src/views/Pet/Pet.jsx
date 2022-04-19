@@ -8,19 +8,36 @@ import {
   playUserPet,
   getUserPetById,
 } from '../../services/userpets';
-import { happinessScore } from '../utils/scores';
+import { calculateNeeds, happinessScore } from '../utils/needs';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
-  const [hunger, setHunger] = useState();
+  const [hunger, setHunger] = useState('');
+  const [play, setPlay] = useState('');
+  const [clean, setClean] = useState('');
   const [loading, setLoading] = useState(true);
   const params = useParams();
-  console.log('params.id', params.id);
 
   useEffect(() => {
     const fetchPet = async () => {
       const data = await getUserPetById(params.id);
+
+      const hunger = await happinessScore(pet.hunger, params.id);
+      const hungerScore = calculateNeeds(hunger);
+      console.log('hungerScore', hungerScore);
+
+      const clean = await happinessScore(pet.cleanliness, params.id);
+      const cleanScore = calculateNeeds(clean);
+      console.log('cleanScore', cleanScore);
+
+      const play = await happinessScore(pet.play, params.id);
+      const playScore = calculateNeeds(play);
+      console.log('playScore', playScore);
+
       setPet(data);
+      setHunger(hungerScore);
+      setClean(cleanScore);
+      setPlay(playScore);
       setLoading(false);
     };
     fetchPet();
@@ -52,21 +69,6 @@ export default function Pet() {
     }
   };
 
-  const checkHunger = async () => {
-    const score = await happinessScore(pet.hunger, params.id);
-    console.log('score', score);
-  };
-
-  const checkClean = async () => {
-    const score = await happinessScore(pet.cleanliness, params.id);
-    console.log('score', score);
-  };
-
-  const checkPlay = async () => {
-    const score = await happinessScore(pet.play, params.id);
-    console.log('score', score);
-  };
-
   if (loading) return <h2>loading...</h2>;
   return (
     <>
@@ -75,11 +77,6 @@ export default function Pet() {
         handleFeed={handleFeed}
         handleClean={handleClean}
         handlePlay={handlePlay}
-        setHunger={setHunger}
-        hunger={hunger}
-        checkScore={checkHunger}
-        checkClean={checkClean}
-        checkPlay={checkPlay}
       />
       <Bot />
     </>
