@@ -4,14 +4,19 @@ import { useUser } from '../context/UserContext';
 import { getUserPetByUser } from '../services/userpets';
 
 export default function usePet() {
-  const [pet, setPet] = useState({});
-  const { user } = useUser();
+  const [pet, setPet] = useState(null);
+  const { user, loading } = useUser();
 
   useEffect(() => {
-    if (user?.username) {
-      getUserPetByUser(user.id).then((data) => setPet(data));
-    }
-  }, [user]);
+    const fetchData = async () => {
+      if (loading == false && user) {
+        const data = await getUserPetByUser(user.id);
+        setPet(data);
+      }
+    };
+    fetchData();
+    console.log(pet);
+  }, [loading, user]);
 
-  return { pet, setPet };
+  return { pet, loading, setPet };
 }

@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header a {
+  text-align: center;
+  text-decoration: none;
+  border: 1pt solid black;
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px 8px;
+}

@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import usePet from '../../hooks/usePet';
 import { signOut } from '../../services/users';
+import './Header.css';
 
 export default function Header() {
   const { user, setUser, loading } = useUser();
@@ -17,22 +18,21 @@ export default function Header() {
   };
   if (loading) return <h1>loading..</h1>;
   return (
-    <div>
-      Header
-      {loading === false && user?.username ? (
-        <div>
+    <header>
+      {loading == false && user && pet?.id ? (
+        <>
           <Link to="/">Home</Link>
-          <Link to="/profile">Your Profile</Link>
-          <Link to="/choosepet">Choose Your Pet</Link>
-          <Link to="/pets/:id">Hang Out With Your Pet</Link>
+          <Link to="/choosepet">Choose A Pet</Link>
+          <Link to={`/pet/${pet.id}`}>Your Pet</Link>
+          <Link to="/profile">Settings</Link>
           <button onClick={handleLogout}>logout</button>
-        </div>
+        </>
       ) : (
         <>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
         </>
       )}
-    </div>
+    </header>
   );
 }
