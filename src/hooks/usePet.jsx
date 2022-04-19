@@ -9,7 +9,7 @@ export default function usePet() {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (loading == false && user) {
+      if (loading == false && user.id) {
         const data = await getUserPetByUser(user.id);
         setPet(data);
       }
