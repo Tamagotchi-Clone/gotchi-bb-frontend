@@ -39,7 +39,6 @@ export default function Settings() {
     try {
       await updateUserPet(name);
       console.log(pet);
-      // history.push(`/pets/${params.id}`);
     } catch (error) {
       console.log(error);
     }
