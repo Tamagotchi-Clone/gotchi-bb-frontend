@@ -30,7 +30,7 @@ export default function Settings() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await deleteUserPet(params.id);
+    await deleteUserPet(pet.id);
     history.push(`/pets`);
   };
 
