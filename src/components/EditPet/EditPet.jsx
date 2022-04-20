@@ -10,9 +10,9 @@ export default function EditPet({
 }) {
   return (
     <>
-      <h1> Your bb:</h1>
-      <form className="editForm" onSubmit={handleSubmit}>
-        <img className="petImage" src={pet.image} />
+      <h1> Your Pet:</h1>
+      <h3>{pet.pet}</h3>
+      <form onSubmit={handleSubmit}>
         <input
           placeholder="Edit Name"
           type="text"

@@ -31,6 +31,7 @@ export default function PetList({
             <p>Species: {pet.species}</p>
             <label>
               <input
+                aria-label="petnameinput"
                 type="radio"
                 name="pet"
                 onClick={() => setChosenPet(pet)}
