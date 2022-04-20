@@ -14,13 +14,10 @@ export default function PetList({
   const { user } = useUser();
 
   async function handleChoosePet() {
-    console.log('click');
     try {
       await postUserPet({ userId: user.id, petId: chosenPet.id, name });
       window.location.replace('/pet');
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
 
   return (
