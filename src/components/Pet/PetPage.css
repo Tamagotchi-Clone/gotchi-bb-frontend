@@ -3,20 +3,20 @@
   flex-direction: column;
   text-align: center;
   margin: auto;
-  /* margin-top: 80px; */
+  margin-top: 1vw;
   border: 2.5pt solid rgb(39, 39, 39);
-  height: 30vw;
-  width: 30vw;
+  height: 33vw;
+  width: 33vw;
   border-radius: 5%;
   box-shadow: 8px 8px rgb(39, 39, 39);
-  background-color: #e3ece8;
+  background-color: #dde4e0;
 }
 
 .petBox img {
-  /* margin: auto;
-  margin-top: 6vw; */
-  width: 8vw;
-  height: 8vw;
+  margin: auto;
+  margin-top: 6vw;
+  width: 7vw;
+  height: 7vw;
 }
 
 .petStats p {
@@ -60,4 +60,5 @@ button {
   border-bottom: 2.5pt solid rgb(39, 39, 39);
   font-size: 20pt;
   padding-bottom: 10px;
+  font-size: 1.7vw;
 }
