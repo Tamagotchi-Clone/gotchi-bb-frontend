@@ -13,10 +13,10 @@ Backend authentication and pet API utilizes PostgreSQL as a database and is depl
 - MSW
 - Jest
 - BCrypt
-- jsonwebtoken
 - node.js
 - CORS
 - React
+- Express
 
 # Members
 - [Ian Christiansen](https://github.com/ian-ch-jsx)
