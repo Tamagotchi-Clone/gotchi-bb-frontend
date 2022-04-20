@@ -29,8 +29,10 @@ export default function Settings() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await deleteUserPet(pet.id);
-    window.location.replace('/choosepet');
+    if (confirm('Are you sure you want to delete your bb?')) {
+      await deleteUserPet(pet.id);
+      window.location.replace('/choosepet');
+    }
   };
 
   const handleSubmit = async (e) => {

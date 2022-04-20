@@ -1,0 +1,49 @@
+.petBox {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+  margin-top: 80px;
+  border: 2.5pt solid rgb(39, 39, 39);
+  height: 500px;
+  width: 500px;
+  border-radius: 5%;
+  box-shadow: 8px 8px rgb(39, 39, 39);
+  background-color: rgba(0, 0, 0, 0.048);
+}
+
+.petBox img {
+  margin: auto;
+  margin-top: 60px;
+  width: 90px;
+  height: 90px;
+}
+
+.petStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: fit-content;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.493);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 40px;
+  width: 600px;
+}
+button {
+  padding: 8px 30px 10px 30px;
+}
+
+.petBox h1 {
+  border-bottom: 2.5pt solid rgb(39, 39, 39);
+  font-size: 20pt;
+  padding-bottom: 10px;
+}
