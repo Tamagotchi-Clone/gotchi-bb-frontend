@@ -1,0 +1,41 @@
+.editForm {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  border: 1pt solid black;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 10px 8px;
+}
+
+.editForm button {
+  border: 1pt solid black;
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px 8px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.delete {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+  margin-top: 30px;
+  border: 1pt solid black;
+  padding: 10px;
+  /* width: 100px; */
+  border-radius: 10px 8px;
+}
+
+.petImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 15px;
+}
