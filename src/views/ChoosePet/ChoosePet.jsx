@@ -23,8 +23,8 @@ export default function ChoosePet() {
   if (loading) return <h1>loading</h1>;
 
   return (
-    <div>
-      <h1>Choose Your Pet!</h1>
+    <div className="choosePetBox">
+      <h1>Choose Your Pet</h1>
       <PetList
         chosenPet={chosenPet}
         setChosenPet={setChosenPet}

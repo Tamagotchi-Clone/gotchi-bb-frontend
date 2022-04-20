@@ -1,4 +1,5 @@
 import React from 'react';
+import './PetPage.css';
 
 export default function Petpage({
   pet,
@@ -11,16 +12,20 @@ export default function Petpage({
 }) {
   return (
     <>
-      <div>
+      <div className="petBox">
         <h1>{pet.name}</h1>
-        <p>{hunger}</p>
-        <p>{clean}</p>
-        <p>{play}</p>
         <img src={pet.image} />
+        <div className="petStats">
+          <p>{hunger}</p>
+          <p>{clean}</p>
+          <p>{play}</p>
+        </div>
       </div>
-      <button onClick={handleFeed}>feed</button>
-      <button onClick={handlePlay}>play</button>
-      <button onClick={handleClean}>clean</button>
+      <div className="buttons">
+        <button onClick={handleFeed}>Feed</button>
+        <button onClick={handlePlay}>Play</button>
+        <button onClick={handleClean}>Clean</button>
+      </div>
     </>
   );
 }
