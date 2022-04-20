@@ -11,21 +11,29 @@ export default function Petpage({
   play,
 }) {
   return (
-    <div className="egg">
+    <>
       <div className="petBox">
         <h1>{pet.name}</h1>
         <img src={pet.image} />
         <div className="petStats">
-          <p>{hunger}</p>
-          <p>{clean}</p>
-          <p>{play}</p>
+          <div className="stat-container">
+            <img src="https://i.postimg.cc/Zv8mtdL7/status-bar.png" />
+            hunger
+            <button onClick={handleFeed}>Feed</button>
+          </div>
+          <div className="stat-container">
+            <img src="https://i.postimg.cc/VJdC1f39/status3.png" />
+            hygiene
+            <button onClick={handleClean}>Clean</button>
+          </div>
+          <div className="stat-container">
+            <img src="https://i.postimg.cc/MvsQhMrK/status2.png" />
+            entertainment
+            <button onClick={handlePlay}>Play</button>
+          </div>
         </div>
+        <div className="buttons"></div>
       </div>
-      <div className="buttons">
-        <button onClick={handleFeed}>Feed</button>
-        <button onClick={handlePlay}>Play</button>
-        <button onClick={handleClean}>Clean</button>
-      </div>
-    </div>
+    </>
   );
 }
