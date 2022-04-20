@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import 'animate.css';
-import { getPetById } from '../../services/pets';
+import { getPets, getPetById } from '../../services/pets';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [randomImageArray, setRandomImageArray] = useState([{}]);
+  const [randomImage, setRandomImage] = useState([{}]);
 
   useEffect(() => {
     const fetchImage = async () => {
-      const data = await getPetById();
-      const randomData = Math.floor(Math.random() * randomImageArray.length);
-      setRandomImageArray(randomData);
+      const data = await getPets();
+      const randomData = data[Math.floor(Math.random() * data.length)];
+      console.log(randomData.image);
+      setRandomImage(randomData.image);
       setLoading(false);
     };
     if (loading) {
@@ -21,15 +22,10 @@ export default function Home() {
   return (
     <div>
       <h1 className="animate__animated animate__flash">Welcome to gotchi bb</h1>
-      {randomImageArray.map((image) => (
-        <div className="homepet" key={image.id}>
-          <img
-            className="animate__animated animate__bounce"
-            src={image.image}
-            alt={image.species}
-          ></img>
-        </div>
-      ))}
+      <img
+        className="animate__animated animate__bounce"
+        src={randomImage}
+      ></img>
     </div>
   );
 }
