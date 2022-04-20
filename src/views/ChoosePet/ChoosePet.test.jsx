@@ -6,7 +6,7 @@ import App from '../../App';
 import ChoosePet from './ChoosePet';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-jest.mock('../../context/UserContext');
+// jest.mock('../../context/UserContext');
 
 const mockUser = {
   id: 1,
@@ -29,8 +29,11 @@ const data = [
 ];
 
 const server = setupServer(
-  rest.get('https://gatchi.herokuapp.com/api/v1/pets', (req, res, ctx) => {
+  rest.get('http://localhost:7890/api/v1/pets', (req, res, ctx) => {
     return res(ctx.json(data));
+  }),
+  rest.get('http://localhost:7890/api/v1/users/me', (req, res, ctx) => {
+    return res(ctx.json(mockUser));
   })
 );
 
@@ -43,22 +46,19 @@ test('all the pets from our pet table render on screen', async () => {
       <App />
     </UserProvider>
   );
-  const pet = await screen.getByRole('img');
+  const pet = await screen.findByRole('img');
   expect(pet).toBeInTheDocument();
 });
 
 test.only('reroutes you to pet page when you submit', async () => {
-  const { container } = render(
+  render(
     <MemoryRouter initialEntries={['/choosepet']}>
       <UserProvider>
-        <Route path="/choosepet">
-          <ChoosePet />
-        </Route>
+        <ChoosePet />
       </UserProvider>
     </MemoryRouter>
   );
-  screen.debug();
-  const loading = screen.getByText(/loading/i);
+  const loading = screen.getByRole('heading');
   expect(loading).toBeInTheDocument();
   //const textbox = await screen.findByLabelText('petnameinput');
   // console.log('LOOKHERE', textbox);
