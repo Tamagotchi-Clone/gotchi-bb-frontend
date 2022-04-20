@@ -2,15 +2,19 @@
 
 Gotchi BB is an online digital pixel pet that users can feed, clean, play with, and chat with. The amount of times one interacts with their pet (feeding, petting, or playing) adds to an overall happiness score that is then ranked on a site leaderboard.
 
+Backend authentication and pet API utilizes PostgreSQL as a database and is deployed on Heroku.
+
 
 [Miro Board](https://miro.com/app/board/uXjVO-XjP74=/?share_link_id=170071917030)
 
 # Dependencies
-- PostGreSQL
+- PostgreSQL
 - Chatbot
 - MSW
 - Jest
 - BCrypt
+- jsonwebtoken
+- node.js
 - CORS
 - React
 
