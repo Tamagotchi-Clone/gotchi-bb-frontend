@@ -3,13 +3,14 @@ input[type='radio'] {
 }
 
 input[type='radio']:checked + img {
-  border: 7px solid pink;
-  border-radius: 30%;
+  background-color: rgb(224, 185, 230);
 }
 
-img {
-  height: 150px;
-  width: 150px;
+.choosepet-div img {
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+  padding: 20px;
 }
 
 .choosepet-div {
@@ -18,13 +19,17 @@ img {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 1000px;
+  width: 900px;
+  margin: auto;
+  border: 1pt solid black;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
 }
 
-.name-input {
+input.name-input {
   padding: 9px;
   width: 200px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -37,4 +42,31 @@ img {
   flex-direction: column;
   margin: auto;
   align-items: center;
+}
+
+.buttondiv {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  margin-top: 10px;
+  justify-content: space-evenly;
+}
+
+.choosepet-div p {
+  text-align: center;
+}
+
+.chooseBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.chooseBox .errorMsg {
+  margin: auto;
+  margin-top: 12px;
+  color: red;
+}
+
+.errorMsg {
+  width: 400px;
 }

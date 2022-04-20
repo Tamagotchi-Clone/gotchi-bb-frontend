@@ -1,0 +1,29 @@
+.homeBox {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: auto;
+}
+
+.homeBox h1,
+img,
+p {
+  margin: auto;
+}
+
+.homeBox img {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.homeBox h1 {
+  font-size: 40pt;
+  margin-top: 60px;
+}
+
+.homeBox p {
+  font-size: 20pt;
+}

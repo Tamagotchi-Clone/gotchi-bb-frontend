@@ -1,4 +1,5 @@
 import React from 'react';
+import './EditPet.css';
 
 export default function EditPet({
   handleSubmit,
@@ -8,19 +9,21 @@ export default function EditPet({
   setName,
 }) {
   return (
-    <>
-      <h1> Your Pet:</h1>
-      <h3>{pet.pet}</h3>
-      <form onSubmit={handleSubmit}>
+    <div className="editPetBox">
+      <h1> edit your bb </h1>
+      <form className="editForm" onSubmit={handleSubmit}>
+        <img className="petImage" src={pet.image} />
         <input
-          placeholder="Edit Name"
+          placeholder={pet.name}
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Change Name</button>
       </form>
-      <button onClick={handleDelete}>Delete Pet</button>
-    </>
+      <button className="delete" onClick={handleDelete}>
+        Delete bb
+      </button>
+    </div>
   );
 }

@@ -1,0 +1,63 @@
+.editForm {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  border: 1pt solid black;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 10px 8px;
+}
+
+.editForm input {
+  margin-bottom: 10px;
+}
+
+.editForm button,
+.delete {
+  border: 1pt solid black;
+  padding: 10px;
+  width: 100px;
+  height: 35px;
+  border-radius: 10px 8px;
+  margin-top: 30px;
+  text-align: center;
+  margin: auto;
+  font-size: 8pt;
+}
+
+.delete {
+  margin: auto;
+  margin-top: 10px;
+  border: 1pt solid black;
+  padding: 10px;
+  width: 100px;
+  height: 35px;
+  border-radius: 10px 8px;
+  font-size: 8pt;
+  color: red;
+}
+
+.petImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.editPetBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.editPetBox h1 {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.editPetBox img {
+  width: 30px;
+  height: 30px;
+}
