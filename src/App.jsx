@@ -9,12 +9,14 @@ import './App.css';
 import Home from './views/Home/Home';
 import PetLoading from './views/PetLoading/PetLoading';
 import Leaderboard from './views/Leaderboard/Leaderboard';
+import Example from './components/Example/Example';
 
 export default function App() {
   return (
     <div>
       <BrowserRouter>
         <Header />
+        <Example />
         <Switch>
           <Route exact path="/">
             <Home />
