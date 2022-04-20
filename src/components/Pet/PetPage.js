@@ -14,7 +14,9 @@ export default function Petpage({
     <>
       <div className="petBox">
         <h1>{pet.name}</h1>
-        <img src={pet.image} />
+        <div className="petScreen">
+          <img src={pet.image} />
+        </div>
         <div className="petStats">
           <div className="stat-container">
             <img src="https://i.postimg.cc/Zv8mtdL7/status-bar.png" />
