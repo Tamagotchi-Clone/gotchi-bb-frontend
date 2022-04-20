@@ -9,8 +9,8 @@ export default function Home() {
   useEffect(() => {
     const fetchImage = async () => {
       const data = await getPetById();
-      const randomData = data.sort((a, b) => 0.5 - Math.random());
-      setRandomPhotoArray(randomData);
+      const randomData = Math.floor(Math.random() * randomImageArray.length);
+      setRandomImageArray(randomData);
       setLoading(false);
     };
     if (loading) {
@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="animate__animated animate__flash">Welcome to Gotchi</h1>
+      <h1 className="animate__animated animate__flash">Welcome to gotchi bb</h1>
       {randomImageArray.map((image) => (
         <div className="homepet" key={image.id}>
           <img
