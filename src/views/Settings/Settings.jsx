@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
 import {
@@ -29,15 +29,15 @@ export default function Settings() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await deleteUserPet(params.id);
-    history.push(`/pets`);
+    await deleteUserPet(pet.id);
+    window.location.replace('/choosepet');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await updateUserPet(pet.id, name);
-      console.log(pet);
+      window.location.replace(`/pet/${pet.id}`);
     } catch (error) {
       console.log(error);
     }

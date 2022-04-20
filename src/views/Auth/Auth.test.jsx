@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import App from '../../App';
 import { UserProvider } from '../../context/UserContext';
 
-test('testing sign up error', async () => {
+test.skip('testing sign up error', async () => {
   render(
     <MemoryRouter>
       <UserProvider>
