@@ -7,7 +7,7 @@ class Bot extends React.Component {
     super(props);
     this.state = {
       messageList: [],
-      socket: io('https://git.heroku.com/gatchi-bot.git', {
+      socket: io('https://gatchi-bot.herokuapp.com', {
         transports: ['websocket'],
       }),
       room: 'user1',

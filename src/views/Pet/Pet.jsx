@@ -98,7 +98,7 @@ export default function Pet() {
         play={play}
         clean={clean}
       />
-      {/* <Bot /> */}
+      <Bot />
     </>
   );
 }
