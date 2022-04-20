@@ -5,8 +5,8 @@
   margin: auto;
   margin-top: 80px;
   border: 2.5pt solid rgb(39, 39, 39);
-  height: 500px;
-  width: 500px;
+  height: 40vw;
+  width: 40vw;
   border-radius: 5%;
   box-shadow: 8px 8px rgb(39, 39, 39);
   background-color: rgba(0, 0, 0, 0.048);
@@ -14,9 +14,9 @@
 
 .petBox img {
   margin: auto;
-  margin-top: 60px;
-  width: 90px;
-  height: 90px;
+  margin-top: 6vw;
+  width: 8vw;
+  height: 8vw;
 }
 
 .petStats p {
