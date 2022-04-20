@@ -13,7 +13,6 @@ export default function Settings() {
   const { user, loading, setLoading } = useUser();
   const [pet, setPet] = useState({});
   const params = useParams();
-  const history = useHistory();
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -31,14 +30,14 @@ export default function Settings() {
   const handleDelete = async (e) => {
     e.preventDefault();
     await deleteUserPet(pet.id);
-    history.push(`/pets`);
+    window.location.replace('/choosepet');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await updateUserPet(pet.id, name);
-      console.log(pet);
+      window.location.replace(`/pet/${pet.id}`);
     } catch (error) {
       console.log(error);
     }
