@@ -6,6 +6,7 @@ Backend authentication and pet API utilizes PostgreSQL as a database and is depl
 
 
 [Miro Board](https://miro.com/app/board/uXjVO-XjP74=/?share_link_id=170071917030)
+
 [Backend](https://github.com/Tamagotchi-Clone/gotchi-bb-backend)
 
 # Dependencies
