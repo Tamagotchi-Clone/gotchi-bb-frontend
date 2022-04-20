@@ -16,3 +16,7 @@
   margin: auto;
   margin-bottom: 20px;
 }
+
+.board p {
+  font-size: 10pt;
+}
