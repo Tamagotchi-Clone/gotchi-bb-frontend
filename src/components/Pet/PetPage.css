@@ -19,6 +19,10 @@
   height: 90px;
 }
 
+.petStats p {
+  font-size: 11.5pt;
+}
+
 .petStats {
   display: flex;
   flex-direction: column;
