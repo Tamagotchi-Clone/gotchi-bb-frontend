@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
 import {
@@ -13,6 +13,7 @@ export default function Settings() {
   const { user, loading, setLoading } = useUser();
   const [pet, setPet] = useState({});
   const params = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchPet = async () => {
