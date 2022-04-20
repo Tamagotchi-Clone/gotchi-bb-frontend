@@ -1,6 +1,7 @@
 import React from 'react';
 import { Launcher } from 'react-chat-window';
 import io from 'socket.io-client';
+import './bot.css';
 
 class Bot extends React.Component {
   constructor(props) {

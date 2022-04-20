@@ -2,3 +2,17 @@
   border-top: 1pt solid black;
   padding-top: 20px;
 }
+
+.rows {
+  padding: 15px;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+}
+
+.board h1 {
+  margin: auto;
+  margin-bottom: 20px;
+}
