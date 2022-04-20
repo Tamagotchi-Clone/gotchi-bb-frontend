@@ -7,6 +7,7 @@ import {
   cleanUserPet,
   playUserPet,
   getUserPetByUser,
+  getUserPetById,
 } from '../../services/userpets';
 import { calculateHappiness, happinessScore } from '../utils/needs';
 
@@ -20,7 +21,7 @@ export default function Pet() {
 
   useEffect(() => {
     const fetchPet = async () => {
-      const data = await getUserPetByUser(params.id);
+      const data = await getUserPetById(params.id);
 
       const hunger = await happinessScore(pet.hunger, params.id);
       const hungerScore = calculateHappiness(hunger);

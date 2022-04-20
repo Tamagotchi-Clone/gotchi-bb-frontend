@@ -12,7 +12,6 @@ export default function ChoosePet() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPets();
-      console.log('data', data);
       setPets(data);
       setLoading(false);
     };

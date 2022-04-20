@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
 import {
@@ -13,7 +13,6 @@ export default function Settings() {
   const { user, loading, setLoading } = useUser();
   const [pet, setPet] = useState({});
   const params = useParams();
-  console.log(user);
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -30,16 +29,15 @@ export default function Settings() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await deleteUserPet(params.id);
-    history.push(`/pets`);
+    await deleteUserPet(pet.id);
+    window.location.replace('/choosepet');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateUserPet(name);
-      console.log(pet);
-      // history.push(`/pets/${params.id}`);
+      await updateUserPet(pet.id, name);
+      window.location.replace(`/pet/${pet.id}`);
     } catch (error) {
       console.log(error);
     }
@@ -52,6 +50,8 @@ export default function Settings() {
         handleDelete={handleDelete}
         pet={pet}
         setPet={setPet}
+        name={name}
+        setName={setName}
       />
     </>
   );

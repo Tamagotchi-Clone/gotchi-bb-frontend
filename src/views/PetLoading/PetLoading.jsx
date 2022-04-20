@@ -8,28 +8,27 @@ import { getUserPetByUser } from '../../services/userpets';
 import ChoosePet from '../ChoosePet/ChoosePet';
 
 export default function Loading() {
-  const [pets, setPets] = useState(null);
+  const { pet, setPet } = usePet();
   const { user, loading, setLoading } = useUser();
   useEffect(() => {
     if (loading && user) {
       getUserPetByUser(user.id)
-        .then((data) => setPets(data))
+        .then((data) => setPet(data))
         .finally(() => setLoading(false));
     }
   }, [loading, user]);
 
-
   if (loading) return <h1>loading..</h1>;
   return (
     <div>
-      {pets?.id ? (
+      {!loading && pet?.id ? (
         <>
-          <h1>YOU HAVE A PET</h1>
-          <Redirect to={`/pets/${pets.id}`} />
+          <h1>Taking you to pet page...</h1>
+          <Redirect to={`/pet/${pet.id}`} />
         </>
       ) : (
         <>
-          <h1>you need a pet</h1>
+          <h1></h1>
           <ChoosePet />
         </>
       )}
