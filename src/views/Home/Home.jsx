@@ -22,11 +22,23 @@ export default function Home() {
 
   return (
     <div className="homeBox">
-      <h1 className="animate__animated animate__flash">Welcome to gotchi bb</h1>
-      <img
-        className="animate__animated animate__bounce"
-        src={randomImage}
-      ></img>
+      <h1 className="animate__animated animate__flash">
+        Welcome to <b className="b">gotchi bb</b>
+      </h1>
+      <div className="imageStack">
+        <div className="images">
+          <img
+            className="animate__animated animate__bounce"
+            src={randomImage}
+          ></img>
+        </div>
+        <div>
+          <img
+            className="bubble"
+            src="https://64.media.tumblr.com/c25ec7fde672bbcb5c36602e5c1a207c/c14749884306b11a-a2/s250x400/3a3b2d60a0c65ca3d86255a39ddf1f35cac2bd14.gifv"
+          />
+        </div>
+      </div>
       <p>Pixel bb you can feed, clean, play with, and chat with.</p>
     </div>
   );

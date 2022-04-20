@@ -21,6 +21,7 @@
 
 .petStats p {
   font-size: 11.5pt;
+  margin: 0;
 }
 
 .petStats {
@@ -29,7 +30,7 @@
   justify-content: space-evenly;
   margin-left: 20px;
   margin-bottom: 20px;
-  width: fit-content;
+  width: 100px;
   text-align: left;
   color: rgba(0, 0, 0, 0.493);
 }

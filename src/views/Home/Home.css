@@ -10,13 +10,16 @@ img,
 p {
   margin: auto;
 }
+.bubble img {
+  height: 1px;
+}
 
-.homeBox img {
+.images img {
   width: 100px;
   height: 100px;
   margin: auto;
-  margin-top: 60px;
-  margin-bottom: 80px;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
 
 .homeBox h1 {
@@ -26,4 +29,14 @@ p {
 
 .homeBox p {
   font-size: 12pt;
+}
+
+.bubble {
+  opacity: 70%;
+  height: 50px;
+  margin-top: 60px;
+}
+.imageStack {
+  display: flex;
+  margin: auto;
 }
