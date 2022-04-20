@@ -11,7 +11,7 @@ export default function Petpage({
   play,
 }) {
   return (
-    <>
+    <div className="egg">
       <div className="petBox">
         <h1>{pet.name}</h1>
         <img src={pet.image} />
@@ -26,6 +26,6 @@ export default function Petpage({
         <button onClick={handlePlay}>Play</button>
         <button onClick={handleClean}>Clean</button>
       </div>
-    </>
+    </div>
   );
 }
