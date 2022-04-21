@@ -4,7 +4,10 @@
   border: 2.5pt solid rgb(39, 39, 39);
   background-color: #dde4e0 !important;
   height: 43vh !important;
-  /* position: absolute !important; */
+  width: 23vw !important;
+  position: fixed;
+  margin-bottom: 100px;
+  margin-right: 5vw;
 }
 
 .sc-header {
@@ -23,6 +26,18 @@
   background: transparent !important;
 }
 
+.sc-user-input--text::before {
+  color: black !important;
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: normal;
+}
+
+.sc-user-input--text {
+  color: black !important;
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: bold;
+}
+
 .sc-message--text {
   background-color: #b5c3bb !important;
   color: black !important;
@@ -39,10 +54,8 @@
   background-color: transparent !important;
   width: 300px !important;
   height: 70px !important;
-  /* transition: none !important; */
-  /* right: 0px !important;
-  bottom: 0px !important; */
 }
+
 .sc-launcher:hover {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -51,4 +64,13 @@
 .sc-closed-icon,
 .sc-open-icon {
   display: none !important;
+}
+
+.sc-launcher::before {
+  display: none;
+}
+
+.sc-header--close-button,
+.sc-header--img {
+  display: none;
 }
