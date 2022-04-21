@@ -86,6 +86,7 @@ export default function Pet() {
       await feedUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
+      setHunger('happy');
       if (
         hunger === 'miserable' ||
         hunger === 'unhappy' ||
@@ -114,6 +115,7 @@ export default function Pet() {
       await cleanUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
+      setClean('happy');
       if (
         clean === 'miserable' ||
         clean === 'unhappy' ||
@@ -141,6 +143,7 @@ export default function Pet() {
       await playUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
+      setPlay('happy');
       if (play === 'miserable' || play === 'unhappy' || play === 'satisfied') {
         await updatePetScore(
           user.id,
