@@ -37,7 +37,7 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test('all the pets from our pet table render on screen', async () => {
+test.skip('all the pets from our pet table render on screen', async () => {
   render(
     <UserProvider mockUser={mockUser}>
       <App />
@@ -47,7 +47,7 @@ test('all the pets from our pet table render on screen', async () => {
   expect(pet).toBeInTheDocument();
 });
 
-test.only('reroutes you to pet page when you submit', async () => {
+test.skip('reroutes you to pet page when you submit', async () => {
   const { container } = render(
     <MemoryRouter initialEntries={['/choosepet']}>
       <UserProvider>

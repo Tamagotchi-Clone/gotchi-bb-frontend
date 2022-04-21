@@ -5,18 +5,24 @@
   margin: auto;
   margin-top: 1vw;
   border: 2.5pt solid rgb(39, 39, 39);
-  height: 33vw;
+  min-height: 65vh;
   width: 33vw;
   border-radius: 5%;
   box-shadow: 8px 8px rgb(39, 39, 39);
   background-color: #dde4e0;
 }
 
-.petBox img {
+.petScreen {
+  width: 23vw;
+  min-height: 20vw;
   margin: auto;
-  margin-top: 6vw;
-  width: 7vw;
-  height: 7vw;
+  background-color: #b5c3bb;
+  border-radius: 6%;
+  border: 2.5pt solid #eff7f2;
+}
+.petBox img {
+  width: 10vw;
+  height: 10vw;
 }
 
 .petStats p {
@@ -26,25 +32,49 @@
 
 .petStats {
   display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  width: 25rem;
-  text-align: left;
-  color: rgba(0, 0, 0, 0.493);
+  align-items: center;
+  width: 20vw;
+  margin: 0 auto 20px auto;
+}
+
+.petStats img {
+  width: 50px;
+  height: 25px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.stat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-evenly;
+  width: 100px;
+  margin: auto;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: auto;
-  margin-top: 40px;
-  width: 40vw;
+  width: 28vw;
+  margin: 30px auto;
 }
-button {
-  padding: 8px 30px 10px 30px;
+
+.buttons button {
+  padding: 5px 10px 5px 10px;
+  box-shadow: 2px 2px rgb(39, 39, 39);
+  border-radius: 10px;
+  border: 1.5pt solid rgb(39, 39, 39);
+  background-color: #fefefe;
+  font-family: 'Electrolize', sans-serif;
+  font-size: 1.1em;
+}
+
+.buttons button:hover {
+  background-color: #b5c3bb;
+  color: #fefefe;
+  font-weight: bold;
 }
 
 .petBox h1 {
