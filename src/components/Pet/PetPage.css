@@ -12,14 +12,18 @@
   background-color: #dde4e0;
 }
 
-
 .msg {
   display: flex;
   margin: auto;
   width: fit-content;
   margin-top: 10px;
   animation: fadeOut 2s forwards;
+  font-weight: bold;
   animation-delay: 5s;
+}
+
+.msg-container {
+  height: 3vh;
 }
 
 @keyframes fadeOut {
@@ -46,7 +50,9 @@
 }
 
 .petStats p {
-  font-size: 1.3vw;
+  font-size: 0.9rem;
+  font-family: 'Electrolize', sans-serif;
+  color: #2b2b2b;
   margin: 0;
 }
 
@@ -59,8 +65,8 @@
 }
 
 .petStats img {
-  width: 50px;
-  height: 25px;
+  width: 3vw;
+  height: 1.5vw;
   margin-top: 30px;
   position: relative;
 }
@@ -69,7 +75,7 @@
   display: flex;
   flex-direction: column;
   align-items: space-evenly;
-  width: 100px;
+  width: 50vw;
   margin: auto;
 }
 

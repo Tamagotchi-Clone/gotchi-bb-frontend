@@ -10,6 +10,7 @@ export default function Petpage({
   hunger,
   clean,
   play,
+  msg,
 }) {
   return (
     <>
@@ -20,20 +21,22 @@ export default function Petpage({
           <img src={pet.image} />
           <div className="petStats">
             <div className="stat-container">
-              <img src="https://i.postimg.cc/Zv8mtdL7/status-bar.png" />
-              hunger
-              {/* <button onClick={handleFeed}>Feed</button> */}
+              <img src={hunger} />
+              <p>hunger</p>
             </div>
             <div className="stat-container">
-              <img src="https://i.postimg.cc/VJdC1f39/status3.png" />
-              hygiene
-              {/* <button onClick={handleClean}>Clean</button> */}
+              <img src={clean} />
+              <p> hygiene</p>
             </div>
             <div className="stat-container">
-              <img src="https://i.postimg.cc/MvsQhMrK/status2.png" />
-              entertainment
+              <img src={play} />
+              <p>amusement</p>
             </div>
           </div>
+        </div>
+        <div className="msg-container">
+          {' '}
+          {msg ? <p className="msg">{msg}</p> : ''}
         </div>
         <div className="buttons">
           <button onClick={handleFeed}>Feed</button>

@@ -41,9 +41,11 @@
 .sc-message--text {
   background-color: #b5c3bb !important;
   color: black !important;
-  /* font-family: 'Roboto Mono'; */
 }
 
+.sc-message--avatar {
+  display: none !important;
+}
 .sc-user-input--file-icon {
   display: none !important;
 }
@@ -52,9 +54,9 @@
   margin-top: 20px;
   position: static !important;
   background-image: url(https://i.ibb.co/59pk7sF/letschat.gif);
+  background-size: contain;
   background-color: transparent !important;
-  width: 300px !important;
-  height: 70px !important;
+  width: 15vw !important;
   cursor: pointer;
   opacity: 0.7;
 }
