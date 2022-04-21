@@ -4,6 +4,8 @@ import { setupServer } from 'msw/node';
 import { UserProvider } from '../../context/UserContext';
 import App from '../../App';
 import Home from './Home';
+import { MemoryRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
 
 const data = [
   {
@@ -37,4 +39,23 @@ test('randomized pet renders on home screen', async () => {
   );
   const pet = await screen.findByRole('img');
   expect(pet).toBeInTheDocument();
+});
+
+test.only('nav bar takes you where you need to go', async () => {
+  render(
+    <MemoryRouter>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </MemoryRouter>
+  );
+  const link = await screen.findByRole('link', {
+    name: /leaderboard/i,
+  });
+
+  userEvent.click(link);
+  const heading = await screen.findByRole('heading', {
+    name: /users leaderboard/i,
+  });
+  expect(heading).toBeInTheDocument();
 });
