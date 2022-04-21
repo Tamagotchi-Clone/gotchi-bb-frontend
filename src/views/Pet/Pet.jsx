@@ -19,10 +19,11 @@ export default function Pet() {
   const [play, setPlay] = useState('');
   const [clean, setClean] = useState('');
   const [loading, setLoading] = useState(true);
-  const params = useParams();
-  const { user } = useUser();
   const [score, setScore] = useState({});
   const [msg, setMsg] = useState('');
+  const [isActive, setActive] = useState(false);
+  const params = useParams();
+  const { user } = useUser();
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -30,15 +31,12 @@ export default function Pet() {
 
       const hunger = await happinessScore(pet.hunger, params.id);
       const hungerScore = await calculateHappiness(hunger);
-      console.log('hungerScore', hungerScore);
 
       const clean = await happinessScore(pet.cleanliness, params.id);
       const cleanScore = await calculateHappiness(clean);
-      console.log('cleanScore', cleanScore);
 
       const play = await happinessScore(pet.play, params.id);
       const playScore = await calculateHappiness(play);
-      console.log('playScore', playScore);
 
       setPet(data);
 
@@ -46,10 +44,9 @@ export default function Pet() {
         setHunger('https://i.ibb.co/5cf7FvT/status3.png');
       } else if (hungerScore === 'unhappy') {
         setHunger('https://i.ibb.co/r2Q6gXS/status2.png');
-        setStatusBar('1');
       } else if (hungerScore === 'satisfied') {
         setHunger('https://i.ibb.co/1913vcW/status1.png');
-      } else {
+      } else if (hungerScore === 'happy') {
         setHunger('https://i.ibb.co/vdXWNyF/status.png');
       }
 
@@ -84,7 +81,8 @@ export default function Pet() {
       await feedUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      setHunger('happy');
+      setActive(!isActive);
+      setHunger('https://i.ibb.co/vdXWNyF/status.png');
       if (
         hunger === 'miserable' ||
         hunger === 'unhappy' ||
@@ -113,7 +111,8 @@ export default function Pet() {
       await cleanUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      setClean('happy');
+      setActive(!isActive);
+      setClean('https://i.ibb.co/vdXWNyF/status.png');
       if (
         clean === 'miserable' ||
         clean === 'unhappy' ||
@@ -125,11 +124,13 @@ export default function Pet() {
           score.cleanliness + 1,
           score.play
         );
+        setActive(isActive);
       } else {
         setMsg(`${pet.name} is not dirty yet!`);
         setTimeout(() => {
           setMsg('');
         }, 5000);
+        setActive(isActive);
       }
     } catch (error) {
       console.log('error', error);
@@ -140,8 +141,9 @@ export default function Pet() {
     try {
       await playUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
+      setActive(!isActive);
       setScore(score);
-      setPlay('happy');
+      setPlay('https://i.ibb.co/vdXWNyF/status.png');
       if (play === 'miserable' || play === 'unhappy' || play === 'satisfied') {
         await updatePetScore(
           user.id,
@@ -149,6 +151,7 @@ export default function Pet() {
           score.cleanliness + 1,
           score.play
         );
+        setActive(isActive);
       } else {
         setMsg(`${pet.name} is not bored!`);
         setTimeout(() => {
@@ -172,6 +175,7 @@ export default function Pet() {
         play={play}
         clean={clean}
         msg={msg}
+        isActive={isActive}
       />
     </>
   );
