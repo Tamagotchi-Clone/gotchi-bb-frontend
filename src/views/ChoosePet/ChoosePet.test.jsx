@@ -25,7 +25,7 @@ const data = [
   { id: '3', species: 'Dino', image: 'https://i.postimg.cc/bGkYHhRQ/pet3.png' },
 ];
 const server = setupServer(
-  rest.get('http://localhost:7890/api/v1/pets', (req, res, ctx) => {
+  rest.get(`${process.env.API_URL}/api/v1/pets`, (req, res, ctx) => {
     return res(ctx.json(data));
   }),
   rest.get('http://localhost:7890/api/v1/users/me', (req, res, ctx) => {

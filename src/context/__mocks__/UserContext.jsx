@@ -1,20 +1,18 @@
-import { useContext, useState } from 'react';
-import { useEffect } from 'react';
-import { createContext } from 'react';
-import { getCurrentUser } from '../services/users';
+import { createContext, useContext, useState } from 'react';
 
 export const UserContext = createContext();
 
-export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getCurrentUser()
-      .then((user) => setUser(user))
-      .finally(() => setLoading(false));
-  }, []);
+export const UserProvider = ({ mockUser, children }) => {
+  const [user, setUser] = useState(
+    mockUser
+      ? {
+          id: mockUser.id,
+          username: mockUser.username,
+        }
+      : {}
+  );
 
-  const contextValue = { user, setUser, loading, setLoading };
+  const contextValue = { user, setUser };
 
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
@@ -24,7 +22,7 @@ export const UserProvider = ({ children }) => {
 export const useUser = () => {
   const context = useContext(UserContext);
   if (context === undefined) {
-    throw new Error('error, needs user provider');
+    throw new Error('Error: useUser needs to be used within UserContext');
   }
   return context;
 };
