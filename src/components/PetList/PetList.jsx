@@ -23,7 +23,6 @@ export default function PetList({
     if (name === '') {
       setErrorMsg('Please type in a name.');
     } else {
-      console.log('click');
       try {
         await postUserPet({ userId: user.id, petId: chosenPet.id, name });
         await postPetScore({
@@ -33,7 +32,6 @@ export default function PetList({
           cleanliness: 0,
         });
         const score = await getPetScoreByUserId(user.id);
-        console.log('score', score);
         window.location.replace('/pet');
       } catch (error) {
         console.log(error);
@@ -57,19 +55,19 @@ export default function PetList({
             </label>
           </div>
         ))}
-      </div>
-      <div className="buttondiv">
-        <input
-          aria-label="petnameinput"
-          className="name-input"
-          type="text"
-          placeholder="Pet Name"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        ></input>
-        <button className="choosepet-button" onClick={handleChoosePet}>
-          Make Pet!
-        </button>
+        <div className="buttondiv">
+          <input
+            aria-label="petnameinput"
+            className="name-input"
+            type="text"
+            placeholder="Pet Name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          ></input>
+          <button className="choosepet-button" onClick={handleChoosePet}>
+            Make Pet!
+          </button>
+        </div>
       </div>
       <p className="errorMsg">{errorMsg}</p>
     </div>

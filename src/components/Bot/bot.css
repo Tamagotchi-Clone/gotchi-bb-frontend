@@ -40,6 +40,8 @@
 
 .sc-message--text {
   background-color: #b5c3bb !important;
+  border: 1.5pt solid #eff7f2;
+  border-radius: 10px;
   color: black !important;
 }
 

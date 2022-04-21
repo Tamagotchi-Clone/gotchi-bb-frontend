@@ -43,3 +43,17 @@ export const updatePetScore = async (userId, hunger, play, cleanliness) => {
     return null;
   }
 };
+
+export const deleteUserScore = async (userId) => {
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/scores/${userId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      mode: 'cors',
+    });
+    return await res.json();
+  } catch (error) {
+    throw error;
+  }
+};

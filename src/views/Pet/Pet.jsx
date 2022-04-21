@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PetPage from '../../components/Pet/PetPage';
-import Bot from '../../components/Bot/Bot';
 import {
   feedUserPet,
   cleanUserPet,
@@ -12,6 +11,7 @@ import { calculateHappiness, happinessScore } from '../utils/needs';
 import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
 import { useUser } from '../../context/UserContext';
 import '../../components/Pet/PetPage.css';
+import FadeIn from 'react-fade-in/lib/FadeIn';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
@@ -76,7 +76,6 @@ export default function Pet() {
   }, [loading]);
 
   const handleFeed = async (e) => {
-    console.log(hunger);
     e.preventDefault();
     try {
       await feedUserPet(params.id);
@@ -97,7 +96,6 @@ export default function Pet() {
           setMsg('');
         }, 5000);
       }
-      console.log('hunger', pet.hunger);
     } catch (error) {
       console.log('error', error);
     }
@@ -156,7 +154,7 @@ export default function Pet() {
 
   if (loading) return <span className="loader"></span>;
   return (
-    <>
+    <FadeIn delay={30}>
       <PetPage
         pet={pet}
         handleFeed={handleFeed}
@@ -168,6 +166,6 @@ export default function Pet() {
         msg={msg}
         isActive={isActive}
       />
-    </>
+    </FadeIn>
   );
 }

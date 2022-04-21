@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
-import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
+import {
+  deleteUserScore,
+  getPetScoreByUserId,
+  updatePetScore,
+} from '../../services/petscores';
 import {
   deleteUserPet,
   getUserPetById,
   updateUserPet,
 } from '../../services/userpets';
+import FadeIn from 'react-fade-in/lib/FadeIn';
 
 export default function Settings() {
   const [name, setName] = useState('');
@@ -33,7 +38,7 @@ export default function Settings() {
     if (confirm('Are you sure you want to delete your bb?')) {
       await deleteUserPet(pet.id);
       await getPetScoreByUserId(user.id);
-      await updatePetScore(user.id, 0, 0, 0);
+      await deleteUserScore(user.id);
       window.location.replace('/choosepet');
     }
   };
@@ -49,7 +54,7 @@ export default function Settings() {
   };
 
   return (
-    <>
+    <FadeIn delay={30}>
       <EditPet
         handleSubmit={handleSubmit}
         handleDelete={handleDelete}
@@ -58,6 +63,6 @@ export default function Settings() {
         name={name}
         setName={setName}
       />
-    </>
+    </FadeIn>
   );
 }
