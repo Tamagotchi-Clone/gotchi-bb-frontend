@@ -21,15 +21,15 @@ export default function Petpage({
           <img src={pet.image} />
           <div className="petStats">
             <div className="stat-container">
-              <img src="https://i.postimg.cc/Zv8mtdL7/status-bar.png" />
+              {hunger}
               <p>hunger</p>
             </div>
             <div className="stat-container">
-              <img src="https://i.postimg.cc/VJdC1f39/status3.png" />
+              {clean}
               <p> hygiene</p>
             </div>
             <div className="stat-container">
-              <img src="https://i.postimg.cc/MvsQhMrK/status2.png" />
+              {play}
               <p>amusement</p>
             </div>
           </div>

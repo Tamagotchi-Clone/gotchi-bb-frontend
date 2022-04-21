@@ -6,7 +6,6 @@ import {
   feedUserPet,
   cleanUserPet,
   playUserPet,
-  getUserPetByUser,
   getUserPetById,
 } from '../../services/userpets';
 import { calculateHappiness, happinessScore } from '../utils/needs';
@@ -28,18 +27,17 @@ export default function Pet() {
   useEffect(() => {
     const fetchPet = async () => {
       const data = await getUserPetById(params.id);
-      console.log('first', pet.play);
 
       const hunger = await happinessScore(pet.hunger, params.id);
-      const hungerScore = calculateHappiness(hunger);
+      const hungerScore = await calculateHappiness(hunger);
       console.log('hungerScore', hungerScore);
 
       const clean = await happinessScore(pet.cleanliness, params.id);
-      const cleanScore = calculateHappiness(clean);
+      const cleanScore = await calculateHappiness(clean);
       console.log('cleanScore', cleanScore);
 
       const play = await happinessScore(pet.play, params.id);
-      const playScore = calculateHappiness(play);
+      const playScore = await calculateHappiness(play);
       console.log('playScore', playScore);
 
       setPet(data);
@@ -57,7 +55,7 @@ export default function Pet() {
 
       if (playScore === 'miserable') {
         setPlay('miserable');
-        console.log('miserable');
+        console.log(playScore);
       } else if (playScore === 'unhappy') {
         setPlay('unhappy');
       } else if (playScore === 'satisfied') {
