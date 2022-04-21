@@ -50,8 +50,8 @@ export default function Pet() {
         setHunger('https://i.ibb.co/vdXWNyF/status.png');
       }
 
-      if (playScore === 'https://i.ibb.co/5cf7FvT/status3.png') {
-        setPlay('miserable');
+      if (playScore === 'miserable') {
+        setPlay('https://i.ibb.co/5cf7FvT/status3.png');
       } else if (playScore === 'unhappy') {
         setPlay('https://i.ibb.co/r2Q6gXS/status2.png');
       } else if (playScore === 'satisfied') {
@@ -76,24 +76,21 @@ export default function Pet() {
   }, [loading]);
 
   const handleFeed = async (e) => {
+    console.log(hunger);
     e.preventDefault();
     try {
       await feedUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
       setActive(!isActive);
-      setHunger('https://i.ibb.co/vdXWNyF/status.png');
-      if (
-        hunger === 'miserable' ||
-        hunger === 'unhappy' ||
-        hunger === 'satisfied'
-      ) {
+      if (hunger === 'https://i.ibb.co/5cf7FvT/status3.png') {
         await updatePetScore(
           user.id,
           score.hunger + 1,
           score.cleanliness,
           score.play
         );
+        setHunger('https://i.ibb.co/vdXWNyF/status.png');
       } else {
         setMsg(`${pet.name} is not hungry yet!`);
         setTimeout(() => {
@@ -112,25 +109,20 @@ export default function Pet() {
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
       setActive(!isActive);
-      setClean('https://i.ibb.co/vdXWNyF/status.png');
-      if (
-        clean === 'miserable' ||
-        clean === 'unhappy' ||
-        clean === 'satisfied'
-      ) {
+      if (clean === 'https://i.ibb.co/5cf7FvT/status3.png') {
         await updatePetScore(
           user.id,
           score.hunger,
           score.cleanliness + 1,
           score.play
         );
+        setClean('https://i.ibb.co/vdXWNyF/status.png');
         setActive(isActive);
       } else {
         setMsg(`${pet.name} is not dirty yet!`);
         setTimeout(() => {
           setMsg('');
         }, 5000);
-        setActive(isActive);
       }
     } catch (error) {
       console.log('error', error);
@@ -143,15 +135,14 @@ export default function Pet() {
       const score = await getPetScoreByUserId(user.id);
       setActive(!isActive);
       setScore(score);
-      setPlay('https://i.ibb.co/vdXWNyF/status.png');
-      if (play === 'miserable' || play === 'unhappy' || play === 'satisfied') {
+      if (play === 'https://i.ibb.co/5cf7FvT/status3.png') {
         await updatePetScore(
           user.id,
           score.hunger,
           score.cleanliness + 1,
           score.play
         );
-        setActive(isActive);
+        setPlay('https://i.ibb.co/vdXWNyF/status.png');
       } else {
         setMsg(`${pet.name} is not bored!`);
         setTimeout(() => {
