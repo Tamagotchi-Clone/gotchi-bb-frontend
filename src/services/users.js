@@ -11,7 +11,7 @@ export async function signIn({ username, password }) {
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    return null;
+    throw new Error();
   }
 }
 
@@ -28,7 +28,7 @@ export async function signUp({ username, password }) {
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    return null;
+    throw new Error();
   }
 }
 
@@ -41,7 +41,7 @@ export async function getCurrentUser() {
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    return null;
+    console.log('ERROR', error);
   }
 }
 
