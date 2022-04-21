@@ -4,7 +4,7 @@
   border: 2.5pt solid rgb(39, 39, 39);
   background-color: #dde4e0 !important;
   height: 43vh !important;
-  /* position: static !important; */
+  /* position: absolute !important; */
 }
 
 .sc-header {
@@ -30,5 +30,25 @@
 }
 
 .sc-user-input--file-icon {
+  display: none !important;
+}
+
+.sc-launcher {
+  position: static !important;
+  background-image: url(https://i.ibb.co/vv4Ht07/ezgif-3-221e49a295.gif);
+  background-color: transparent !important;
+  width: 300px !important;
+  height: 70px !important;
+  /* transition: none !important; */
+  /* right: 0px !important;
+  bottom: 0px !important; */
+}
+.sc-launcher:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.sc-closed-icon,
+.sc-open-icon {
   display: none !important;
 }
