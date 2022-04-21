@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
-import {
-  deleteUserScore,
-  getPetScoreByUserId,
-  updatePetScore,
-} from '../../services/petscores';
+import { deleteUserScore, getPetScoreByUserId } from '../../services/petscores';
 import {
   deleteUserPet,
   getUserPetById,
@@ -46,8 +42,12 @@ export default function Settings() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateUserPet(pet.id, name);
-      window.location.replace(`/pet/${pet.id}`);
+      if (name === '') {
+        alert('Please type in a new name to change.');
+      } else {
+        await updateUserPet(pet.id, name);
+        window.location.replace(`/pet/${pet.id}`);
+      }
     } catch (error) {
       console.log(error);
     }

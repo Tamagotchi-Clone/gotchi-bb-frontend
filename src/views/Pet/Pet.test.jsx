@@ -1,13 +1,8 @@
-import {
-  screen,
-  render,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import App from '../../App';
 import { UserProvider } from '../../context/UserContext';
-import userEvent from '@testing-library/user-event';
 
 const mockUser = {
   id: 1,
