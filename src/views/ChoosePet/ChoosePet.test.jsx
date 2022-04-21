@@ -35,16 +35,18 @@ const server = setupServer(
 );
 beforeAll(() => server.listen());
 afterAll(() => server.close());
+
 test('all the pets from our pet table render on screen', async () => {
   render(
     <UserProvider mockUser={mockUser}>
-      <App />
+      <ChoosePet />
     </UserProvider>
   );
   const pet = await screen.findByAltText('Seahorse');
   expect(pet).toBeInTheDocument();
 });
-test.only('reroutes you to pet page when you submit', async () => {
+
+test('reroutes you to pet page when you submit', async () => {
   render(
     <MemoryRouter initialEntries={['/choosepet']}>
       <UserProvider>
