@@ -64,8 +64,6 @@ test('renders the loading when logged in', async () => {
       </UserProvider>
     </MemoryRouter>
   );
-  const loading = await screen.findByText('loading');
-  await waitForElementToBeRemoved(loading);
 
   const pet = await screen.findByText(/pet/i);
   expect(pet).toBeInTheDocument();
