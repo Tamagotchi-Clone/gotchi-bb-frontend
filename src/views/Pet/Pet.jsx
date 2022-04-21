@@ -30,15 +30,12 @@ export default function Pet() {
 
       const hunger = await happinessScore(pet.hunger, params.id);
       const hungerScore = await calculateHappiness(hunger);
-      console.log('hungerScore', hungerScore);
 
       const clean = await happinessScore(pet.cleanliness, params.id);
       const cleanScore = await calculateHappiness(clean);
-      console.log('cleanScore', cleanScore);
 
       const play = await happinessScore(pet.play, params.id);
       const playScore = await calculateHappiness(play);
-      console.log('playScore', playScore);
 
       setPet(data);
 
@@ -46,10 +43,9 @@ export default function Pet() {
         setHunger('https://i.ibb.co/5cf7FvT/status3.png');
       } else if (hungerScore === 'unhappy') {
         setHunger('https://i.ibb.co/r2Q6gXS/status2.png');
-        setStatusBar('1');
       } else if (hungerScore === 'satisfied') {
         setHunger('https://i.ibb.co/1913vcW/status1.png');
-      } else {
+      } else if (hungerScore === 'happy') {
         setHunger('https://i.ibb.co/vdXWNyF/status.png');
       }
 
@@ -84,7 +80,7 @@ export default function Pet() {
       await feedUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      setHunger('happy');
+      await setHunger('https://i.ibb.co/vdXWNyF/status.png');
       if (
         hunger === 'miserable' ||
         hunger === 'unhappy' ||
@@ -113,7 +109,7 @@ export default function Pet() {
       await cleanUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      setClean('happy');
+      setClean('https://i.ibb.co/vdXWNyF/status.png');
       if (
         clean === 'miserable' ||
         clean === 'unhappy' ||
@@ -141,7 +137,7 @@ export default function Pet() {
       await playUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      setPlay('happy');
+      setPlay('https://i.ibb.co/vdXWNyF/status.png');
       if (play === 'miserable' || play === 'unhappy' || play === 'satisfied') {
         await updatePetScore(
           user.id,
