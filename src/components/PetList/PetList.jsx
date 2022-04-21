@@ -23,7 +23,6 @@ export default function PetList({
     if (name === '') {
       setErrorMsg('Please type in a name.');
     } else {
-      console.log('click');
       try {
         await postUserPet({ userId: user.id, petId: chosenPet.id, name });
         await postPetScore({
@@ -33,7 +32,6 @@ export default function PetList({
           cleanliness: 0,
         });
         const score = await getPetScoreByUserId(user.id);
-        console.log('score', score);
         window.location.replace('/pet');
       } catch (error) {
         console.log(error);
