@@ -1,4 +1,8 @@
-import { screen, render } from '@testing-library/react';
+import {
+  screen,
+  render,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import App from '../../App';
@@ -23,45 +27,41 @@ const data = [
   },
   { id: '3', species: 'Dino', image: 'https://i.postimg.cc/bGkYHhRQ/pet3.png' },
 ];
+const pet = {
+  cleanliness: '2022-04-21T17:51:50.940Z',
+  hunger: '2022-04-21T17:51:47.178Z',
+  id: '3',
+  name: 'd',
+  petId: '1',
+  play: '2022-04-21T17:51:49.195Z',
+  userId: '1',
+};
 const server = setupServer(
-  rest.get('http://localhost:7890/api/v1/pets', (req, res, ctx) => {
+  rest.get(`${process.env.API_URL}/api/v1/pets`, (req, res, ctx) => {
     return res(ctx.json(data));
   }),
-  rest.get('http://localhost:7890/api/v1/users/me', (req, res, ctx) => {
+  rest.get(`${process.env.API_URL}/api/v1/users/me`, (req, res, ctx) => {
     return res(ctx.json(mockUser));
-  })
+  }),
+  rest.get(
+    `${process.env.API_URL}/api/v1/userpets/users/1`,
+    (req, res, ctx) => {
+      return res(ctx.json(pet));
+    }
+  )
 );
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.skip('can feed your pet', async () => {
+test('can feed your pet', async () => {
   render(
     <UserProvider mockUser={mockUser}>
       <App />
     </UserProvider>
   );
-  const petPage = await screen.findByRole('link', {
-    name: /your bb/i,
-  });
-  userEvent.click(petPage);
-  const feedButton = await screen.findByRole('button', {
-    name: /feed/i,
-  });
-  expect(feedButton).toBeInTheDocument();
-});
 
-test.skip('pet renders on page', async () => {
-  render(
-    <UserProvider mockUser={mockUser}>
-      <App />
-    </UserProvider>
-  );
   const petPage = await screen.findByRole('link', {
     name: /your bb/i,
   });
-  userEvent.click(petPage);
-  const heading = await screen.findByRole('heading', {
-    name: /omelette/i,
-  });
-  expect(heading).toBeInTheDocument();
+  expect(petPage).toBeInTheDocument();
 });
