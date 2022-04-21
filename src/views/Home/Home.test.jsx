@@ -50,16 +50,6 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test('randomized pet renders on home screen', async () => {
-  render(
-    <UserProvider>
-      <Home />
-    </UserProvider>
-  );
-  const pet = await screen.findByRole('img');
-  expect(pet).toBeInTheDocument();
-});
-
 test('renders app description', async () => {
   render(
     <MemoryRouter>
