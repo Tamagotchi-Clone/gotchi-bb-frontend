@@ -18,28 +18,28 @@ export default function Petpage({
         <div className="petScreen">
           <Bot />
           <img src={pet.image} />
+          <div className="petStats">
+            <div className="stat-container">
+              <img src="https://i.postimg.cc/Zv8mtdL7/status-bar.png" />
+              hunger
+              {/* <button onClick={handleFeed}>Feed</button> */}
+            </div>
+            <div className="stat-container">
+              <img src="https://i.postimg.cc/VJdC1f39/status3.png" />
+              hygiene
+              {/* <button onClick={handleClean}>Clean</button> */}
+            </div>
+            <div className="stat-container">
+              <img src="https://i.postimg.cc/MvsQhMrK/status2.png" />
+              entertainment
+            </div>
+          </div>
         </div>
-        <div className="petStats">
-          <div className="stat-container">
-            <img src="https://i.postimg.cc/Zv8mtdL7/status-bar.png" />
-            hunger
-            {/* <button onClick={handleFeed}>Feed</button> */}
-          </div>
-          <div className="stat-container">
-            <img src="https://i.postimg.cc/VJdC1f39/status3.png" />
-            hygiene
-            {/* <button onClick={handleClean}>Clean</button> */}
-          </div>
-          <div className="stat-container">
-            <img src="https://i.postimg.cc/MvsQhMrK/status2.png" />
-            entertainment
-          </div>
+        <div className="buttons">
+          <button onClick={handleFeed}>Feed</button>
+          <button onClick={handleClean}>Clean</button>
+          <button onClick={handlePlay}>Play</button>
         </div>
-      </div>
-      <div className="buttons">
-        <button onClick={handleFeed}>Feed</button>
-        <button onClick={handleClean}>Clean</button>
-        <button onClick={handlePlay}>Play</button>
       </div>
     </>
   );

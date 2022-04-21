@@ -3,10 +3,10 @@
   border-radius: 5%;
   border: 2.5pt solid rgb(39, 39, 39);
   background-color: #dde4e0 !important;
-  height: 43vh !important;
+  height: 40vh !important;
   width: 23vw !important;
   position: fixed;
-  margin-bottom: 100px;
+  margin-bottom: 15vh;
   margin-right: 5vw;
 }
 
@@ -49,14 +49,18 @@
 }
 
 .sc-launcher {
+  margin-top: 20px;
   position: static !important;
-  background-image: url(https://i.ibb.co/vv4Ht07/ezgif-3-221e49a295.gif);
+  background-image: url(https://i.ibb.co/59pk7sF/letschat.gif);
   background-color: transparent !important;
   width: 300px !important;
   height: 70px !important;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .sc-launcher:hover {
+  opacity: 1;
   background-color: transparent !important;
   box-shadow: none !important;
 }
