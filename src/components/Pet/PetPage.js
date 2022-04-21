@@ -17,7 +17,7 @@ export default function Petpage({
       <div className="petBox">
         <h1>{pet.name}</h1>
         <div className="petScreen">
-          <Bot />
+          {/* <Bot /> */}
           <img src={pet.image} />
           <div className="petStats">
             <div className="stat-container">
