@@ -4,7 +4,8 @@ input[type='radio'] {
 
 input[type='radio']:checked + img {
   animation: bounce2 2s infinite;
-  background-color: rgba(0, 0, 0, 0.041);
+  -webkit-filter: drop-shadow(2px 2px 2px #516e62);
+  filter: drop-shadow(2px 2px 2px #516e62);
 }
 @keyframes bounce2 {
   0%,
@@ -26,6 +27,7 @@ input[type='radio']:checked + img {
   height: 5.5vw;
   width: 5.5vw;
   padding: 30px;
+  margin-bottom: 20px;
 }
 
 .choosepet-div {
@@ -37,10 +39,12 @@ input[type='radio']:checked + img {
   width: 65vw;
 
   margin: auto;
-  border: 1pt solid black;
+  border: 2.5pt solid rgb(39, 39, 39);
   padding: 45px 45px 55px 45px;
   margin-bottom: 20px;
   border-radius: 20px;
+  box-shadow: 8px 8px rgb(39, 39, 39);
+  background-color: #dde4e0;
 }
 
 input.name-input {
@@ -58,14 +62,32 @@ input.name-input {
   flex-direction: column;
   margin: auto;
   align-items: center;
+  box-shadow: 2px 2px rgb(39, 39, 39);
+  border-radius: 10px;
+  border: 1.5pt solid rgb(39, 39, 39);
 }
 
 .buttondiv {
   display: flex;
   width: 50vw;
-  margin: auto;
-  margin-top: 20px;
+  margin: 70px auto 0px;
   justify-content: space-evenly;
+}
+
+.buttondiv button {
+  padding: 5px 10px 5px 10px;
+  box-shadow: 2px 2px rgb(39, 39, 39);
+  border-radius: 10px;
+  border: 1.5pt solid rgb(39, 39, 39);
+  background-color: #fefefe;
+  font-family: 'Electrolize', sans-serif;
+  font-size: 1.5vw;
+}
+
+.buttondiv button:hover {
+  background-color: #b5c3bb;
+  color: #fefefe;
+  font-weight: bold;
 }
 
 .choosepet-div p {
