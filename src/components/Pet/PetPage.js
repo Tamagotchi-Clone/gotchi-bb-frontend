@@ -1,4 +1,5 @@
 import React from 'react';
+import Bot from '../Bot/Bot';
 import './PetPage.css';
 
 export default function Petpage({
@@ -15,8 +16,8 @@ export default function Petpage({
       <div className="petBox">
         <h1>{pet.name}</h1>
         <div className="petScreen">
+          <Bot />
           <img src={pet.image} />
-          <hr />
         </div>
         <div className="petStats">
           <div className="stat-container">
