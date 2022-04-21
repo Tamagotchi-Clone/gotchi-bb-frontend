@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'animate.css';
 import { getPets } from '../../services/pets';
+import './Home.css';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -20,12 +21,13 @@ export default function Home() {
   }, [loading]);
 
   return (
-    <div>
+    <div className="homeBox">
       <h1 className="animate__animated animate__flash">Welcome to gotchi bb</h1>
       <img
         className="animate__animated animate__bounce"
         src={randomImage}
       ></img>
+      <p>Pixel bb you can feed, clean, play with, and chat with.</p>
     </div>
   );
 }

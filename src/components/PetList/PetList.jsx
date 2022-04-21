@@ -12,47 +12,57 @@ export default function PetList({
   setName,
 }) {
   const { user } = useUser();
+  const [errorMsg, setErrorMsg] = useState('');
 
   async function handleChoosePet() {
-    console.log('click');
-    try {
-      await postUserPet({ userId: user.id, petId: chosenPet.id, name });
-      window.location.replace('/pet');
-    } catch (error) {
-      console.log(error);
+    if (name === '') {
+      setErrorMsg('Please type in a name.');
+    } else {
+      console.log('click');
+      try {
+        await postUserPet({ userId: user.id, petId: chosenPet.id, name });
+        window.location.replace('/pet');
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
   return (
-    <>
+    <div className="chooseBox">
       <div className="choosepet-div">
         {pets.map((pet) => (
           <div className="pets" key={pet.id}>
-            <p>Species: {pet.species}</p>
             <label>
               <input
-                aria-label="petnameinput"
                 type="radio"
                 name="pet"
                 onClick={() => setChosenPet(pet)}
-              />
-              <img className="pet-img" src={pet.image} alt={pet.species}></img>
+              ></input>
+              <img className="pet-img" src={pet.image} alt={pet.species} />
+              <p>{pet.species}</p>
             </label>
           </div>
         ))}
       </div>
       <div className="buttondiv">
         <input
+          aria-label="petnameinput"
           className="name-input"
           type="text"
-          placeholder="name your pet"
+          placeholder="Pet Name"
           onChange={(e) => setName(e.target.value)}
           value={name}
         ></input>
-        <button className="choosepet-button" onClick={handleChoosePet}>
-          Submit
+        <button
+          aria-label="submnitbuttonchoosepet"
+          className="choosepet-button"
+          onClick={handleChoosePet}
+        >
+          Make Pet!
         </button>
       </div>
-    </>
+      <p className="errorMsg">{errorMsg}</p>
+    </div>
   );
 }
