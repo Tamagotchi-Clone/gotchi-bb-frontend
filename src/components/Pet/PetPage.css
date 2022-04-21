@@ -20,6 +20,7 @@
   animation: fadeOut 2s forwards;
   font-weight: bold;
   animation-delay: 5s;
+  font-size: 1.3vw;
 }
 
 .msg-container {
@@ -78,6 +79,9 @@
   width: 50vw;
   margin: auto;
 }
+.stat-container p {
+  font-size: 1.3vw;
+}
 
 .buttons {
   display: flex;
@@ -94,7 +98,7 @@
   border: 1.5pt solid rgb(39, 39, 39);
   background-color: #fefefe;
   font-family: 'Electrolize', sans-serif;
-  font-size: 1.1em;
+  font-size: 2vw;
 }
 
 .buttons button:hover {
@@ -108,7 +112,6 @@
   font-size: 20pt;
   padding-bottom: 10px;
   font-size: 1.7vw;
-
 }
 
 .wobble {
