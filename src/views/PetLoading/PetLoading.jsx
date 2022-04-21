@@ -7,7 +7,7 @@ import usePet from '../../hooks/usePet';
 import { getUserPetByUser } from '../../services/userpets';
 import ChoosePet from '../ChoosePet/ChoosePet';
 
-export default function Loading() {
+export default function PetLoading() {
   const { pet, setPet } = usePet();
   const { user, loading, setLoading } = useUser();
   useEffect(() => {

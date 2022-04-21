@@ -1,9 +1,17 @@
-import { screen, render } from '@testing-library/react';
+import {
+  screen,
+  render,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import App from '../../App';
 import { UserProvider } from '../../context/UserContext';
 import userEvent from '@testing-library/user-event';
+import PetLoading from './PetLoading';
+import Pet from '../Pet/Pet';
+import { MemoryRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 const mockUser = {
   id: 1,
@@ -34,34 +42,19 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.skip('can feed your pet', async () => {
+test('renders the loading when logged in', async () => {
   render(
-    <UserProvider mockUser={mockUser}>
-      <App />
-    </UserProvider>
+    <MemoryRouter initialEntries={['/pet']}>
+      <UserProvider mockUser={mockUser}>
+        <Route path="/pet">
+          <PetLoading />
+        </Route>
+      </UserProvider>
+    </MemoryRouter>
   );
-  const petPage = await screen.findByRole('link', {
-    name: /your bb/i,
-  });
-  userEvent.click(petPage);
-  const feedButton = await screen.findByRole('button', {
-    name: /feed/i,
-  });
-  expect(feedButton).toBeInTheDocument();
-});
+  const loading = await screen.findByText('loading');
+  await waitForElementToBeRemoved(loading);
 
-test.skip('pet renders on page', async () => {
-  render(
-    <UserProvider mockUser={mockUser}>
-      <App />
-    </UserProvider>
-  );
-  const petPage = await screen.findByRole('link', {
-    name: /your bb/i,
-  });
-  userEvent.click(petPage);
-  const heading = await screen.findByRole('heading', {
-    name: /omelette/i,
-  });
-  expect(heading).toBeInTheDocument();
+  const pet = await screen.findByText(/taking you to pet page/i);
+  expect(pet).toBeInTheDocument();
 });
