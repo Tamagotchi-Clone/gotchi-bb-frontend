@@ -34,7 +34,7 @@ export default function PetList({
         });
         const score = await getPetScoreByUserId(user.id);
         console.log('score', score);
-        // window.location.replace('/pet');
+        window.location.replace('/pet');
       } catch (error) {
         console.log(error);
       }
