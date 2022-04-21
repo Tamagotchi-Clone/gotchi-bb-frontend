@@ -3,20 +3,14 @@ export const getPetScores = async () => {
   return await res.json();
 };
 
-export const postPetScore = async ({
-  hunger,
-  play,
-  cleanliness,
-  user_id,
-  id,
-}) => {
+export const postPetScore = async ({ userId, hunger, play, cleanliness }) => {
   try {
-    const res = await fetch(`${process.env.API_URL}/api/v1/pet-scores/${id}`, {
+    const res = await fetch(`${process.env.API_URL}/api/v1/scores`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ hunger, play, cleanliness, user_id }),
+      body: JSON.stringify({ userId, hunger, play, cleanliness }),
     });
     return await res.json();
   } catch (error) {
@@ -24,20 +18,25 @@ export const postPetScore = async ({
   }
 };
 
-export const updatePetScore = async ({
-  hunger,
-  play,
-  cleanliness,
-  user_id,
-  id,
-}) => {
+export const getPetScoreByUserId = async (userId) => {
   try {
-    const res = await fetch(`${process.env.API_URL}/api/v1/pet-scores/${id}`, {
+    const res = await fetch(`${process.env.API_URL}/api/v1/scores/${userId}`, {
+      credentials: 'include',
+    });
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updatePetScore = async (userId, hunger, play, cleanliness) => {
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/scores/${userId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ hunger, play, cleanliness, user_id }),
+      body: JSON.stringify({ userId, hunger, play, cleanliness }),
     });
     return await res.json();
   } catch (error) {

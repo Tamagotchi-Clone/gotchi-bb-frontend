@@ -10,6 +10,8 @@ import {
   getUserPetById,
 } from '../../services/userpets';
 import { calculateHappiness, happinessScore } from '../utils/needs';
+import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
+import { useUser } from '../../context/UserContext';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
@@ -18,6 +20,8 @@ export default function Pet() {
   const [clean, setClean] = useState('');
   const [loading, setLoading] = useState(true);
   const params = useParams();
+  const { user } = useUser();
+  const [score, setScore] = useState({});
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -64,6 +68,14 @@ export default function Pet() {
     e.preventDefault();
     try {
       await feedUserPet(params.id);
+      const score = await getPetScoreByUserId(user.id);
+      setScore(score);
+      await updatePetScore(
+        user.id,
+        score.hunger + 1,
+        score.cleanliness,
+        score.play
+      );
       console.log('hunger', pet.hunger);
     } catch (error) {
       console.log('error', error);
@@ -73,6 +85,14 @@ export default function Pet() {
     e.preventDefault();
     try {
       await cleanUserPet(params.id);
+      const score = await getPetScoreByUserId(user.id);
+      setScore(score);
+      await updatePetScore(
+        user.id,
+        score.hunger,
+        score.cleanliness + 1,
+        score.play
+      );
     } catch (error) {
       console.log('error', error);
     }
@@ -81,6 +101,14 @@ export default function Pet() {
     e.preventDefault();
     try {
       await playUserPet(params.id);
+      const score = await getPetScoreByUserId(user.id);
+      setScore(score);
+      await updatePetScore(
+        user.id,
+        score.hunger,
+        score.cleanliness + 1,
+        score.play
+      );
     } catch (error) {
       console.log('error', error);
     }
@@ -98,7 +126,7 @@ export default function Pet() {
         play={play}
         clean={clean}
       />
-      <Bot />
+      {/* <Bot /> */}
     </>
   );
 }
