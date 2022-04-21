@@ -50,7 +50,7 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.skip('all the pets from our pet table render on screen', async () => {
+test('all the pets from our pet table render on screen', async () => {
   render(
     <UserProvider mockUser={mockUser}>
       <ChoosePet />
@@ -58,22 +58,4 @@ test.skip('all the pets from our pet table render on screen', async () => {
   );
   const pet = await screen.findByAltText('Seahorse');
   expect(pet).toBeInTheDocument();
-});
-
-
-test('reroutes you to pet page when you submit', async () => {
-  render(
-    <MemoryRouter initialEntries={['/choosepet']}>
-      <UserProvider>
-        <ChoosePet />
-      </UserProvider>
-    </MemoryRouter>
-  );
-  const loading = screen.getByRole('heading');
-  expect(loading).toBeInTheDocument();
-  const textbox = await screen.findByLabelText('petnameinput');
-  const submit = await screen.findByLabelText('submnitbuttonchoosepet');
-
-  userEvent.type(textbox, 'petname');
-  userEvent.click(submit);
 });
