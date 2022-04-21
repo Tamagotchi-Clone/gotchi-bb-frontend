@@ -35,6 +35,7 @@ export default function PetList({
           <div className="pets" key={pet.id}>
             <label>
               <input
+                aria-label="petnameinput"
                 type="radio"
                 name="pet"
                 onClick={() => setChosenPet(pet)}

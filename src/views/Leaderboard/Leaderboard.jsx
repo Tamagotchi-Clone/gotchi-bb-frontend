@@ -17,7 +17,9 @@ export default function Leaderboard() {
 
   return (
     <div className="board">
-      <h1>Users Leaderboard</h1>
+      <h1>
+        Users <b>Leaderboard</b>
+      </h1>
       {scores.map((score) => (
         <div className="rows">
           <p className="start">user: {score.user}</p>

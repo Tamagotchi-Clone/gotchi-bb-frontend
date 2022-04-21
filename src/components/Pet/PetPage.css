@@ -3,20 +3,25 @@
   flex-direction: column;
   text-align: center;
   margin: auto;
-  margin-top: 80px;
+  margin-top: 1vw;
   border: 2.5pt solid rgb(39, 39, 39);
-  height: 500px;
-  width: 500px;
+  height: 33vw;
+  width: 33vw;
   border-radius: 5%;
   box-shadow: 8px 8px rgb(39, 39, 39);
-  background-color: rgba(0, 0, 0, 0.048);
+  background-color: #dde4e0;
 }
 
 .petBox img {
   margin: auto;
-  margin-top: 60px;
-  width: 90px;
-  height: 90px;
+  margin-top: 6vw;
+  width: 7vw;
+  height: 7vw;
+}
+
+.petStats p {
+  font-size: 1.3vw;
+  margin: 0;
 }
 
 .petStats {
@@ -25,7 +30,7 @@
   justify-content: space-evenly;
   margin-left: 20px;
   margin-bottom: 20px;
-  width: fit-content;
+  width: 25rem;
   text-align: left;
   color: rgba(0, 0, 0, 0.493);
 }
@@ -36,7 +41,7 @@
   justify-content: space-evenly;
   margin: auto;
   margin-top: 40px;
-  width: 600px;
+  width: 40vw;
 }
 button {
   padding: 8px 30px 10px 30px;
@@ -46,4 +51,5 @@ button {
   border-bottom: 2.5pt solid rgb(39, 39, 39);
   font-size: 20pt;
   padding-bottom: 10px;
+  font-size: 1.7vw;
 }

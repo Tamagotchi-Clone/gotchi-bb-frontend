@@ -8,13 +8,16 @@
 
 .authForm input {
   padding: 9px;
-  width: 200px;
-  margin-bottom: 20px;
+  margin: 6px;
+  width: 13vw;
+  margin: auto;
 }
 
 .authForm button {
   padding: 9px;
-  width: 223px;
+  width: 14.4vw;
+  margin: auto;
+  margin-top: 10px;
 }
 .authBox {
   display: flex;
@@ -25,5 +28,7 @@
 }
 
 .authForm p {
+  margin-top: 20px;
   color: red;
+  font-size: 0.8vw;
 }
