@@ -10,6 +10,7 @@ export default function Petpage({
   hunger,
   clean,
   play,
+  msg,
 }) {
   return (
     <>
@@ -32,6 +33,10 @@ export default function Petpage({
               <p>amusement</p>
             </div>
           </div>
+        </div>
+        <div className="msg-container">
+          {' '}
+          {msg ? <p className="msg">{msg}</p> : ''}
         </div>
         <div className="buttons">
           <button onClick={handleFeed}>Feed</button>

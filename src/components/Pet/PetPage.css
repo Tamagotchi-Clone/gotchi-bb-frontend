@@ -12,14 +12,18 @@
   background-color: #dde4e0;
 }
 
-
 .msg {
   display: flex;
   margin: auto;
   width: fit-content;
   margin-top: 10px;
   animation: fadeOut 2s forwards;
+  font-weight: bold;
   animation-delay: 5s;
+}
+
+.msg-container {
+  height: 3vh;
 }
 
 @keyframes fadeOut {

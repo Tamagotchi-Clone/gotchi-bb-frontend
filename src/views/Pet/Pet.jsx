@@ -148,9 +148,8 @@ export default function Pet() {
         hunger={hunger}
         play={play}
         clean={clean}
+        msg={msg}
       />
-      {msg ? <p className="msg">{msg}</p> : ''}
-      <Bot />
     </>
   );
 }
