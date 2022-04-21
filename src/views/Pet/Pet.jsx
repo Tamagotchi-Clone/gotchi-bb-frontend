@@ -76,7 +76,6 @@ export default function Pet() {
   }, [loading]);
 
   const handleFeed = async (e) => {
-    console.log(hunger);
     e.preventDefault();
     try {
       await feedUserPet(params.id);
@@ -97,7 +96,6 @@ export default function Pet() {
           setMsg('');
         }, 5000);
       }
-      console.log('hunger', pet.hunger);
     } catch (error) {
       console.log('error', error);
     }
