@@ -17,9 +17,13 @@ export async function happinessScore(date) {
 }
 
 export async function calculateHappiness(need) {
-  if (need.difference <= 0.33) {
-    return true;
+  if (need.difference >= 0.25) {
+    return 'miserable';
+  } else if (need.difference >= 0.5) {
+    return 'unhappy';
+  } else if (need.difference >= 0.75) {
+    return 'satisfied';
   } else {
-    return false;
+    return 'happy';
   }
 }

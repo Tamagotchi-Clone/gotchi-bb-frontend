@@ -1,13 +1,53 @@
 header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-bottom: 30px;
 }
 
-header a {
-  text-align: center;
+header h1 {
+  border: none;
   text-decoration: none;
-  border: 1pt solid black;
-  padding: 10px;
+  margin-left: 12px;
+  margin-top: 0;
+  font-size: 3.5vw;
+  color: rgb(172, 105, 112);
+}
+
+header h1 a:visited {
+  color: rgb(172, 105, 112);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header img {
+  margin-left: 5px;
+  margin-top: 0px;
+  width: 18px;
+  height: 18px;
+}
+
+.header a {
+  text-align: center;
+  font-size: 1.3vw;
+  padding: 30px;
   width: 100px;
   border-radius: 10px 8px;
+}
+
+.header button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 1.3vw;
+}
+
+a:visited {
+  color: black;
+}
+
+button:hover {
+  cursor: pointer;
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
+import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
 import {
   deleteUserPet,
   getUserPetById,
@@ -13,7 +14,6 @@ export default function Settings() {
   const { user, loading, setLoading } = useUser();
   const [pet, setPet] = useState({});
   const params = useParams();
-  console.log(user);
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -30,16 +30,19 @@ export default function Settings() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await deleteUserPet(params.id);
-    history.push(`/pets`);
+    if (confirm('Are you sure you want to delete your bb?')) {
+      await deleteUserPet(pet.id);
+      await getPetScoreByUserId(user.id);
+      await updatePetScore(user.id, 0, 0, 0);
+      window.location.replace('/choosepet');
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateUserPet(name);
-      console.log(pet);
-      // history.push(`/pets/${params.id}`);
+      await updateUserPet(pet.id, name);
+      window.location.replace(`/pet/${pet.id}`);
     } catch (error) {
       console.log(error);
     }
@@ -52,6 +55,8 @@ export default function Settings() {
         handleDelete={handleDelete}
         pet={pet}
         setPet={setPet}
+        name={name}
+        setName={setName}
       />
     </>
   );

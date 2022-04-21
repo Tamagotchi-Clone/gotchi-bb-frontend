@@ -3,13 +3,29 @@ input[type='radio'] {
 }
 
 input[type='radio']:checked + img {
-  border: 7px solid pink;
-  border-radius: 30%;
+  animation: bounce2 2s infinite;
+  background-color: rgba(0, 0, 0, 0.041);
+}
+@keyframes bounce2 {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
 }
 
-img {
-  height: 150px;
-  width: 150px;
+.choosepet-div img {
+  height: 5.5vw;
+  width: 5.5vw;
+  padding: 30px;
 }
 
 .choosepet-div {
@@ -18,13 +34,18 @@ img {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 1000px;
+  width: 65vw;
+
+  margin: auto;
+  border: 1pt solid black;
+  padding: 45px 45px 55px 45px;
+  margin-bottom: 20px;
+  border-radius: 20px;
 }
 
-.name-input {
+input.name-input {
   padding: 9px;
-  width: 200px;
-  margin-bottom: 20px;
+  width: 25vw;
   display: flex;
   flex-direction: column;
 }
@@ -32,9 +53,38 @@ img {
 .choosepet-button,
 .name-input {
   padding: 9px;
-  width: 100px;
+  width: 15vw;
   display: flex;
   flex-direction: column;
   margin: auto;
   align-items: center;
+}
+
+.buttondiv {
+  display: flex;
+  width: 50vw;
+  margin: auto;
+  margin-top: 20px;
+  justify-content: space-evenly;
+}
+
+.choosepet-div p {
+  text-align: center;
+  font-size: 1.2vw;
+}
+
+.chooseBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.chooseBox .errorMsg {
+  margin: auto;
+  margin-top: 12px;
+  color: red;
+}
+
+.errorMsg {
+  width: 400px;
+  font-size: 1.2vw;
 }

@@ -1,9 +1,9 @@
 import { screen, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { UserProvider } from '../../context/UserContext';
-import ChoosePet from './ChoosePet';
+import App from '../../App';
+import Home from './Home';
 import { MemoryRouter } from 'react-router-dom';
 
 const mockUser = {
@@ -50,12 +50,16 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test('all the pets from our pet table render on screen', async () => {
+test('renders app description', async () => {
   render(
-    <UserProvider mockUser={mockUser}>
-      <ChoosePet />
-    </UserProvider>
+    <MemoryRouter>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </MemoryRouter>
   );
-  const pet = await screen.findByAltText('Seahorse');
-  expect(pet).toBeInTheDocument();
+  const description = await screen.findByText(
+    /pixel bb you can feed, clean, play with, and chat with\./i
+  );
+  expect(description).toBeInTheDocument();
 });

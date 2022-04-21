@@ -12,7 +12,6 @@ export default function ChoosePet() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPets();
-      console.log('data', data);
       setPets(data);
       setLoading(false);
     };
@@ -21,11 +20,13 @@ export default function ChoosePet() {
     }
   }, [loading]);
 
-  if (loading) return <h1>loading</h1>;
+  if (loading) return <span className="loader"></span>;
 
   return (
-    <div>
-      <h1>Choose Your Pet!</h1>
+    <div className="choosePetBox">
+      <h1>
+        Choose Your <b>bb</b>
+      </h1>
       <PetList
         chosenPet={chosenPet}
         setChosenPet={setChosenPet}

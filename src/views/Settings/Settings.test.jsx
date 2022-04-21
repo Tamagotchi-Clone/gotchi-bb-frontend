@@ -1,10 +1,16 @@
-import { screen, render } from '@testing-library/react';
+import {
+  screen,
+  render,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+
+import App from '../../App';
 import { UserProvider } from '../../context/UserContext';
-import ChoosePet from './ChoosePet';
-import { MemoryRouter } from 'react-router-dom';
+
+import Settings from './Settings';
 
 const mockUser = {
   id: 1,
@@ -50,12 +56,13 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test('all the pets from our pet table render on screen', async () => {
+test('settings has buttons', async () => {
   render(
     <UserProvider mockUser={mockUser}>
-      <ChoosePet />
+      <App />
     </UserProvider>
   );
-  const pet = await screen.findByAltText('Seahorse');
-  expect(pet).toBeInTheDocument();
+
+  const setting = await screen.findByRole('link', { name: /settings/i });
+  expect(setting).toBeInTheDocument();
 });

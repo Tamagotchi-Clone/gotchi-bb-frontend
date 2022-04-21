@@ -7,7 +7,8 @@ import Settings from './views/Settings/Settings';
 import ChoosePet from './views/ChoosePet/ChoosePet';
 import './App.css';
 import Home from './views/Home/Home';
-import Loading from './views/Loading/Loading';
+import PetLoading from './views/PetLoading/PetLoading';
+import Leaderboard from './views/Leaderboard/Leaderboard';
 
 export default function App() {
   return (
@@ -24,25 +25,21 @@ export default function App() {
           <Route exact path="/signup">
             <Auth isRegistering />
           </Route>
-          <PrivateRoute exact path="/pets">
-            <h1>pets</h1>
+          <PrivateRoute exact path="/pet">
+            <PetLoading />
           </PrivateRoute>
-          <Route exact path="/pet">
-            <Loading />
-          </Route>
-
           <PrivateRoute exact path="/pet/:id">
             <Pet />
           </PrivateRoute>
           <PrivateRoute exact path="/choosepet">
             <ChoosePet />
           </PrivateRoute>
-          <PrivateRoute exact path="/profile">
+          <PrivateRoute exact path="/pet/:id/edit">
             <Settings />
           </PrivateRoute>
-          <PrivateRoute exact path="/pets/:id/edit">
-            <Settings />
-          </PrivateRoute>
+          <Route exact path="/leaderboard">
+            <Leaderboard />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -21,7 +21,7 @@ export const getUserPetById = async (id) => {
 export const getUserPetByUser = async (userId) => {
   try {
     const res = await fetch(
-      `${process.env.API_URL}/api/v1/userpets/${userId}`,
+      `${process.env.API_URL}/api/v1/userpets/users/${userId}`,
       {
         credentials: 'include',
       }
@@ -32,14 +32,14 @@ export const getUserPetByUser = async (userId) => {
   }
 };
 
-export const postUserPet = async ({ petId, userId, name }) => {
+export const postUserPet = async ({ petId, name }) => {
   try {
-    const res = await fetch(`${process.env.API_URL}/api/v1/userpets/`, {
+    const res = await fetch(`${process.env.API_URL}/api/v1/userpets`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ petId, userId, name }),
+      body: JSON.stringify({ petId, name }),
     });
     return await res.json();
   } catch (error) {
@@ -47,7 +47,7 @@ export const postUserPet = async ({ petId, userId, name }) => {
   }
 };
 
-export const updateUserPet = async (id) => {
+export const updateUserPet = async (id, name) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
       method: 'PATCH',
@@ -55,6 +55,7 @@ export const updateUserPet = async (id) => {
         accept: 'application/json',
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ id, name }),
       credentials: 'include',
       mode: 'cors',
     });
@@ -125,14 +126,13 @@ export const playUserPet = async (id) => {
   }
 };
 
-export const deleteUserPet = async ({ petId, userId, name }) => {
+export const deleteUserPet = async (petId) => {
   try {
-    const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`, {
+    const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${petId}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ petId, userId, name }),
     });
     return await res.json();
   } catch (error) {
