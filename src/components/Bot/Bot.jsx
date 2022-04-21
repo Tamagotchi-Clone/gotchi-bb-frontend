@@ -15,22 +15,22 @@ class Bot extends React.Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.state.socket.connect(true);
     this.state.socket.emit('join', this.state.room);
     this.state.socket.on('send-msg-response', async (msg) => {
-      await this.setState({
+      this.setState({
         messageList: [...this.state.messageList],
       });
       this._sendMessage(msg);
     });
   }
   async _onMessageWasSent(message) {
-    await this.setState({
+    this.setState({
       messageList: [...this.state.messageList, message],
     });
 
-    await this.state.socket.emit('new-msg', {
+    this.state.socket.emit('new-msg', {
       msg: message.data.text,
       room: this.state.room,
     });
