@@ -41,7 +41,7 @@ export async function getCurrentUser() {
     const resJson = await res.json();
     return resJson;
   } catch (error) {
-    console.log('ERROR', error);
+    throw error;
   }
 }
 
