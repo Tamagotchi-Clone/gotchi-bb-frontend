@@ -57,19 +57,19 @@ export default function PetList({
             </label>
           </div>
         ))}
-      </div>
-      <div className="buttondiv">
-        <input
-          aria-label="petnameinput"
-          className="name-input"
-          type="text"
-          placeholder="Pet Name"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        ></input>
-        <button className="choosepet-button" onClick={handleChoosePet}>
-          Make Pet!
-        </button>
+        <div className="buttondiv">
+          <input
+            aria-label="petnameinput"
+            className="name-input"
+            type="text"
+            placeholder="Pet Name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          ></input>
+          <button className="choosepet-button" onClick={handleChoosePet}>
+            Make Pet!
+          </button>
+        </div>
       </div>
       <p className="errorMsg">{errorMsg}</p>
     </div>

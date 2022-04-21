@@ -12,6 +12,7 @@ import {
   getUserPetById,
   updateUserPet,
 } from '../../services/userpets';
+import FadeIn from 'react-fade-in/lib/FadeIn';
 
 export default function Settings() {
   const [name, setName] = useState('');
@@ -53,7 +54,7 @@ export default function Settings() {
   };
 
   return (
-    <>
+    <FadeIn delay={30}>
       <EditPet
         handleSubmit={handleSubmit}
         handleDelete={handleDelete}
@@ -62,6 +63,6 @@ export default function Settings() {
         name={name}
         setName={setName}
       />
-    </>
+    </FadeIn>
   );
 }
