@@ -11,6 +11,11 @@ header h1 {
   margin-left: 12px;
   margin-top: 0;
   font-size: 3.5vw;
+  color: rgb(172, 105, 112);
+}
+
+header h1 a:visited {
+  color: rgb(172, 105, 112);
 }
 
 a {
