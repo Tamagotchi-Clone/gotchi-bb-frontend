@@ -28,13 +28,13 @@ export default function PetList({
         await postUserPet({ userId: user.id, petId: chosenPet.id, name });
         await postPetScore({
           userId: user.id,
-          hunger: 0,
+          hunger: 1,
           play: 0,
           cleanliness: 0,
         });
         const score = await getPetScoreByUserId(user.id);
         console.log('score', score);
-        window.location.replace('/pet');
+        // window.location.replace('/pet');
       } catch (error) {
         console.log(error);
       }

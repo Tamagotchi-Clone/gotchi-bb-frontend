@@ -21,7 +21,7 @@ export default function Leaderboard() {
         Users <b>Leaderboard</b>
       </h1>
       {scores.map((score) => (
-        <div className="rows">
+        <div className="rows" key={score.id}>
           <p className="start">user: {score.user}</p>
           <p>pet: {score.pet}</p>
           <p>fed: {score.fed}</p>

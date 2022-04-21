@@ -18,7 +18,7 @@ export default function Petpage({
       <div className="petBox">
         <h1>{pet.name}</h1>
         <div className="petScreen">
-          <Bot />
+          {/* <Bot /> */}
           <img src={pet.image} className={isActive ? 'wobble' : null} />
           <div className="petStats">
             <div className="stat-container">
