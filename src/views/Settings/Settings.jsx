@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import EditPet from '../../components/EditPet/EditPet';
 import { useUser } from '../../context/UserContext';
+import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
 import {
   deleteUserPet,
   getUserPetById,
@@ -31,6 +32,8 @@ export default function Settings() {
     e.preventDefault();
     if (confirm('Are you sure you want to delete your bb?')) {
       await deleteUserPet(pet.id);
+      await getPetScoreByUserId(user.id);
+      await updatePetScore(user.id, 0, 0, 0);
       window.location.replace('/choosepet');
     }
   };

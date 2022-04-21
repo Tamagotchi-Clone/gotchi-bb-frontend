@@ -3,47 +3,110 @@
   flex-direction: column;
   text-align: center;
   margin: auto;
-  margin-top: 80px;
+  margin-top: 1vw;
   border: 2.5pt solid rgb(39, 39, 39);
-  height: 500px;
-  width: 500px;
+  min-height: 65vh;
+  width: 33vw;
   border-radius: 5%;
   box-shadow: 8px 8px rgb(39, 39, 39);
-  background-color: rgba(0, 0, 0, 0.048);
+  background-color: #dde4e0;
 }
 
-.petBox img {
+.msg {
+  display: flex;
   margin: auto;
-  margin-top: 60px;
-  width: 90px;
-  height: 90px;
+  width: fit-content;
+  margin-top: 10px;
+  animation: fadeOut 2s forwards;
+  font-weight: bold;
+  animation-delay: 5s;
+}
+
+.msg-container {
+  height: 3vh;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.petScreen {
+  width: 23vw;
+  min-height: 20vw;
+
+  margin: auto;
+  background-color: #b5c3bb;
+  border-radius: 6%;
+  border: 2.5pt solid #eff7f2;
+}
+.petBox img {
+  width: 10vw;
+  height: 10vw;
+}
+
+.petStats p {
+  font-size: 0.9rem;
+  font-family: 'Electrolize', sans-serif;
+  color: #2b2b2b;
+  margin: 0;
 }
 
 .petStats {
   display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  width: fit-content;
-  text-align: left;
-  color: rgba(0, 0, 0, 0.493);
+  align-items: center;
+  width: 20vw;
+  margin: 0 auto 20px auto;
+}
+
+.petStats img {
+  width: 3vw;
+  height: 1.5vw;
+  margin-top: 30px;
+  position: relative;
+}
+
+.stat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-evenly;
+  width: 50vw;
+  margin: auto;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: auto;
-  margin-top: 40px;
-  width: 600px;
+  width: 28vw;
+  margin: 30px auto;
 }
-button {
-  padding: 8px 30px 10px 30px;
+
+.buttons button {
+  padding: 5px 10px 5px 10px;
+  box-shadow: 2px 2px rgb(39, 39, 39);
+  border-radius: 10px;
+  border: 1.5pt solid rgb(39, 39, 39);
+  background-color: #fefefe;
+  font-family: 'Electrolize', sans-serif;
+  font-size: 1.1em;
+}
+
+.buttons button:hover {
+  background-color: #b5c3bb;
+  color: #fefefe;
+  font-weight: bold;
 }
 
 .petBox h1 {
   border-bottom: 2.5pt solid rgb(39, 39, 39);
   font-size: 20pt;
   padding-bottom: 10px;
+  font-size: 1.7vw;
+
 }

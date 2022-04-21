@@ -10,20 +10,60 @@ img,
 p {
   margin: auto;
 }
+.bubble img {
+  height: 1px;
+}
 
-.homeBox img {
-  width: 100px;
-  height: 100px;
+.images img {
+  width: 9vw;
+  height: 9vw;
   margin: auto;
   margin-top: 80px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .homeBox h1 {
-  font-size: 40pt;
-  margin-top: 60px;
+  margin-top: 80px;
+  font-size: 3.7vw;
 }
 
 .homeBox p {
-  font-size: 20pt;
+  font-size: 1.3vw;
+}
+
+.bubble {
+  opacity: 70%;
+  height: 4vw;
+  margin-top: 60px;
+}
+.imageStack {
+  display: flex;
+  margin: auto;
+}
+
+.tiny {
+  margin-left: 5px;
+  width: 18px;
+  height: 18px;
+  animation: bounce2 2s infinite;
+}
+@keyframes bounce2 {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+b {
+  font-size: 3.7vw;
+  color: rgb(172, 105, 112);
 }

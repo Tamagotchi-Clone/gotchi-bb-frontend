@@ -10,7 +10,10 @@ export default function EditPet({
 }) {
   return (
     <div className="editPetBox">
-      <h1> edit your bb </h1>
+      <h1>
+        {' '}
+        edit your <b>bb</b>{' '}
+      </h1>
       <form className="editForm" onSubmit={handleSubmit}>
         <img className="petImage" src={pet.image} />
         <input
@@ -20,10 +23,10 @@ export default function EditPet({
           onChange={(e) => setName(e.target.value)}
         />
         <button type="submit">Change Name</button>
+        <button className="delete" onClick={handleDelete}>
+          Delete bb
+        </button>
       </form>
-      <button className="delete" onClick={handleDelete}>
-        Delete bb
-      </button>
     </div>
   );
 }

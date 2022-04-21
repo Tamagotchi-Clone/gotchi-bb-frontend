@@ -6,10 +6,12 @@ import {
   feedUserPet,
   cleanUserPet,
   playUserPet,
-  getUserPetByUser,
   getUserPetById,
 } from '../../services/userpets';
 import { calculateHappiness, happinessScore } from '../utils/needs';
+import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
+import { useUser } from '../../context/UserContext';
+import '../../components/Pet/PetPage.css';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
@@ -18,41 +20,57 @@ export default function Pet() {
   const [clean, setClean] = useState('');
   const [loading, setLoading] = useState(true);
   const params = useParams();
+  const { user } = useUser();
+  const [score, setScore] = useState({});
+  const [msg, setMsg] = useState('');
 
   useEffect(() => {
     const fetchPet = async () => {
       const data = await getUserPetById(params.id);
 
       const hunger = await happinessScore(pet.hunger, params.id);
-      const hungerScore = calculateHappiness(hunger);
+      const hungerScore = await calculateHappiness(hunger);
       console.log('hungerScore', hungerScore);
 
       const clean = await happinessScore(pet.cleanliness, params.id);
-      const cleanScore = calculateHappiness(clean);
+      const cleanScore = await calculateHappiness(clean);
       console.log('cleanScore', cleanScore);
 
       const play = await happinessScore(pet.play, params.id);
-      const playScore = calculateHappiness(play);
+      const playScore = await calculateHappiness(play);
       console.log('playScore', playScore);
 
       setPet(data);
 
-      if (hungerScore === true) {
-        setHunger('hungry');
+      if (hungerScore === 'miserable') {
+        setHunger('https://i.ibb.co/5cf7FvT/status3.png');
+      } else if (hungerScore === 'unhappy') {
+        setHunger('https://i.ibb.co/r2Q6gXS/status2.png');
+        setStatusBar('1');
+      } else if (hungerScore === 'satisfied') {
+        setHunger('https://i.ibb.co/1913vcW/status1.png');
       } else {
-        setHunger('not hungry');
+        setHunger('https://i.ibb.co/vdXWNyF/status.png');
       }
 
-      if (cleanScore === true) {
-        setClean('dirty');
+      if (playScore === 'https://i.ibb.co/5cf7FvT/status3.png') {
+        setPlay('miserable');
+      } else if (playScore === 'unhappy') {
+        setPlay('https://i.ibb.co/r2Q6gXS/status2.png');
+      } else if (playScore === 'satisfied') {
+        setPlay('https://i.ibb.co/1913vcW/status1.png');
       } else {
-        setClean('clean');
+        setPlay('https://i.ibb.co/vdXWNyF/status.png');
       }
 
-      if (playScore === true) {
-        setPlay('bored');
+      if (cleanScore === 'miserable') {
+        setClean('https://i.ibb.co/5cf7FvT/status3.png');
+      } else if (cleanScore === 'unhappy') {
+        setClean('https://i.ibb.co/r2Q6gXS/status2.png');
+      } else if (cleanScore === 'satisfied') {
+        setClean('https://i.ibb.co/1913vcW/status1.png');
       } else {
-        setPlay('happy');
+        setClean('https://i.ibb.co/vdXWNyF/status.png');
       }
 
       setLoading(false);
@@ -64,6 +82,26 @@ export default function Pet() {
     e.preventDefault();
     try {
       await feedUserPet(params.id);
+      const score = await getPetScoreByUserId(user.id);
+      setScore(score);
+      setHunger('happy');
+      if (
+        hunger === 'miserable' ||
+        hunger === 'unhappy' ||
+        hunger === 'satisfied'
+      ) {
+        await updatePetScore(
+          user.id,
+          score.hunger + 1,
+          score.cleanliness,
+          score.play
+        );
+      } else {
+        setMsg(`${pet.name} is not hungry yet!`);
+        setTimeout(() => {
+          setMsg('');
+        }, 5000);
+      }
       console.log('hunger', pet.hunger);
     } catch (error) {
       console.log('error', error);
@@ -73,6 +111,26 @@ export default function Pet() {
     e.preventDefault();
     try {
       await cleanUserPet(params.id);
+      const score = await getPetScoreByUserId(user.id);
+      setScore(score);
+      setClean('happy');
+      if (
+        clean === 'miserable' ||
+        clean === 'unhappy' ||
+        clean === 'satisfied'
+      ) {
+        await updatePetScore(
+          user.id,
+          score.hunger,
+          score.cleanliness + 1,
+          score.play
+        );
+      } else {
+        setMsg(`${pet.name} is not dirty yet!`);
+        setTimeout(() => {
+          setMsg('');
+        }, 5000);
+      }
     } catch (error) {
       console.log('error', error);
     }
@@ -81,6 +139,22 @@ export default function Pet() {
     e.preventDefault();
     try {
       await playUserPet(params.id);
+      const score = await getPetScoreByUserId(user.id);
+      setScore(score);
+      setPlay('happy');
+      if (play === 'miserable' || play === 'unhappy' || play === 'satisfied') {
+        await updatePetScore(
+          user.id,
+          score.hunger,
+          score.cleanliness + 1,
+          score.play
+        );
+      } else {
+        setMsg(`${pet.name} is not bored!`);
+        setTimeout(() => {
+          setMsg('');
+        }, 5000);
+      }
     } catch (error) {
       console.log('error', error);
     }
@@ -97,8 +171,8 @@ export default function Pet() {
         hunger={hunger}
         play={play}
         clean={clean}
+        msg={msg}
       />
-      <Bot />
     </>
   );
 }

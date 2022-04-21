@@ -24,7 +24,9 @@ export default function ChoosePet() {
 
   return (
     <div className="choosePetBox">
-      <h1>Choose Your Pet</h1>
+      <h1>
+        Choose Your <b>bb</b>
+      </h1>
       <PetList
         chosenPet={chosenPet}
         setChosenPet={setChosenPet}

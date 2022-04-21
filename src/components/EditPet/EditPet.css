@@ -6,7 +6,8 @@
   margin: auto;
   border: 1pt solid black;
   padding: 10px;
-  width: fit-content;
+  width: 20vw;
+  height: 15vw;
   border-radius: 10px 8px;
 }
 
@@ -18,13 +19,13 @@
 .delete {
   border: 1pt solid black;
   padding: 10px;
-  width: 100px;
-  height: 35px;
+  width: 8vw;
+  height: 2.5vw;
   border-radius: 10px 8px;
   margin-top: 30px;
   text-align: center;
   margin: auto;
-  font-size: 8pt;
+  font-size: 0.75vw;
 }
 
 .delete {
@@ -32,10 +33,10 @@
   margin-top: 10px;
   border: 1pt solid black;
   padding: 10px;
-  width: 100px;
-  height: 35px;
+  width: 8vw;
+  height: 2.5vw;
   border-radius: 10px 8px;
-  font-size: 8pt;
+  font-size: 0.75vw;
   color: red;
 }
 
@@ -55,9 +56,14 @@
   margin: auto;
   margin-bottom: 20px;
   margin-top: 10px;
+  font-size: 2vw;
 }
 
 .editPetBox img {
-  width: 30px;
-  height: 30px;
+  width: 3vw;
+  height: 3vw;
 }
+
+.editPetBox b {
+  font-size: 2vw;
+

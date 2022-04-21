@@ -1,4 +1,5 @@
 import React from 'react';
+import Bot from '../Bot/Bot';
 import './PetPage.css';
 
 export default function Petpage({
@@ -9,22 +10,39 @@ export default function Petpage({
   hunger,
   clean,
   play,
+  msg,
 }) {
   return (
     <>
       <div className="petBox">
         <h1>{pet.name}</h1>
-        <img src={pet.image} />
-        <div className="petStats">
-          <p>{hunger}</p>
-          <p>{clean}</p>
-          <p>{play}</p>
+        <div className="petScreen">
+          <Bot />
+          <img src={pet.image} />
+          <div className="petStats">
+            <div className="stat-container">
+              <img src={hunger} />
+              <p>hunger</p>
+            </div>
+            <div className="stat-container">
+              <img src={clean} />
+              <p> hygiene</p>
+            </div>
+            <div className="stat-container">
+              <img src={play} />
+              <p>amusement</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="buttons">
-        <button onClick={handleFeed}>Feed</button>
-        <button onClick={handlePlay}>Play</button>
-        <button onClick={handleClean}>Clean</button>
+        <div className="msg-container">
+          {' '}
+          {msg ? <p className="msg">{msg}</p> : ''}
+        </div>
+        <div className="buttons">
+          <button onClick={handleFeed}>Feed</button>
+          <button onClick={handleClean}>Clean</button>
+          <button onClick={handlePlay}>Play</button>
+        </div>
       </div>
     </>
   );
