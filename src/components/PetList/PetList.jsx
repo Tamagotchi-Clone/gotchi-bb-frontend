@@ -3,6 +3,11 @@ import { postUserPet } from '../../services/userpets';
 import './PetList.css';
 import { useUser } from '../../context/UserContext';
 import { useHistory } from 'react-router-dom';
+import {
+  getPetScoreByUserId,
+  getPetScores,
+  postPetScore,
+} from '../../services/petscores';
 
 export default function PetList({
   pets,
@@ -21,6 +26,14 @@ export default function PetList({
       console.log('click');
       try {
         await postUserPet({ userId: user.id, petId: chosenPet.id, name });
+        await postPetScore({
+          userId: user.id,
+          hunger: 0,
+          play: 0,
+          cleanliness: 0,
+        });
+        const score = await getPetScoreByUserId(user.id);
+        console.log('score', score);
         window.location.replace('/pet');
       } catch (error) {
         console.log(error);
