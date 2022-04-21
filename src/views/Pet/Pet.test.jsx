@@ -34,7 +34,7 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.only('can feed your pet', async () => {
+test('can feed your pet', async () => {
   render(
     <UserProvider mockUser={mockUser}>
       <App />
@@ -50,7 +50,7 @@ test.only('can feed your pet', async () => {
   expect(feedButton).toBeInTheDocument();
 });
 
-test.only('pet renders on page', async () => {
+test('pet renders on page', async () => {
   render(
     <UserProvider mockUser={mockUser}>
       <App />

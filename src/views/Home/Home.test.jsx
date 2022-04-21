@@ -41,7 +41,7 @@ test('randomized pet renders on home screen', async () => {
   expect(pet).toBeInTheDocument();
 });
 
-test('nav bar takes you where you need to go', async () => {
+test('renders app description', async () => {
   render(
     <MemoryRouter>
       <UserProvider>
@@ -49,13 +49,8 @@ test('nav bar takes you where you need to go', async () => {
       </UserProvider>
     </MemoryRouter>
   );
-  const link = await screen.findByRole('link', {
-    name: /leaderboard/i,
-  });
-
-  userEvent.click(link);
-  const heading = await screen.findByRole('heading', {
-    name: /users leaderboard/i,
-  });
-  expect(heading).toBeInTheDocument();
+  const description = await screen.findByText(
+    /pixel bb you can feed, clean, play with, and chat with\./i
+  );
+  expect(description).toBeInTheDocument();
 });
