@@ -48,7 +48,6 @@ export default function PetList({
           <div className="pets" key={pet.id}>
             <label>
               <input
-                aria-label="petnameinput"
                 type="radio"
                 name="pet"
                 onClick={() => setChosenPet(pet)}
@@ -61,6 +60,7 @@ export default function PetList({
       </div>
       <div className="buttondiv">
         <input
+          aria-label="petnameinput"
           className="name-input"
           type="text"
           placeholder="Pet Name"

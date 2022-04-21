@@ -13,7 +13,6 @@ export default function Header() {
   const handleLogout = async () => {
     await signOut();
     setUser(null);
-    console.log('logout', user);
     history.push('/login');
   };
   if (loading) return <h1>loading..</h1>;

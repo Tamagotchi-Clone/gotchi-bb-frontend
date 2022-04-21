@@ -1,9 +1,9 @@
 import { screen, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { UserProvider } from '../../context/UserContext';
-import ChoosePet from './ChoosePet';
+import App from '../../App';
+import Home from './Home';
 import { MemoryRouter } from 'react-router-dom';
 
 const mockUser = {
@@ -50,30 +50,26 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test.skip('all the pets from our pet table render on screen', async () => {
+test('randomized pet renders on home screen', async () => {
   render(
-    <UserProvider mockUser={mockUser}>
-      <ChoosePet />
+    <UserProvider>
+      <Home />
     </UserProvider>
   );
-  const pet = await screen.findByAltText('Seahorse');
+  const pet = await screen.findByRole('img');
   expect(pet).toBeInTheDocument();
 });
 
-
-test('reroutes you to pet page when you submit', async () => {
+test('renders app description', async () => {
   render(
-    <MemoryRouter initialEntries={['/choosepet']}>
+    <MemoryRouter>
       <UserProvider>
-        <ChoosePet />
+        <App />
       </UserProvider>
     </MemoryRouter>
   );
-  const loading = screen.getByRole('heading');
-  expect(loading).toBeInTheDocument();
-  const textbox = await screen.findByLabelText('petnameinput');
-  const submit = await screen.findByLabelText('submnitbuttonchoosepet');
-
-  userEvent.type(textbox, 'petname');
-  userEvent.click(submit);
+  const description = await screen.findByText(
+    /pixel bb you can feed, clean, play with, and chat with\./i
+  );
+  expect(description).toBeInTheDocument();
 });
