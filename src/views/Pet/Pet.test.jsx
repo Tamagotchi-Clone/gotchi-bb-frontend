@@ -1,12 +1,15 @@
 import { screen, render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { UserProvider } from '../../context/UserContext';
 import App from '../../App';
-import Home from './Home';
-import { MemoryRouter } from 'react-router-dom';
+import { UserProvider } from '../../context/UserContext';
 import userEvent from '@testing-library/user-event';
 
+const mockUser = {
+  id: 1,
+  username: 'petlover',
+  password: 'hilol',
+};
 const data = [
   {
     id: '1',
@@ -31,31 +34,18 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-test('randomized pet renders on home screen', async () => {
+test.only('can feed your pet', async () => {
   render(
-    <UserProvider>
-      <Home />
+    <UserProvider mockUser={mockUser}>
+      <App />
     </UserProvider>
   );
-  const pet = await screen.findByRole('img');
-  expect(pet).toBeInTheDocument();
-});
-
-test('nav bar takes you where you need to go', async () => {
-  render(
-    <MemoryRouter>
-      <UserProvider>
-        <App />
-      </UserProvider>
-    </MemoryRouter>
-  );
-  const link = await screen.findByRole('link', {
-    name: /leaderboard/i,
+  const petPage = await screen.findByRole('link', {
+    name: /your bb/i,
   });
-
-  userEvent.click(link);
-  const heading = await screen.findByRole('heading', {
-    name: /users leaderboard/i,
+  userEvent.click(petPage);
+  const feedButton = await screen.findByRole('button', {
+    name: /feed/i,
   });
-  expect(heading).toBeInTheDocument();
+  expect(feedButton).toBeInTheDocument();
 });
