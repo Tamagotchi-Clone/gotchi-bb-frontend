@@ -21,17 +21,15 @@ export default function Petpage({
           <div className="petStats">
             <div className="stat-container">
               <img src="https://i.postimg.cc/Zv8mtdL7/status-bar.png" />
-              hunger
-              {/* <button onClick={handleFeed}>Feed</button> */}
+              <p>hunger</p>
             </div>
             <div className="stat-container">
               <img src="https://i.postimg.cc/VJdC1f39/status3.png" />
-              hygiene
-              {/* <button onClick={handleClean}>Clean</button> */}
+              <p> hygiene</p>
             </div>
             <div className="stat-container">
               <img src="https://i.postimg.cc/MvsQhMrK/status2.png" />
-              entertainment
+              <p>amusement</p>
             </div>
           </div>
         </div>
