@@ -6,7 +6,7 @@
   margin: auto;
   border: 1pt solid black;
   padding: 10px;
-  width: 15vw;
+  width: 20vw;
   height: 15vw;
   border-radius: 10px 8px;
 }
@@ -62,4 +62,8 @@
 .editPetBox img {
   width: 3vw;
   height: 3vw;
+}
+
+.editPetBox b {
+  font-size: 2vw;
 }

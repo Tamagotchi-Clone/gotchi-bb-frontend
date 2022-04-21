@@ -23,7 +23,8 @@ export default function Home() {
   return (
     <div className="homeBox">
       <h1 className="animate__animated animate__flash">
-        Welcome to <b className="b">gotchi bb</b>
+        Welcome to <b>gotchi bb</b>
+        <img className="tiny" src="https://i.postimg.cc/QFRxTtc8/pet4.png" />
       </h1>
       <div className="imageStack">
         <div className="images">
