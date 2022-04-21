@@ -4,7 +4,6 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { UserProvider } from '../../context/UserContext';
 import App from '../../App';
-import { MemoryRouter } from 'react-router-dom';
 
 const mockUser = {
   id: 1,

@@ -5,7 +5,6 @@ import { UserProvider } from '../../context/UserContext';
 import App from '../../App';
 import Home from './Home';
 import { MemoryRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
 
 const data = [
   {

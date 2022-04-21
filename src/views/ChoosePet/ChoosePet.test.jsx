@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { UserProvider } from '../../context/UserContext';
-import App from '../../App';
 import ChoosePet from './ChoosePet';
 import { MemoryRouter } from 'react-router-dom';
 
