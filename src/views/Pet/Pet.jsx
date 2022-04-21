@@ -12,6 +12,7 @@ import {
 import { calculateHappiness, happinessScore } from '../utils/needs';
 import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
 import { useUser } from '../../context/UserContext';
+import '../../components/Pet/PetPage.css';
 
 export default function Pet() {
   const [pet, setPet] = useState({});
@@ -22,6 +23,7 @@ export default function Pet() {
   const params = useParams();
   const { user } = useUser();
   const [score, setScore] = useState({});
+  const [msg, setMsg] = useState('');
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -70,12 +72,19 @@ export default function Pet() {
       await feedUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      await updatePetScore(
-        user.id,
-        score.hunger + 1,
-        score.cleanliness,
-        score.play
-      );
+      if (hunger === 'hungry') {
+        await updatePetScore(
+          user.id,
+          score.hunger + 1,
+          score.cleanliness,
+          score.play
+        );
+      } else {
+        setMsg(`${pet.name} is not hungry yet!`);
+        setTimeout(() => {
+          setMsg('');
+        }, 5000);
+      }
       console.log('hunger', pet.hunger);
     } catch (error) {
       console.log('error', error);
@@ -87,12 +96,19 @@ export default function Pet() {
       await cleanUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      await updatePetScore(
-        user.id,
-        score.hunger,
-        score.cleanliness + 1,
-        score.play
-      );
+      if (clean === 'dirty') {
+        await updatePetScore(
+          user.id,
+          score.hunger,
+          score.cleanliness + 1,
+          score.play
+        );
+      } else {
+        setMsg(`${pet.name} is not dirty yet!`);
+        setTimeout(() => {
+          setMsg('');
+        }, 5000);
+      }
     } catch (error) {
       console.log('error', error);
     }
@@ -103,12 +119,19 @@ export default function Pet() {
       await playUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      await updatePetScore(
-        user.id,
-        score.hunger,
-        score.cleanliness + 1,
-        score.play
-      );
+      if (play === 'bored') {
+        await updatePetScore(
+          user.id,
+          score.hunger,
+          score.cleanliness + 1,
+          score.play
+        );
+      } else {
+        setMsg(`${pet.name} is not bored!`);
+        setTimeout(() => {
+          setMsg('');
+        }, 5000);
+      }
     } catch (error) {
       console.log('error', error);
     }
@@ -126,6 +149,7 @@ export default function Pet() {
         play={play}
         clean={clean}
       />
+      {msg ? <p className="msg">{msg}</p> : ''}
       {/* <Bot /> */}
     </>
   );
