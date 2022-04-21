@@ -163,7 +163,7 @@ export default function Pet() {
     }
   };
 
-  if (loading) return <h2>loading...</h2>;
+  if (loading) return <span className="loader"></span>;
   return (
     <>
       <PetPage

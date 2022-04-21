@@ -18,7 +18,7 @@ export default function PetLoading() {
     }
   }, [loading, user]);
 
-  if (loading) return <h1>loading..</h1>;
+  if (loading) return <span className="loader"></span>;
   return (
     <div>
       {!loading && pet?.id ? (

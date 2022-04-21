@@ -19,13 +19,13 @@
 .delete {
   border: 1pt solid black;
   padding: 10px;
-  width: 8vw;
+  width: fit-content;
   height: 2.5vw;
   border-radius: 10px 8px;
   margin-top: 30px;
   text-align: center;
   margin: auto;
-  font-size: 0.75vw;
+  font-size: 0.9vw;
 }
 
 .delete {

@@ -19,9 +19,10 @@ export default function Home() {
     }
   }, [loading]);
 
+  if (loading) return <span className="loader"></span>;
+
   return (
     <div className="homeBox">
-
       <h1 className="animate__animated animate__flash">
         Welcome to <b>gotchi bb</b>
         <img className="tiny" src="https://i.postimg.cc/QFRxTtc8/pet4.png" />
