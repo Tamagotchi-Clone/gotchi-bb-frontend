@@ -150,7 +150,7 @@ export default function Pet() {
         clean={clean}
       />
       {msg ? <p className="msg">{msg}</p> : ''}
-      {/* <Bot /> */}
+      <Bot />
     </>
   );
 }
