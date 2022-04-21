@@ -20,7 +20,7 @@ const mockUser = {
 const data = [
   {
     id: '1',
-    species: 'Chikcy',
+    species: 'Chicky',
     image: 'https://i.postimg.cc/1f3txb9Q/pet1.png',
   },
   {
