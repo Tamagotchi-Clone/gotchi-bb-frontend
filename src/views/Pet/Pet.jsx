@@ -19,10 +19,11 @@ export default function Pet() {
   const [play, setPlay] = useState('');
   const [clean, setClean] = useState('');
   const [loading, setLoading] = useState(true);
-  const params = useParams();
-  const { user } = useUser();
   const [score, setScore] = useState({});
   const [msg, setMsg] = useState('');
+  const [isActive, setActive] = useState(false);
+  const params = useParams();
+  const { user } = useUser();
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -80,7 +81,8 @@ export default function Pet() {
       await feedUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
-      await setHunger('https://i.ibb.co/vdXWNyF/status.png');
+      setActive(!isActive);
+      setHunger('https://i.ibb.co/vdXWNyF/status.png');
       if (
         hunger === 'miserable' ||
         hunger === 'unhappy' ||
@@ -109,6 +111,7 @@ export default function Pet() {
       await cleanUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
+      setActive(!isActive);
       setClean('https://i.ibb.co/vdXWNyF/status.png');
       if (
         clean === 'miserable' ||
@@ -121,11 +124,13 @@ export default function Pet() {
           score.cleanliness + 1,
           score.play
         );
+        setActive(isActive);
       } else {
         setMsg(`${pet.name} is not dirty yet!`);
         setTimeout(() => {
           setMsg('');
         }, 5000);
+        setActive(isActive);
       }
     } catch (error) {
       console.log('error', error);
@@ -136,6 +141,7 @@ export default function Pet() {
     try {
       await playUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
+      setActive(!isActive);
       setScore(score);
       setPlay('https://i.ibb.co/vdXWNyF/status.png');
       if (play === 'miserable' || play === 'unhappy' || play === 'satisfied') {
@@ -145,6 +151,7 @@ export default function Pet() {
           score.cleanliness + 1,
           score.play
         );
+        setActive(isActive);
       } else {
         setMsg(`${pet.name} is not bored!`);
         setTimeout(() => {
@@ -168,6 +175,7 @@ export default function Pet() {
         play={play}
         clean={clean}
         msg={msg}
+        isActive={isActive}
       />
     </>
   );

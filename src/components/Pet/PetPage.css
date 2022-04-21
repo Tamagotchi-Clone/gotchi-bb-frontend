@@ -109,3 +109,8 @@
   padding-bottom: 10px;
   font-size: 1.7vw;
 }
+
+.wobble {
+  animation: bounce;
+  animation-duration: 1s;
+}

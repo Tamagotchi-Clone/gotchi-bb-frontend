@@ -11,6 +11,7 @@ export default function Petpage({
   clean,
   play,
   msg,
+  isActive,
 }) {
   return (
     <>
@@ -18,7 +19,7 @@ export default function Petpage({
         <h1>{pet.name}</h1>
         <div className="petScreen">
           <Bot />
-          <img src={pet.image} />
+          <img src={pet.image} className={isActive ? 'wobble' : null} />
           <div className="petStats">
             <div className="stat-container">
               <img src={hunger} />
@@ -35,7 +36,6 @@ export default function Petpage({
           </div>
         </div>
         <div className="msg-container">
-          {' '}
           {msg ? <p className="msg">{msg}</p> : ''}
         </div>
         <div className="buttons">
