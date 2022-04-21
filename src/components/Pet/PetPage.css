@@ -12,9 +12,29 @@
   background-color: #dde4e0;
 }
 
+
+.msg {
+  display: flex;
+  margin: auto;
+  width: fit-content;
+  margin-top: 10px;
+  animation: fadeOut 2s forwards;
+  animation-delay: 5s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .petScreen {
   width: 23vw;
   min-height: 20vw;
+
   margin: auto;
   background-color: #b5c3bb;
   border-radius: 6%;
