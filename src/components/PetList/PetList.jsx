@@ -71,7 +71,6 @@ export default function PetList({
           </button>
         </div>
       </div>
-
       <p className="errorMsg">{errorMsg}</p>
     </div>
   );
