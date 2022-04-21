@@ -49,3 +49,19 @@ test.only('can feed your pet', async () => {
   });
   expect(feedButton).toBeInTheDocument();
 });
+
+test.only('pet renders on page', async () => {
+  render(
+    <UserProvider mockUser={mockUser}>
+      <App />
+    </UserProvider>
+  );
+  const petPage = await screen.findByRole('link', {
+    name: /your bb/i,
+  });
+  userEvent.click(petPage);
+  const heading = await screen.findByRole('heading', {
+    name: /omelette/i,
+  });
+  expect(heading).toBeInTheDocument();
+});
