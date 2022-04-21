@@ -11,7 +11,6 @@ export default function Home() {
     const fetchImage = async () => {
       const data = await getPets();
       const randomData = data[Math.floor(Math.random() * data.length)];
-      console.log(randomData.image);
       setRandomImage(randomData.image);
       setLoading(false);
     };

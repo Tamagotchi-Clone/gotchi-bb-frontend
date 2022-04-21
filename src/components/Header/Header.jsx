@@ -8,13 +8,11 @@ import './Header.css';
 export default function Header() {
   const { user, setUser, loading } = useUser();
   const { pet } = usePet();
-  console.log('pet', pet);
   const history = useHistory();
 
   const handleLogout = async () => {
     await signOut();
     setUser(null);
-    console.log('logout', user);
     history.push('/login');
   };
   if (loading) return <h1>loading..</h1>;

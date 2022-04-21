@@ -18,7 +18,6 @@ export default function PetList({
     if (name === '') {
       setErrorMsg('Please type in a name.');
     } else {
-      console.log('click');
       try {
         await postUserPet({ userId: user.id, petId: chosenPet.id, name });
         window.location.replace('/pet');

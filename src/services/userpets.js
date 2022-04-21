@@ -19,7 +19,6 @@ export const getUserPetById = async (id) => {
 };
 
 export const getUserPetByUser = async (userId) => {
-  console.log('userId', userId);
   try {
     const res = await fetch(
       `${process.env.API_URL}/api/v1/userpets/users/${userId}`,
