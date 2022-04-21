@@ -37,7 +37,6 @@ input[type='radio']:checked + img {
   align-items: center;
   justify-content: space-between;
   width: 65vw;
-
   margin: auto;
   border: 2.5pt solid rgb(39, 39, 39);
   padding: 45px 45px 55px 45px;
