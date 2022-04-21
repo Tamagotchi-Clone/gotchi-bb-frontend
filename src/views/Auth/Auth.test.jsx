@@ -17,7 +17,7 @@ test('testing login', async () => {
   userEvent.click(login);
 
   const username = await screen.findByRole('textbox');
-  userEvent.type(username, 't');
+  userEvent.type(username, 'te');
 
   const password = await screen.findByPlaceholderText(/password/i);
   userEvent.type(password, 'password');
