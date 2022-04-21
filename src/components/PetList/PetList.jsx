@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import { postUserPet } from '../../services/userpets';
 import './PetList.css';
 import { useUser } from '../../context/UserContext';
-import { useHistory } from 'react-router-dom';
-import {
-  getPetScoreByUserId,
-  getPetScores,
-  postPetScore,
-} from '../../services/petscores';
+import { getPetScoreByUserId, postPetScore } from '../../services/petscores';
 
 export default function PetList({
   pets,
