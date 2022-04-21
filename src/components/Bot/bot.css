@@ -41,9 +41,11 @@
 .sc-message--text {
   background-color: #b5c3bb !important;
   color: black !important;
-  /* font-family: 'Roboto Mono'; */
 }
 
+.sc-message--avatar {
+  display: none !important;
+}
 .sc-user-input--file-icon {
   display: none !important;
 }

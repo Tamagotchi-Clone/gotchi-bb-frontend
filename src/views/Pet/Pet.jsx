@@ -43,36 +43,34 @@ export default function Pet() {
       setPet(data);
 
       if (hungerScore === 'miserable') {
-        setHunger('miserable');
-        console.log('miserable');
+        setHunger('https://i.ibb.co/5cf7FvT/status3.png');
       } else if (hungerScore === 'unhappy') {
-        setHunger('unhappy');
+        setHunger('https://i.ibb.co/r2Q6gXS/status2.png');
+        setStatusBar('1');
       } else if (hungerScore === 'satisfied') {
-        setHunger('satisfied');
+        setHunger('https://i.ibb.co/1913vcW/status1.png');
       } else {
-        setHunger('happy');
+        setHunger('https://i.ibb.co/vdXWNyF/status.png');
       }
 
-      if (playScore === 'miserable') {
+      if (playScore === 'https://i.ibb.co/5cf7FvT/status3.png') {
         setPlay('miserable');
-        console.log(playScore);
       } else if (playScore === 'unhappy') {
-        setPlay('unhappy');
+        setPlay('https://i.ibb.co/r2Q6gXS/status2.png');
       } else if (playScore === 'satisfied') {
-        setPlay('satisfied');
+        setPlay('https://i.ibb.co/1913vcW/status1.png');
       } else {
-        setPlay('happy');
+        setPlay('https://i.ibb.co/vdXWNyF/status.png');
       }
 
       if (cleanScore === 'miserable') {
-        setClean('miserable');
-        console.log('miserable');
+        setClean('https://i.ibb.co/5cf7FvT/status3.png');
       } else if (cleanScore === 'unhappy') {
-        setClean('unhappy');
+        setClean('https://i.ibb.co/r2Q6gXS/status2.png');
       } else if (cleanScore === 'satisfied') {
-        setClean('satisfied');
+        setClean('https://i.ibb.co/1913vcW/status1.png');
       } else {
-        setClean('happy');
+        setClean('https://i.ibb.co/vdXWNyF/status.png');
       }
 
       setLoading(false);

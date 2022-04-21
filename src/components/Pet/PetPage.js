@@ -17,19 +17,19 @@ export default function Petpage({
       <div className="petBox">
         <h1>{pet.name}</h1>
         <div className="petScreen">
-          {/* <Bot /> */}
+          <Bot />
           <img src={pet.image} />
           <div className="petStats">
             <div className="stat-container">
-              {hunger}
+              <img src={hunger} />
               <p>hunger</p>
             </div>
             <div className="stat-container">
-              {clean}
+              <img src={clean} />
               <p> hygiene</p>
             </div>
             <div className="stat-container">
-              {play}
+              <img src={play} />
               <p>amusement</p>
             </div>
           </div>
