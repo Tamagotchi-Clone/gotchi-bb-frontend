@@ -123,7 +123,6 @@ export default function Pet() {
           score.play
         );
         setClean('https://i.ibb.co/vdXWNyF/status.png');
-        setActive(isActive);
       } else {
         setMsg(`${pet.name} is not dirty yet!`);
         setTimeout(() => {
@@ -139,8 +138,8 @@ export default function Pet() {
     try {
       await playUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
-      setActive(!isActive);
       setScore(score);
+      setActive(!isActive);
       if (
         play === 'https://i.ibb.co/5cf7FvT/status3.png' ||
         play === 'https://i.ibb.co/r2Q6gXS/status2.png' ||
