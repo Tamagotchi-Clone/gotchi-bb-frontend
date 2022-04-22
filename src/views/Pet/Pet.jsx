@@ -90,8 +90,8 @@ export default function Pet() {
         await updatePetScore(
           user.id,
           score.hunger + 1,
-          score.cleanliness,
-          score.play
+          score.play,
+          score.cleanliness
         );
         setHunger('https://i.ibb.co/vdXWNyF/status.png');
       } else {
@@ -119,8 +119,8 @@ export default function Pet() {
         await updatePetScore(
           user.id,
           score.hunger,
-          score.cleanliness + 1,
-          score.play
+          score.play,
+          score.cleanliness + 1
         );
         setClean('https://i.ibb.co/vdXWNyF/status.png');
       } else {
@@ -148,8 +148,8 @@ export default function Pet() {
         await updatePetScore(
           user.id,
           score.hunger,
-          score.cleanliness,
-          score.play + 1
+          score.play + 1,
+          score.cleanliness
         );
         setPlay('https://i.ibb.co/vdXWNyF/status.png');
       } else {
