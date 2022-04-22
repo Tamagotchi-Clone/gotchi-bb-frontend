@@ -5,6 +5,7 @@
 
 .rows {
   padding: 15px;
+  width: 15vw;
 }
 
 .board {
@@ -13,7 +14,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  width: 15vw;
+  width: 17vw;
   margin: auto;
   border: 2.5pt solid rgb(39, 39, 39);
   padding: 45px 45px 55px 45px;
@@ -32,7 +33,7 @@
 }
 
 .board p {
-  font-size: 1vw;
+  font-size: 1.3vw;
 }
 
 .board b {
