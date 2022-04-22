@@ -82,7 +82,11 @@ export default function Pet() {
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
       setActive(!isActive);
-      if (hunger === 'https://i.ibb.co/5cf7FvT/status3.png') {
+      if (
+        hunger === 'https://i.ibb.co/5cf7FvT/status3.png' ||
+        hunger === 'https://i.ibb.co/r2Q6gXS/status2.png' ||
+        hunger === 'https://i.ibb.co/1913vcW/status1.png'
+      ) {
         await updatePetScore(
           user.id,
           score.hunger + 1,
@@ -107,7 +111,11 @@ export default function Pet() {
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
       setActive(!isActive);
-      if (clean === 'https://i.ibb.co/5cf7FvT/status3.png') {
+      if (
+        clean === 'https://i.ibb.co/5cf7FvT/status3.png' ||
+        clean === 'https://i.ibb.co/r2Q6gXS/status2.png' ||
+        clean === 'https://i.ibb.co/1913vcW/status1.png'
+      ) {
         await updatePetScore(
           user.id,
           score.hunger,
@@ -133,12 +141,16 @@ export default function Pet() {
       const score = await getPetScoreByUserId(user.id);
       setActive(!isActive);
       setScore(score);
-      if (play === 'https://i.ibb.co/5cf7FvT/status3.png') {
+      if (
+        play === 'https://i.ibb.co/5cf7FvT/status3.png' ||
+        play === 'https://i.ibb.co/r2Q6gXS/status2.png' ||
+        play === 'https://i.ibb.co/1913vcW/status1.png'
+      ) {
         await updatePetScore(
           user.id,
           score.hunger,
-          score.cleanliness + 1,
-          score.play
+          score.cleanliness,
+          score.play + 1
         );
         setPlay('https://i.ibb.co/vdXWNyF/status.png');
       } else {
