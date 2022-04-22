@@ -16,12 +16,24 @@ export async function happinessScore(date) {
   }
 }
 
+// export async function calculateHappiness(need) {
+//   if (need.difference >= 0.25) {
+//     return 'miserable';
+//   } else if (need.difference >= 0.25) {
+//     return 'unhappy';
+//   } else if (need.difference >= 0.25) {
+//     return 'satisfied';
+//   } else {
+//     return 'happy';
+//   }
+// }
+
 export async function calculateHappiness(need) {
-  if (need.difference >= 0.25) {
+  if (need.difference >= 0.00019) {
     return 'miserable';
-  } else if (need.difference >= 0.5) {
+  } else if (need.difference >= 0.00009) {
     return 'unhappy';
-  } else if (need.difference >= 0.75) {
+  } else if (need.difference >= 0.00006) {
     return 'satisfied';
   } else {
     return 'happy';
