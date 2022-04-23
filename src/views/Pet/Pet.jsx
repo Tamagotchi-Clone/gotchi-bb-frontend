@@ -24,6 +24,10 @@ export default function Pet() {
   const [isActive, setActive] = useState(false);
   const params = useParams();
   const { user } = useUser();
+  const happy = 'https://iili.io/VeGj8g.png';
+  const satisfied = 'https://iili.io/VeGhcF.png';
+  const unhappy = 'https://iili.io/VeGN9a.png';
+  const miserable = 'https://iili.io/VeGXF1.png';
 
   useEffect(() => {
     const fetchPet = async () => {
@@ -41,33 +45,33 @@ export default function Pet() {
       setPet(data);
 
       if (hungerScore === 'miserable') {
-        setHunger('https://i.ibb.co/5cf7FvT/status3.png');
+        setHunger(miserable);
       } else if (hungerScore === 'unhappy') {
-        setHunger('https://i.ibb.co/r2Q6gXS/status2.png');
+        setHunger(unhappy);
       } else if (hungerScore === 'satisfied') {
-        setHunger('https://i.ibb.co/1913vcW/status1.png');
+        setHunger(satisfied);
       } else if (hungerScore === 'happy') {
-        setHunger('https://i.ibb.co/vdXWNyF/status.png');
+        setHunger(happy);
       }
 
       if (playScore === 'miserable') {
-        setPlay('https://i.ibb.co/5cf7FvT/status3.png');
+        setPlay(miserable);
       } else if (playScore === 'unhappy') {
-        setPlay('https://i.ibb.co/r2Q6gXS/status2.png');
+        setPlay(unhappy);
       } else if (playScore === 'satisfied') {
-        setPlay('https://i.ibb.co/1913vcW/status1.png');
+        setPlay(satisfied);
       } else {
-        setPlay('https://i.ibb.co/vdXWNyF/status.png');
+        setPlay(happy);
       }
 
       if (cleanScore === 'miserable') {
-        setClean('https://i.ibb.co/5cf7FvT/status3.png');
+        setClean(miserable);
       } else if (cleanScore === 'unhappy') {
-        setClean('https://i.ibb.co/r2Q6gXS/status2.png');
+        setClean(unhappy);
       } else if (cleanScore === 'satisfied') {
-        setClean('https://i.ibb.co/1913vcW/status1.png');
+        setClean(satisfied);
       } else {
-        setClean('https://i.ibb.co/vdXWNyF/status.png');
+        setClean(happy);
       }
 
       setLoading(false);
@@ -82,14 +86,14 @@ export default function Pet() {
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
       setActive(!isActive);
-      if (hunger === 'https://i.ibb.co/5cf7FvT/status3.png') {
+      if (hunger === miserable || hunger === unhappy || hunger === satisfied) {
         await updatePetScore(
           user.id,
           score.hunger + 1,
-          score.cleanliness,
-          score.play
+          score.play,
+          score.cleanliness
         );
-        setHunger('https://i.ibb.co/vdXWNyF/status.png');
+        setHunger(happy);
       } else {
         setMsg(`${pet.name} is not hungry yet!`);
         setTimeout(() => {
@@ -107,15 +111,14 @@ export default function Pet() {
       const score = await getPetScoreByUserId(user.id);
       setScore(score);
       setActive(!isActive);
-      if (clean === 'https://i.ibb.co/5cf7FvT/status3.png') {
+      if (clean === miserable || clean === unhappy || clean === satisfied) {
         await updatePetScore(
           user.id,
           score.hunger,
-          score.cleanliness + 1,
-          score.play
+          score.play,
+          score.cleanliness + 1
         );
-        setClean('https://i.ibb.co/vdXWNyF/status.png');
-        setActive(isActive);
+        setClean(happy);
       } else {
         setMsg(`${pet.name} is not dirty yet!`);
         setTimeout(() => {
@@ -131,16 +134,16 @@ export default function Pet() {
     try {
       await playUserPet(params.id);
       const score = await getPetScoreByUserId(user.id);
-      setActive(!isActive);
       setScore(score);
-      if (play === 'https://i.ibb.co/5cf7FvT/status3.png') {
+      setActive(!isActive);
+      if (play === miserable || play === unhappy || play === satisfied) {
         await updatePetScore(
           user.id,
           score.hunger,
-          score.cleanliness + 1,
-          score.play
+          score.play + 1,
+          score.cleanliness
         );
-        setPlay('https://i.ibb.co/vdXWNyF/status.png');
+        setPlay(happy);
       } else {
         setMsg(`${pet.name} is not bored!`);
         setTimeout(() => {
