@@ -7,7 +7,7 @@ import {
   playUserPet,
   getUserPetById,
 } from '../../services/userpets';
-import { calculateHappiness, happinessScore } from '../utils/needs';
+import { calculateHappiness, happinessScore } from '../../utils/needs';
 import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
 import { useUser } from '../../context/UserContext';
 import '../../components/Pet/PetPage.css';
