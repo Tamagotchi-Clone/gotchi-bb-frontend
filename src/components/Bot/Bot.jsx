@@ -25,6 +25,7 @@ class Bot extends React.Component {
       this._sendMessage(msg);
     });
   }
+
   async _onMessageWasSent(message) {
     this.setState({
       messageList: [...this.state.messageList, message],
@@ -35,6 +36,7 @@ class Bot extends React.Component {
       room: this.state.room,
     });
   }
+
   _sendMessage(text) {
     if (text.length > 0) {
       this.setState({
@@ -49,6 +51,7 @@ class Bot extends React.Component {
       });
     }
   }
+
   render() {
     return (
       <div id="chatbox" className="chatbox">

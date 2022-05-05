@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { postUserPet } from '../../services/userpets';
-import './PetList.css';
 import { useUser } from '../../context/UserContext';
 import { getPetScoreByUserId, postPetScore } from '../../services/petscores';
+import './PetList.css';
 
 export default function PetList({
   pets,

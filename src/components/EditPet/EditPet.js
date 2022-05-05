@@ -1,4 +1,3 @@
-import React from 'react';
 import './EditPet.css';
 
 export default function EditPet({
@@ -11,8 +10,7 @@ export default function EditPet({
   return (
     <div className="editPetBox">
       <h1>
-        {' '}
-        edit your <b>bb</b>{' '}
+        edit your <b>bb</b>
       </h1>
       <form className="editForm" onSubmit={handleSubmit}>
         <img className="petImage" src={pet.image} />
