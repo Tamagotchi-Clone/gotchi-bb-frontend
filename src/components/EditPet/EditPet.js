@@ -8,12 +8,12 @@ export default function EditPet({
   setName,
 }) {
   return (
-    <div className="editPetBox">
+    <div className="edit-container">
       <h1>
         edit your <b>bb</b>
       </h1>
-      <form className="editForm" onSubmit={handleSubmit}>
-        <img className="petImage" src={pet.image} />
+      <form className="edit-form" onSubmit={handleSubmit}>
+        <img className="pet-image" src={pet.image} />
         <input
           placeholder={pet.name}
           type="text"

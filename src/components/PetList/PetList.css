@@ -23,14 +23,14 @@ input[type='radio']:checked + img {
   }
 }
 
-.choosepet-div img {
+.choosepet-container img {
   height: 5.5vw;
   width: 5.5vw;
   padding: 30px;
   margin-bottom: 20px;
 }
 
-.choosepet-div {
+.choosepet-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -66,14 +66,14 @@ input.name-input {
   border: 1.5pt solid rgb(39, 39, 39);
 }
 
-.buttondiv {
+.button-container {
   display: flex;
   width: 50vw;
   margin: 70px auto 0px;
   justify-content: space-evenly;
 }
 
-.buttondiv button {
+.button-container button {
   padding: 5px 10px 5px 10px;
   box-shadow: 2px 2px rgb(39, 39, 39);
   border-radius: 10px;
@@ -83,29 +83,26 @@ input.name-input {
   font-size: 1.5vw;
 }
 
-.buttondiv button:hover {
+.button-container button:hover {
   background-color: #b5c3bb;
   color: #fefefe;
   font-weight: bold;
 }
 
-.choosepet-div p {
+.choosepet-container p {
   text-align: center;
   font-size: 1.2vw;
 }
 
-.chooseBox {
+.choose-container {
   display: flex;
   flex-direction: column;
 }
 
-.chooseBox .errorMsg {
-  margin: auto;
-  margin-top: 12px;
-  color: red;
-}
-
-.errorMsg {
+.error-msg {
   width: 400px;
   font-size: 1.2vw;
+  margin-top: 12px;
+  font-weight: bold;
+  color: rgb(175, 73, 82);
 }

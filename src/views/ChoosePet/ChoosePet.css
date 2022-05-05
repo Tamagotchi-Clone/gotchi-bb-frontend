@@ -1,10 +1,10 @@
-.choosePetBox h1 {
+.container h1 {
   text-align: center;
   text-decoration: none;
   border: none;
   font-size: 3vw;
 }
 
-.choosePetBox b {
+.container b {
   font-size: 3vw;
 }

@@ -1,11 +1,11 @@
-.homeBox {
+.home-container {
   display: flex;
   flex-direction: column;
   width: 90vw;
   margin: auto;
 }
 
-.homeBox h1,
+.home-container h1,
 img,
 p {
   margin: auto;
@@ -22,12 +22,12 @@ p {
   margin-bottom: 60px;
 }
 
-.homeBox h1 {
+.home-container h1 {
   margin-top: 80px;
   font-size: 3.7vw;
 }
 
-.homeBox p {
+.home-container p {
   font-size: 1.3vw;
 }
 
@@ -36,7 +36,8 @@ p {
   height: 4vw;
   margin-top: 60px;
 }
-.imageStack {
+
+.image-stack {
   display: flex;
   margin: auto;
 }

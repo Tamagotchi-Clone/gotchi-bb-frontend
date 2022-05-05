@@ -24,12 +24,12 @@ export default function Home() {
 
   return (
     <FadeIn delay={30}>
-      <div className="homeBox">
+      <div className="home-container">
         <h1 className="animate__animated animate__flash">
           Welcome to <b>gotchi bb</b>
           <img className="tiny" src="https://i.postimg.cc/QFRxTtc8/pet4.png" />
         </h1>
-        <div className="imageStack">
+        <div className="image-stack">
           <div className="images">
             <img
               className="animate__animated animate__bounce"

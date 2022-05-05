@@ -38,7 +38,7 @@ export default function AuthForm({ isRegistering }) {
   };
 
   return (
-    <form className="authForm" onSubmit={handleSubmit}>
+    <form className="auth-form" onSubmit={handleSubmit}>
       {isRegistering ? <h1>Sign Up</h1> : <h1>Login</h1>}
 
       <input

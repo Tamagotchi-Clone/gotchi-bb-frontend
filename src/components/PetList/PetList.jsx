@@ -36,7 +36,7 @@ export default function PetList({
 
   return (
     <div className="chooseBox">
-      <div className="choosepet-div">
+      <div className="choosepet-container">
         {pets.map((pet) => (
           <div className="pets" key={pet.id}>
             <label>
@@ -50,7 +50,7 @@ export default function PetList({
             </label>
           </div>
         ))}
-        <div className="buttondiv">
+        <div className="button-container">
           <input
             aria-label="petnameinput"
             className="name-input"
@@ -63,8 +63,8 @@ export default function PetList({
             Make Pet!
           </button>
         </div>
+        <p className="error-msg">{errorMsg}</p>
       </div>
-      <p className="errorMsg">{errorMsg}</p>
     </div>
   );
 }

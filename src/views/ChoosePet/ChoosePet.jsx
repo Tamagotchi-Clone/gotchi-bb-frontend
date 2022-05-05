@@ -25,7 +25,7 @@ export default function ChoosePet() {
 
   return (
     <FadeIn delay={30}>
-      <div className="choosePetBox">
+      <div className="container">
         <h1>
           Choose Your <b>bb</b>
         </h1>
