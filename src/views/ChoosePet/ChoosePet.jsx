@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getPets } from '../../services/pets';
 import PetList from '../../components/PetList/PetList';
-import './ChoosePet.css';
 import FadeIn from 'react-fade-in/lib/FadeIn';
+import './ChoosePet.css';
 
 export default function ChoosePet() {
   const [pets, setPets] = useState([]);

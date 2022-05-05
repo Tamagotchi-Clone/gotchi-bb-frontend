@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getPets } from '../../services/pets';
 import FadeIn from 'react-fade-in/lib/FadeIn';
 import 'animate.css';
-import { getPets } from '../../services/pets';
 import './Home.css';
 
 export default function Home() {
