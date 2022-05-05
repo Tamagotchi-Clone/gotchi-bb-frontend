@@ -1,11 +1,9 @@
 export const getPets = async () => {
   const res = await fetch(`${process.env.API_URL}/api/v1/pets`);
-  const resJson = await res.json();
-  return resJson;
+  return await res.json();
 };
 
 export const getPetById = async ({ id }) => {
   const res = await fetch(`${process.env.API_URL}/api/v1/pets/${id}`);
-  const resJson = await res.json();
-  return resJson;
+  return await res.json();
 };
