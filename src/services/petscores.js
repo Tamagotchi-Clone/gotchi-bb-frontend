@@ -54,6 +54,6 @@ export const deleteUserScore = async (userId) => {
     });
     return await res.json();
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };

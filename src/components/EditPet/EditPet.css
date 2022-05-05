@@ -1,4 +1,4 @@
-.editForm {
+.edit-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@
   border-radius: 10px 8px;
 }
 
-.editForm input {
+.edit-form input {
   padding: 5px;
   margin-bottom: 10px;
   box-shadow: 2px 2px rgb(39, 39, 39);
@@ -20,7 +20,7 @@
   border: 1.5pt solid rgb(39, 39, 39);
 }
 
-.editForm button,
+.edit-form button,
 .delete {
   padding: 5px 0px 5px 0px;
   margin: 8px;
@@ -37,30 +37,30 @@
   font-weight: bold;
 }
 
-.petImage {
+.pet-image {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 15px;
 }
 
-.editPetBox {
+.edit-container {
   display: flex;
   flex-direction: column;
 }
 
-.editPetBox h1 {
+.edit-container h1 {
   margin: auto;
   margin-bottom: 20px;
   margin-top: 10px;
   font-size: 2vw;
 }
 
-.editPetBox img {
+.edit-container img {
   width: 3vw;
   height: 3vw;
 }
 
-.editPetBox b {
+.edit-container b {
   font-size: 2vw;
 }

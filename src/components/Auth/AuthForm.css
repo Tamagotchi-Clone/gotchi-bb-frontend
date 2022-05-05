@@ -1,4 +1,4 @@
-.authForm {
+.auth-form {
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -11,7 +11,7 @@
   border-radius: 10px 8px;
 }
 
-.authForm input {
+.auth-form input {
   padding: 9px;
   margin: 6px;
   width: 13vw;
@@ -20,7 +20,7 @@
   border: 1.5pt solid rgb(39, 39, 39);
 }
 
-.authForm button {
+.auth-form button {
   padding: 5px 10px 5px 10px;
   margin-top: 5px;
   box-shadow: 2px 2px rgb(39, 39, 39);
@@ -32,21 +32,22 @@
   width: 14vw;
 }
 
-.authForm button:hover {
+.auth-form button:hover {
   background-color: #b5c3bb;
   color: #fefefe;
   font-weight: bold;
 }
-.authBox {
+
+.auth-form p {
+  margin-top: 20px;
+  color: red;
+  font-size: 0.8vw;
+}
+
+/* .auth-box {
   display: flex;
   flex-direction: column;
   width: fit-content;
   margin: auto;
   margin-top: 10%;
-}
-
-.authForm p {
-  margin-top: 20px;
-  color: red;
-  font-size: 0.8vw;
-}
+} */

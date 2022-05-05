@@ -1,10 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
-import usePet from '../../hooks/usePet';
 import { getUserPetByUser } from '../../services/userpets';
+import usePet from '../../hooks/usePet';
 import ChoosePet from '../ChoosePet/ChoosePet';
 
 export default function PetLoading() {

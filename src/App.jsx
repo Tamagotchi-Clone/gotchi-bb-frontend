@@ -5,10 +5,10 @@ import Auth from './views/Auth/Auth';
 import Pet from './views/Pet/Pet';
 import Settings from './views/Settings/Settings';
 import ChoosePet from './views/ChoosePet/ChoosePet';
-import './App.css';
 import Home from './views/Home/Home';
 import PetLoading from './views/PetLoading/PetLoading';
 import Leaderboard from './views/Leaderboard/Leaderboard';
+import './App.css';
 
 export default function App() {
   return (

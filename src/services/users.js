@@ -8,8 +8,7 @@ export async function signIn({ username, password }) {
       body: JSON.stringify({ username, password }),
     });
     if (!res.ok) throw new Error();
-    const resJson = await res.json();
-    return resJson;
+    return await res.json();
   } catch (error) {
     throw new Error();
   }
@@ -25,8 +24,7 @@ export async function signUp({ username, password }) {
       body: JSON.stringify({ username, password }),
     });
     if (!res.ok) throw new Error();
-    const resJson = await res.json();
-    return resJson;
+    return await res.json();
   } catch (error) {
     throw new Error();
   }
@@ -46,11 +44,14 @@ export async function getCurrentUser() {
 }
 
 export async function signOut() {
-  const res = await fetch(`${process.env.API_URL}/api/v1/users/sessions`, {
-    method: 'DELETE',
-    credentials: 'include',
-    mode: 'cors',
-  });
-
-  return res.ok;
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/v1/users/sessions`, {
+      method: 'DELETE',
+      credentials: 'include',
+      mode: 'cors',
+    });
+    return res.ok;
+  } catch (error) {
+    console.log(error);
+  }
 }

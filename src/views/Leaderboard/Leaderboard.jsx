@@ -1,9 +1,7 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getPetScores } from '../../services/petscores';
-import './Leaderboard.css';
 import FadeIn from 'react-fade-in/lib/FadeIn';
+import './Leaderboard.css';
 
 export default function Leaderboard() {
   const [scores, setScores] = useState([]);

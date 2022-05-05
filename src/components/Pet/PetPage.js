@@ -15,12 +15,12 @@ export default function Petpage({
 }) {
   return (
     <>
-      <div className="petBox">
+      <div className="pet-container">
         <h1>{pet.name}</h1>
-        <div className="petScreen">
+        <div className="pet-screen">
           <Bot />
           <img src={pet.image} className={isActive ? 'wobble' : null} />
-          <div className="petStats">
+          <div className="pet-stats">
             <div className="stat-container">
               <img src={hunger} />
               <p>hunger</p>

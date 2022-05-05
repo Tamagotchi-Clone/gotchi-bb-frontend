@@ -10,8 +10,8 @@ import {
 import { calculateHappiness, happinessScore } from '../../utils/needs';
 import { getPetScoreByUserId, updatePetScore } from '../../services/petscores';
 import { useUser } from '../../context/UserContext';
-import '../../components/Pet/PetPage.css';
 import FadeIn from 'react-fade-in/lib/FadeIn';
+import '../../components/Pet/PetPage.css';
 
 export default function Pet() {
   const [pet, setPet] = useState({});

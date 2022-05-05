@@ -1,20 +1,18 @@
 export const getUserPets = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets`);
-    const resJson = await res.json();
-    return await resJson;
+    return await res.json();
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 
 export const getUserPetById = async (id) => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/userpets/${id}`);
-    const resJson = await res.json();
-    return await resJson;
+    return await res.json();
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 
@@ -43,7 +41,7 @@ export const postUserPet = async ({ petId, name }) => {
     });
     return await res.json();
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 
@@ -61,7 +59,7 @@ export const updateUserPet = async (id, name) => {
     });
     return await res.json();
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 
@@ -79,12 +77,12 @@ export const feedUserPet = async (id) => {
         mode: 'cors',
       }
     );
-    const resJson = await res.json();
-    return resJson;
+    return await res.json();
   } catch (error) {
-    console.log('ERROR:', error);
+    console.log(error);
   }
 };
+
 export const cleanUserPet = async (id) => {
   try {
     const res = await fetch(
@@ -99,12 +97,12 @@ export const cleanUserPet = async (id) => {
         mode: 'cors',
       }
     );
-    const resJson = await res.json();
-    return resJson;
+    return await res.json();
   } catch (error) {
-    console.log('ERROR:', error);
+    console.log(error);
   }
 };
+
 export const playUserPet = async (id) => {
   try {
     const res = await fetch(
@@ -119,10 +117,9 @@ export const playUserPet = async (id) => {
         mode: 'cors',
       }
     );
-    const resJson = await res.json();
-    return resJson;
+    return await res.json();
   } catch (error) {
-    console.log('ERROR:', error);
+    console.log(error);
   }
 };
 
@@ -136,6 +133,6 @@ export const deleteUserPet = async (petId) => {
     });
     return await res.json();
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };

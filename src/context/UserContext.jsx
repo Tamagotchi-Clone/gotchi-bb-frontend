@@ -1,6 +1,4 @@
-import { useContext, useState } from 'react';
-import { useEffect } from 'react';
-import { createContext } from 'react';
+import { useContext, useState, useEffect, createContext } from 'react';
 import { getCurrentUser } from '../services/users';
 
 export const UserContext = createContext();
