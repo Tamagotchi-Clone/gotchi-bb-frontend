@@ -57,7 +57,7 @@ class Bot extends React.Component {
       <div id="chatbox" className="chatbox">
         <Launcher
           agentProfile={{
-            teamName: 'gotchi bb',
+            teamName: '',
           }}
           onMessageWasSent={this._onMessageWasSent.bind(this)}
           messageList={this.state.messageList}
